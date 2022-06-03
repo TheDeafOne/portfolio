@@ -7,6 +7,8 @@ import Projects from "./pages/Projects";
 import NoPage from "./pages/NoPage";
 
 export default function App() {
+          // lol made a change
+
   return (
     <BrowserRouter>
       <Routes>
