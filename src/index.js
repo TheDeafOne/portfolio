@@ -1,13 +1,12 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Layout from "./pages/Layout";
-import Welcome from "./pages/Welcome";
-import Skills from "./pages/Skills";
-import Projects from "./pages/Projects";
-import NoPage from "./pages/NoPage";
+import Layout from "./pages/LayoutPage/Layout";
+import Welcome from "./pages/WelcomePage/Welcome";
+import Skills from "./pages/SkillsPage/Skills";
+import Projects from "./pages/ProjectsPage/Projects";
+import NoPage from "./pages/ErrorPage/NoPage";
 
 export default function App() {
-          // lol made a change
 
   return (
     <BrowserRouter>
