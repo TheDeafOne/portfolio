@@ -1,10 +1,10 @@
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./pages/Layout";
-import Welcome from "./pages/WelcomePage/Welcome";
+import Home from "./pages/HomePage/Home";
 import Skills from "./pages/SkillsPage/Skills";
 import Projects from "./pages/ProjectsPage/Projects";
-import AboutMe from "./pages/AboutMePage/AboutMe";
+import About from "./pages/AboutPage/About";
 import NoPage from "./pages/ErrorPage/NoPage";
 
 export default function App() {
@@ -13,10 +13,10 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<Welcome />} />
+          <Route index element={<Home />} />
           <Route path="skills" element={<Skills />} />
           <Route path="projects" element={<Projects />} />
-          <Route path="about-me" element={<AboutMe /> } />
+          <Route path="home" element={<About /> } />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>
