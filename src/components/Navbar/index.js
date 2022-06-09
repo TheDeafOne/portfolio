@@ -8,7 +8,7 @@ import {
     NavItem, 
     NavLinks 
 } from './NavbarElements';
-const Navbar = () => {
+const Navbar = ({ toggle }) => {
   return (
     <>
         <Nav>
@@ -16,8 +16,8 @@ const Navbar = () => {
                 <NavLogo to="/">
                     Keegan <br/>Woodburn
                 </NavLogo>
-                <MobileIcon>
-                    <FaBars size={32}/>
+                <MobileIcon onClick={toggle}>
+                    <FaBars />
                 </MobileIcon>
                 <NavMenu>
                     <NavItem>
