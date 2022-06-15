@@ -5,7 +5,7 @@ import {
     WelcomeContent,
     WelcomeH1,
     WelcomeBtnWrapper,
-    ArrowForwards,
+    ArrowForward,
     ArrowRight
 } from './WelcomeElements';
 import { Button } from '../ButtonElement';
@@ -15,23 +15,24 @@ const WelcomeSection = () => {
 
     const onHover = () => {
         setHover(!hover);
-    }
+    } 
 
     return (
         <WelcomeContainer>
             <WelcomeBg />
-            
+
             <WelcomeContent>
                 <WelcomeH1>
                     Hello
                 </WelcomeH1>
                 <WelcomeBtnWrapper>
                     <Button 
-                    primary='true'
-                    dark='true'
-                    onMouseEnter={onHover} 
-                    onMouseLeave={onHover}>
-                        Go fuck yourself {hover ? <ArrowForwards /> : <ArrowRight />}
+                        to='signup'
+                        primary='true'
+                        dark='true'
+                        onMouseEnter={onHover} 
+                        onMouseLeave={onHover}>
+                        yo {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                 </WelcomeBtnWrapper>
             </WelcomeContent>
