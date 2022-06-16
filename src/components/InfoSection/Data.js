@@ -1,13 +1,15 @@
 export const homeObjOne = {
     id: 'about',
-    lightBg: true,
-    lightText: false,
+    lightBg: false,
+    lightText: true,
     lightTextDesc: true,
+
     topLine: 'Fuck',
     headLine: 'Fartsin',
     description: 'shitting',
     buttonLabel: 'begin pissing',
     imgStart: false,
+    
     img: require('../../images/dellingussy.jpg'),
     alt: 'Car',
     dark: true,
