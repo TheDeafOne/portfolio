@@ -8,7 +8,7 @@ import {
     ArrowForward,
     ArrowRight
 } from './WelcomeElements';
-import { Button } from '../ButtonElement';
+import { Button } from '../ButtonElements';
 
 const WelcomeSection = () => {
     const [hover, setHover] = useState(false);
