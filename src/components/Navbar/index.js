@@ -42,13 +42,14 @@ const Navbar = ({ toggle }) => {
                         <FaBars />
                     </MobileIcon>
                     <NavMenu>
-                        <NavItem>
+                        {/* <NavItem>
                             <NavLinks 
                             to="home"
-                            onClick={toggleHome}>
+                            onClick={toggleHome}
+                            activeClass="active">
                                 Home
                             </NavLinks>
-                        </NavItem>
+                        </NavItem> */}
                         <NavItem>
                             <NavLinks 
                             to="about"
