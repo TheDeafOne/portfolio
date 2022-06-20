@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Link } from 'react-scroll';
+import { Link } from 'react-router-dom';
 
 export const Button = styled(Link)`
     border-radius: 50px;
@@ -20,4 +20,15 @@ export const Button = styled(Link)`
         transition: all 0.2s ease-in-out;
         background: ${({ primary }) => (primary ? '#fff' : '#01BF71')}7;
     }
+
+    &:link { text-decoration: none; }
+
+
+    &:visited { text-decoration: none; }
+
+
+    &:hover { text-decoration: none; }
+
+
+    &:active { text-decoration: none; }
 `

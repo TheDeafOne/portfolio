@@ -23,16 +23,16 @@ const WelcomeSection = () => {
 
             <WelcomeContent>
                 <WelcomeH1>
-                    Hello
+                    Hi,<br/>I'm Keegan,<br/>software engineer
                 </WelcomeH1>
                 <WelcomeBtnWrapper>
                     <Button 
-                        to='signup'
+                        to='/projects'
                         primary='true'
                         dark='true'
                         onMouseEnter={onHover} 
                         onMouseLeave={onHover}>
-                        yo {hover ? <ArrowForward /> : <ArrowRight />}
+                        contact me! {hover ? <ArrowForward /> : <ArrowRight />}
                     </Button>
                 </WelcomeBtnWrapper>
             </WelcomeContent>
