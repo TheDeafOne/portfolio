@@ -5,6 +5,7 @@ import Navbar from '../components/Navbar';
 import WelcomeSection from '../components/WelcomeSection';
 import InfoSection from '../components/InfoSection';
 import Projects from '../components/ProjectsSection';
+import Footer from '../components/Footer';
 
 const Home = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -23,6 +24,7 @@ const Home = () => {
         <Projects />
         <InfoSection {...experienceObj}/>
         <InfoSection {...contactObj}/>
+        <Footer />
     </>
     )
 }
