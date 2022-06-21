@@ -9,7 +9,6 @@ import {
     FooterWrap,
     SocialMedia,
     SocialMediaWrap,
-    SocialLogo,
     SocialIcons,
     SocialIconLink,
     WebsiteRights
@@ -22,9 +21,6 @@ const Footer = () => {
         <FooterWrap>
             <SocialMedia>
                 <SocialMediaWrap>
-                    <SocialLogo to='/'>
-                        Keegan Woodburn
-                    </SocialLogo>
                     <SocialIcons>
                         <SocialIconLink href='//www.linkedin.com/in/keegan-woodburn-53b1bb20b/' target='_blank' aria-label='LinkedIn'>
                             <FaLinkedin />

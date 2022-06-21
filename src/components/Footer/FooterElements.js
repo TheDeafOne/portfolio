@@ -11,7 +11,7 @@ export const FooterWrap = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    max-width: 100px;
+    max-width: auto;
     margin: 0 auto;
 `
 
