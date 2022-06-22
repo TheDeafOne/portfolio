@@ -2,7 +2,8 @@ import React from 'react'
 import {
     FaInstagram,
     FaLinkedin,
-    FaGithub
+    FaGithub,
+    FaStackOverflow
 } from 'react-icons/fa';
 import {
     FooterContainer,
@@ -30,6 +31,9 @@ const Footer = () => {
                         </SocialIconLink>
                         <SocialIconLink href='//www.instagram.com/thefakekeeganw/' target='_blank' aria-label='Instagram'>
                             <FaInstagram />
+                        </SocialIconLink>
+                        <SocialIconLink href='//stackoverflow.com/users/17621345/thedeafone' target='_blank' aria-label='Stack Overflow'>
+                            <FaStackOverflow />
                         </SocialIconLink>
                     </SocialIcons>
                     <WebsiteRights>Keegan Woodburn © {new Date().getFullYear()}
