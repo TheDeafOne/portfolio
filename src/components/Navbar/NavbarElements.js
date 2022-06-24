@@ -87,8 +87,7 @@ export const NavLinks = styled(LinkS)`
         border-bottom: 3px solid #01bf71;
     }
 
-    &:hover {
-        border-bottom: 3px solid #01bf7150;
-        
+    &:not(.active):hover {
+        border-bottom: 3px solid #01bf7170;
     }
 `
