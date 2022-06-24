@@ -75,6 +75,7 @@ export const NavItem = styled.li`
 
 export const NavLinks = styled(LinkS)`
     color: #fff;
+    z-index: 2;
     display: flex;
     align-items: center;
     text-decoration: none;
@@ -84,5 +85,10 @@ export const NavLinks = styled(LinkS)`
 
     &.active {
         border-bottom: 3px solid #01bf71;
+    }
+
+    &:hover {
+        border-bottom: 3px solid #01bf7150;
+        
     }
 `
