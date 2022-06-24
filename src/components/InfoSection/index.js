@@ -9,11 +9,9 @@ import {
     TopLine,
     Heading,
     Subtitle,
-    BtnWrap,
     ImgWrap,
     Img
 } from './InfoElements'
-import { Button } from '../ButtonElements';
 
 const InfoSection = ({ 
     lightBg, 
@@ -24,12 +22,8 @@ const InfoSection = ({
     headLine, 
     darkText, 
     description, 
-    buttonLabel, 
     img, 
-    alt,
-    primary,
-    dark,
-    dark2
+    alt
 }) => {
   return (
     <>
@@ -41,18 +35,6 @@ const InfoSection = ({
                             <TopLine>{topLine}</TopLine>
                             <Heading lightText={lightText}>{headLine}</Heading>
                             <Subtitle darkText={darkText}>{description}</Subtitle>
-                            <BtnWrap>
-                                <Button 
-                                to='home' 
-                                primary={primary ? 1 : 0}
-                                dark={dark ? 1 : 0}
-                                dark2={dark2 ? 1 : 0}
-                                smooth={true}
-                                spy={true}
-                                exact='true'
-                                offset={-80}
-                                >{buttonLabel}</Button>
-                            </BtnWrap>
                         </TextWrapper>
                     </Column1>
                     <Column2>

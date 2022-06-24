@@ -42,18 +42,10 @@ const Navbar = ({ toggle }) => {
                         <FaBars />
                     </MobileIcon>
                     <NavMenu>
-                        {/* <NavItem>
-                            <NavLinks 
-                            to="home"
-                            onClick={toggleHome}
-                            activeClass="active">
-                                Home
-                            </NavLinks>
-                        </NavItem> */}
                         <NavItem>
                             <NavLinks 
                             to="about"
-                            smooth={true} 
+                            smooth='true'
                             duration={1000}
                             spy={true}
                             exact='true'
@@ -63,7 +55,7 @@ const Navbar = ({ toggle }) => {
                         </NavItem>
                         <NavItem>
                             <NavLinks to="skills"
-                            smooth={true} 
+                            smooth='true'
                             duration={1000}
                             spy={true}
                             exact='true'
@@ -74,7 +66,7 @@ const Navbar = ({ toggle }) => {
                         <NavItem>
                             <NavLinks 
                             to="projects"
-                            smooth={true} 
+                            smooth='true'
                             duration={1000}
                             spy={true}
                             exact='true'
@@ -85,7 +77,7 @@ const Navbar = ({ toggle }) => {
                         <NavItem>
                             <NavLinks 
                             to="experience"
-                            smooth={true} 
+                            smooth='true'
                             duration={1000}
                             spy={true}
                             exact='true'
@@ -96,7 +88,7 @@ const Navbar = ({ toggle }) => {
                         <NavItem>
                             <NavLinks 
                             to="contact"
-                            smooth={true} 
+                            smooth='true'
                             duration={1000}
                             spy={true}
                             exact='true'
