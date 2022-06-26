@@ -1,14 +1,22 @@
 import React from 'react'
 import {
-    
+    AboutContainer,
+    Heading,
+    AboutWrapper,
+    TextWrapper,
+    AboutP,
+    NavLinkO,
+    NavLinkS,
+    ImgWrapper,
+    Img
 } from './AboutElements'
 
-const InfoSection = () => {
+const AboutSection = () => {
   return (
     <>
-        <AboutContainer>
-            <Heading>About Me</Heading>
+        <AboutContainer id='about'>
             <AboutWrapper>
+                <Heading>About Me</Heading>
                 <TextWrapper>
                     <AboutP>
                         There are very few things that allow you to bring imagination to reality; however, programming is one of them. 
@@ -20,8 +28,7 @@ const InfoSection = () => {
                         Over the past two years, I’ve worked at <NavLinkO href='//www.jhuapl.edu/' target='_blank'>one of the largest research centers</NavLinkO>, as well as <NavLinkO href='//www.bentley.com/en' target='_blank'>a leading provider of engineering infrastructure software</NavLinkO>.
                     </AboutP>
                     <AboutP>
-                        I’m passionate about learning 
-                        <NavLinkS 
+                        I’m passionate about learning <NavLinkS 
                             to="skills"
                             smooth='true'
                             duration={1000}
@@ -29,9 +36,8 @@ const InfoSection = () => {
                             exact='true'
                             offset={-80}>
                             software and technologies
-                        </NavLinkS> such as ReactJS and BigQuery. 
-                        I’ve even tried my hand at building various 
-                        <NavLinkS 
+                            </NavLinkS> such as ReactJS and BigQuery. 
+                        I’ve even tried my hand at building various <NavLinkS 
                             to="projects"
                             smooth='true'
                             duration={1000}
@@ -52,4 +58,4 @@ const InfoSection = () => {
   )
 }
 
-export default InfoSection
+export default AboutSection
