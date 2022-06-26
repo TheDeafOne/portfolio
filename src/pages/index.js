@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { aboutObj, skillsObj, experienceObj, contactObj } from '../components/InfoSection/Data';
+import { aboutObj, skillsObj, experienceObj, contactObj } from '../components/AboutSection/Data';
 import Sidebar from '../components/Sidebar';
 import Navbar from '../components/Navbar';
 import WelcomeSection from '../components/WelcomeSection';
-import InfoSection from '../components/InfoSection';
-import Projects from '../components/ProjectsSection';
+import SkillsSection from '../components/SkillsSection';
+import ProjectsSection from '../components/ProjectsSection';
+import ExperienceSection from '../components/ExperienceSection';
+import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 
 const Home = () => {
@@ -19,11 +21,11 @@ const Home = () => {
         <Navbar toggle={toggle}/>
         <Sidebar isOpen={isOpen} toggle={toggle}/>
         <WelcomeSection />
-        <InfoSection {...aboutObj}/>
-        <InfoSection {...skillsObj}/>
-        <Projects />
-        <InfoSection {...experienceObj}/>
-        <InfoSection {...contactObj}/>
+        <AboutSection name='about' />
+        <SkillsSection name='skills' />
+        <ProjectsSection name='projects' />
+        <ExperienceSection name='experience' />
+        <ContactSection name='contact' />
         <Footer />
     </>
     )

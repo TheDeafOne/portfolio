@@ -11,6 +11,7 @@ import {
     ProjectCard,
     ProjectsIcon
 } from './ProjectElements';
+
 const Projects = () => {
   return (
     <ProjectsContainer id="projects">
