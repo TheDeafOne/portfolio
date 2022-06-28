@@ -15,7 +15,7 @@ const Navbar = ({ toggle }) => {
     const [scrollNav, setScrollNav] = useState(false);
 
     const changeNav = () => {
-        if (window.scrollY >= 80) {
+        if (window.scrollY >= 60) {
             setScrollNav(true);
         } else {
             setScrollNav(false);
@@ -36,7 +36,7 @@ const Navbar = ({ toggle }) => {
             <Nav scrollNav={scrollNav}>
                 <NavbarContainer>
                     <NavLogo to="/" onClick={toggleHome}>
-                        Keegan<br/>Woodburn
+                        Keegan Woodburn
                     </NavLogo>
                     <MobileIcon onClick={toggle}>
                         <FaBars />
@@ -49,7 +49,7 @@ const Navbar = ({ toggle }) => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 About
                             </NavLinks>
                         </NavItem>
@@ -60,7 +60,7 @@ const Navbar = ({ toggle }) => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 Skills
                             </NavLinks>
                         </NavItem>
@@ -71,7 +71,7 @@ const Navbar = ({ toggle }) => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 Projects
                             </NavLinks>
                         </NavItem>
@@ -82,7 +82,7 @@ const Navbar = ({ toggle }) => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 Experience
                             </NavLinks>
                         </NavItem>
@@ -93,7 +93,7 @@ const Navbar = ({ toggle }) => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 Contact Me
                             </NavLinks>
                         </NavItem>

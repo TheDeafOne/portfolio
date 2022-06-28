@@ -4,8 +4,8 @@ import { Link as LinkS } from 'react-scroll';
 
 export const Nav = styled.nav`
     background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
-    height: 80px;
-    margin-top: -80px;
+    height: ${({ scrollNav }) => (scrollNav ? '60px' : '80px')};
+    margin-top: ${({ scrollNav }) => (scrollNav ? '-60px' : '-80px')};
     display: flex;
     justify-content: center;
     align-items: center;
@@ -13,16 +13,18 @@ export const Nav = styled.nav`
     position: sticky;
     top: 0;
     z-index: 10;
+    transition: all .2s linear;
 
     @media screen and (max-width: 960px) {
         transitions: 0.8s all ease;
+        height: 60px;
     }
 `
 
 export const NavbarContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    height: 80px;
+    height: 60px;
     z-index: 1;
     width: 100%;
     padding: 0 24px;
@@ -31,12 +33,10 @@ export const NavbarContainer = styled.div`
 
 export const NavLogo = styled(LinkR)`
     color: #fff;
-    justify-self: flex-star;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: ${({ scrollNav }) => (scrollNav ? '1.4rem' : '1.6rem')};
     display: flex;
     align-items: center;
-    margin-left: 24px;
     font-weight: bold;
     text-decoration: none;
 `
@@ -49,7 +49,7 @@ export const MobileIcon = styled.div`
         position: absolute;
         top: 0;
         right: 0;
-        transform: translate(-100%, 65%);
+        transform: translate(-100%, 45%);
         font-size: 1.8rem;
         cursor: pointer;
         color: #fff;
@@ -70,7 +70,7 @@ export const NavMenu = styled.ul`
 `
 
 export const NavItem = styled.li`
-    height: 80px;
+    height: 60px;
 `
 
 export const NavLinks = styled(LinkS)`
@@ -84,10 +84,10 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        border-bottom: 3px solid #01bf71;
+        color: #01bf71;
     }
 
     &:not(.active):hover {
-        border-bottom: 3px solid #01bf7170;
+        color: #01bf7170;
     }
 `
