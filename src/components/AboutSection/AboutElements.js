@@ -16,19 +16,20 @@ export const AboutWrapper = styled.div`
     z-index: 1;
     height: 400px;
     margin-left: 5%;
-    `
+`
     
-    export const Heading = styled.h1`
-        margin-bottom: 24px;
-        font-size: 48px;
-        line-height: 1.1;
-        font-weight: 600;
-        color: #f7f8fa;
-    
-        @media screen and (max-width: 480px) {
-            font-size: 32px;
-        }
-    `
+export const Heading = styled.h1`
+    padding-top: 10px;
+    margin-bottom: 24px;
+    font-size: 48px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: #f7f8fa;
+
+    @media screen and (max-width: 480px) {
+        font-size: 32px;
+    }
+`
 
 export const TextWrapper = styled.div`
     display: inline-block;

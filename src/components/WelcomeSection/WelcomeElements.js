@@ -2,12 +2,12 @@ import styled from 'styled-components';
 import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
 
 export const WelcomeContainer = styled.div`
-    background: #0c0c0c;
+    background: red;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 30px;
-    height: 105vh;
+    height: 100vh;
     position: relative;
     z-index: 1;
 

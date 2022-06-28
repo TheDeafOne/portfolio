@@ -36,7 +36,7 @@ const AboutSection = () => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 software and technologies
                                 </NavLinkS> such as ReactJS and BigQuery. 
                             I’ve even tried my hand at building various <NavLinkS 
@@ -45,7 +45,7 @@ const AboutSection = () => {
                                 duration={1000}
                                 spy={true}
                                 exact='true'
-                                offset={-80}>
+                                offset={-60}>
                                 desktop and web applications
                             </NavLinkS>.
                         </AboutP>
