@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
 
 export const WelcomeContainer = styled.div`
-    background: red;
+    background: black;
     display: flex;
     justify-content: center;
     align-items: center;
