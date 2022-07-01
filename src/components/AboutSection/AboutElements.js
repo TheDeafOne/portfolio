@@ -45,7 +45,7 @@ export const AboutP = styled.p`
     font-size: 18px;
     line-height: 24px;
     color: #fff;
-    `
+`
 
 export const ImgWrapper = styled.div`
     display: inline-block;
