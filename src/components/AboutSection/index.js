@@ -10,7 +10,6 @@ import {
     ImgWrapper,
     Img
 } from './AboutElements'
-import Icon1 from '../../images/dellingussy.jpg';
 
 
 const AboutSection = () => {
@@ -53,7 +52,7 @@ const AboutSection = () => {
                 {/* </AboutColumn> */}
                 {/* <AboutColumn> */}
                     <ImgWrapper>
-                        <Img src={Icon1}/>
+                        <Img />
                     </ImgWrapper>
                 {/* </AboutColumn> */}
             </AboutWrapper>

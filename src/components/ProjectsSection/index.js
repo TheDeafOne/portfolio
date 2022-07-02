@@ -1,7 +1,7 @@
 import React from 'react'
-import Icon1 from '../../images/dellingussy.jpg';
-import Icon2 from '../../images/dellingussy.jpg';
-import Icon3 from '../../images/dellingussy.jpg';
+// import Icon1 from '../../images/dellingussy.jpg';
+// import Icon2 from '../../images/dellingussy.jpg';
+// import Icon3 from '../../images/dellingussy.jpg';
 import {
     ProjectsContainer,
     ProjectsWrapper,
@@ -18,17 +18,17 @@ const Projects = () => {
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsWrapper>
             <ProjectCard>
-                <ProjectsIcon src={Icon1}/>
+                <ProjectsIcon />
                 <ProjectsH2>piss</ProjectsH2>
                 <ProjectsP>we be pissing</ProjectsP>
             </ProjectCard>
             <ProjectCard>
-                <ProjectsIcon src={Icon2}/>
+                <ProjectsIcon />
                 <ProjectsH2>shit</ProjectsH2>
                 <ProjectsP>we be shitting</ProjectsP>
             </ProjectCard>
             <ProjectCard>
-                <ProjectsIcon src={Icon3}/>
+                <ProjectsIcon />
                 <ProjectsH2>fuck</ProjectsH2>
                 <ProjectsP>we be fucking</ProjectsP>
             </ProjectCard>
