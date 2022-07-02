@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const SkillsContainer = styled.div`
-    background-color: red;
+    background-color: black;
     display: flex;
     flex-direction: column;    
     position: relative;
@@ -20,8 +20,9 @@ export const SkillsH1 = styled.h1`
 
 export const SkillsWrapper = styled.div`
     display: grid;    
+    grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
-    margin: auto;
+    margin: 10px auto 10px auto;
     background-color: black;
     width: 100%;
     gap: 10px 10px;
@@ -33,12 +34,21 @@ export const Skill = styled.div`
     height: 100%;
 `
 
+export const LogoWrapper = styled.div`
+    width: 60%;
+    margin: auto;
+`
+
 export const SkillLogo = styled.img`
-    width: 100%;
-    margin: 0 0 10px 0;
+    height: 35%;
+    width: 35%;
     padding-right: 0;
     padding-bottom: 10px;
     margin: auto;
+    display: block;
+    &:hover {
+        transform: scale(1.05);
+    }
 `
 
 export  const SkillTitle = styled.h1`
