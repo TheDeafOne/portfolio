@@ -1,15 +1,14 @@
-import React from 'react'
-// import Icon1 from '../../images/dellingussy.jpg';
-// import Icon2 from '../../images/dellingussy.jpg';
-// import Icon3 from '../../images/dellingussy.jpg';
+import React from 'react';
+import { TDAC, RSnail } from '../../images';
 import {
     ProjectsContainer,
     ProjectsWrapper,
     ProjectsH1,
-    ProjectsH2,
-    ProjectsP,
-    ProjectCard,
-    ProjectsIcon
+    ProjectTitle,
+    ProjectP,
+    ProjectInfo,
+    ProjectImage,
+    ProjectCard
 } from './ProjectElements';
 
 const Projects = () => {
@@ -18,19 +17,26 @@ const Projects = () => {
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsWrapper>
             <ProjectCard>
-                <ProjectsIcon />
-                <ProjectsH2>piss</ProjectsH2>
-                <ProjectsP>we be pissing</ProjectsP>
+                <ProjectImage src={TDAC} />
+                <ProjectInfo>
+                    <ProjectTitle>
+                        TDGOL
+                    </ProjectTitle>
+                    <ProjectP>
+                        An application for visualizing and manipulating cellular automata in three dimensions
+                    </ProjectP>
+                </ProjectInfo>
             </ProjectCard>
             <ProjectCard>
-                <ProjectsIcon />
-                <ProjectsH2>shit</ProjectsH2>
-                <ProjectsP>we be shitting</ProjectsP>
-            </ProjectCard>
-            <ProjectCard>
-                <ProjectsIcon />
-                <ProjectsH2>fuck</ProjectsH2>
-                <ProjectsP>we be fucking</ProjectsP>
+                <ProjectImage src={RSnail} />
+                <ProjectInfo>
+                    <ProjectTitle>
+                        CrimsonSnail
+                    </ProjectTitle>
+                    <ProjectP>
+                        An application for visualizing and manipulating cellular automata in three dimensions
+                    </ProjectP>
+                </ProjectInfo>
             </ProjectCard>
         </ProjectsWrapper>
     </ProjectsContainer>

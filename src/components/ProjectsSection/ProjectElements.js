@@ -42,23 +42,21 @@ export const ProjectCard = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 10px;
-    max-height: 340px;
-    padding: 30px;
-    box-shadow: - 1px 3px rgba(0,0,0,0.2);
+    /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
+    position: relative;
     transition: all 0.2s ease-in-out;
 
     &:hover {
-        transform: scale(1.02);
-        transition: all 0.2s ease-in-out;
+        transform: scale(0.95);
+        transition: all 0.25s ease-in-out;
         cursor: pointer;
     }
 `
 
-export const ProjectsIcon = styled.img`
-    height: 160px;
-    width: 160px;
-    margin-bottom: 10px;
+export const ProjectImage = styled.img`
+    height: 100%;
+    width: 100%;
+    display: block;
 `
 
 export const ProjectsH1 = styled.h1`
@@ -78,6 +76,47 @@ export const ProjectsH2 = styled.h2`
 
 export const ProjectsP = styled.p`
     font-size: 1rem;
+    text-align: center;
+`
+
+
+export const ProjectInfo = styled.div`
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: absolute;
+    background-color: rgba(0,0,0,0.6);
+    /* color: #fff; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+
+    &:hover {
+        opacity: 1;
+        transition: all 0.3s ease-in-out;
+    }
+    transition: all 0.3s ease-in-out;
+`
+
+export const ProjectTitle = styled.h1`
+    padding-top: 10px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: #f7f8fa;
+    text-align: center;
+`
+
+export const ProjectP = styled.p`
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
     text-align: center;
 `
 
