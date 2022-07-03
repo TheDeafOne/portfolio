@@ -10,7 +10,6 @@ export const SkillsContainer = styled.div`
 
 export const SkillsH1 = styled.h1`
     margin: auto;
-    padding-top: 10px;
     /* margin-bottom: 24px; */
     font-size: 60px;
     line-height: 1.1;
@@ -20,28 +19,26 @@ export const SkillsH1 = styled.h1`
 
 export const SkillsWrapper = styled.div`
     display: grid;    
-    grid-template-rows: 1fr;
     grid-template-columns: repeat(3, 1fr);
     margin: 10px auto 10px auto;
     background-color: black;
     width: 100%;
-    gap: 10px 10px;
 `
 
 export const Skill = styled.div`
+    padding-top: 5%;
     margin: auto;
     width: 80%;
     height: 100%;
 `
 
 export const LogoWrapper = styled.div`
-    width: 60%;
+    height: 100px;
     margin: auto;
 `
 
 export const SkillLogo = styled.img`
-    height: 35%;
-    width: 35%;
+    height: 100px;
     padding-right: 0;
     padding-bottom: 10px;
     margin: auto;
@@ -59,6 +56,7 @@ export  const SkillTitle = styled.h1`
     font-weight: 600;
     text-align: center;
     color: #f7f8fa;
+
 `
 
 export const SkillP = styled.p`
