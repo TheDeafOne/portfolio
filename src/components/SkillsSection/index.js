@@ -78,7 +78,7 @@ const SkillsSections = () => {
             Spark
           </SkillTitle>
           <SkillP>
-            paragraph
+          o	I have significant experience with processing data with spark. It was introduced to me through my coursework and I have since used it both academically and professionally with PySpark and GoogleCloud’s Dataproc service.
           </SkillP>
         </Skill>
         <Skill>
@@ -111,7 +111,7 @@ const SkillsSections = () => {
             BigTable, BigQuery
           </SkillTitle>
           <SkillP>
-            paragraph
+            I am proficient with both BigTable and BigQuery. Whether it be data analysis, machine learning, or working with a NoSQL Database, I am very comfortable using these tools that these services provide.
           </SkillP>
         </Skill>
         <Skill>
