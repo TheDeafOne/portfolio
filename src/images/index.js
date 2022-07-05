@@ -23,6 +23,7 @@ import TDAC from './ProjectImages/TDAC/tdac.png';
 import TDAC1 from './ProjectImages/TDAC/tdac1-image.png';
 import TDAC2 from './ProjectImages/TDAC/tdac2-image.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
+import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
 
 
 export {
@@ -50,5 +51,6 @@ export {
     TDAC,
     TDAC1,
     TDAC2,
-    RSnail
+    RSnail,
+    HappyFeet
 }
