@@ -23,7 +23,7 @@ init('pbMBicGKWnIczBhTP')
 
 const ContactSection = () => {
   const [contactNumber, setContactNumber] = useState('000000');
-  const [phoneNumber, setPhoneNumber] = useState();
+  const [phoneNumber, setPhoneNumber] = useState('');
 
   
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
@@ -43,7 +43,7 @@ const ContactSection = () => {
   }
   
   const handlePhoneChange = (value) => {
-    if (value === 'a') {
+    if (/^[\+]?[(]?[0-9]{0,3}[)]?[-\s\.]?[0-9]{0,3}[-\s\.]?[0-9]{0,6}$/im.test(value)) {
       setPhoneNumber(value);
     }
   }
