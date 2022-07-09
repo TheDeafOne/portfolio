@@ -16,7 +16,6 @@ import {
   ContactInput,
   ContactMessage,
   ContactInputError,
-  ContactMessageError,
   ContactFormTip,
   ContactFormSubmit
 } from './ContactElements';
@@ -25,7 +24,8 @@ init('pbMBicGKWnIczBhTP')
 const ContactSection = () => {
   const [contactNumber, setContactNumber] = useState('000000');
   const [phoneNumber, setPhoneNumber] = useState('');
-
+  const [email, setEmail] = useState('');
+  const [emailValidError, setEmailValidError] = useState(true);
   
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = d => {
@@ -49,10 +49,14 @@ const ContactSection = () => {
     }
   }
 
+  const handleEmailChange = (value) => {
+    setEmail(value);
+    setEmailValidError(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+  }
+
   useEffect(() => {
     const resizeObserver = new ResizeObserver((element) => {
       const newHeight = element[0].contentRect.height-30;
-      console.log(newHeight);
       document.getElementById('contactMessage').setAttribute('style','height: ' + newHeight + 'px;')
     });
     resizeObserver.observe(document.getElementById('formColumn2'));
@@ -107,12 +111,18 @@ const ContactSection = () => {
                 name='user_email' 
                 placeholder='email*' 
                 aria-invalid={errors.user_email ? 'true' : 'false'}
-                {...register('user_email', {required: 'required'})}/><br />
+                {...register('user_email', {
+                  required: 'required', 
+                  value: email,
+                  onChange: (e) => handleEmailChange(e.target.value)
+                })}/><br />
+              {!emailValidError && (
+                <ContactInputError>email is not valid<br/></ContactInputError>
+              )}
               {errors.user_email && errors.user_email.type === 'required' && errors.user_email !== undefined && (
-                <ContactInputError>email is required<br/></ContactInputError>
+                <ContactInputError style={{paddingTop: emailValidError ? '0px' : '10px'}}>email is required<br/></ContactInputError>
               )}
               <ContactInput 
-                id='heightInput'
                 type='text'
                 name='user_phone' 
                 placeholder='phone number' 
@@ -132,7 +142,7 @@ const ContactSection = () => {
                   {...register('message', {required: 'required'})} />
                   <ContactFormTip>{messageCharsLeft}/1500 characters</ContactFormTip>
                 {errors.message && errors.message.type === 'required' && errors.message !== undefined && (
-                  <ContactMessageError>message is required<br/></ContactMessageError>
+                  <ContactInputError style={{marginBottom:'0px',position:'absolute'}}>message is required<br/></ContactInputError>
                 )}
               </FormColumn2>
             </FormWrapper>

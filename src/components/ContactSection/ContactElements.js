@@ -101,13 +101,6 @@ export const ContactInputError = styled.li`
     color: red;
 `
 
-export const ContactMessageError = styled.li`
-    margin-top: -26px;
-    margin-left: 5px;
-    position: absolute;
-    color: red;
-`
-
 export const ContactFormTip = styled.p`
     color: grey;
     position: absolute;
