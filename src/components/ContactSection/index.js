@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
 import {
@@ -15,7 +15,8 @@ import {
   ContactForm,
   ContactInput,
   ContactMessage,
-  ContactFormError,
+  ContactInputError,
+  ContactMessageError,
   ContactFormTip,
   ContactFormSubmit
 } from './ContactElements';
@@ -47,6 +48,15 @@ const ContactSection = () => {
       setPhoneNumber(value);
     }
   }
+
+  useEffect(() => {
+    const resizeObserver = new ResizeObserver((element) => {
+      const newHeight = element[0].contentRect.height-30;
+      console.log(newHeight);
+      document.getElementById('contactMessage').setAttribute('style','height: ' + newHeight + 'px;')
+    });
+    resizeObserver.observe(document.getElementById('formColumn2'));
+  }, [])
   
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
@@ -81,7 +91,7 @@ const ContactSection = () => {
           id='contact-form'
           onSubmit={handleSubmit(onSubmit)}>
           <FormWrapper>
-            <FormColumn1>
+            <FormColumn1 id='formColumn1'>
               <ContactInput 
                 type='text' 
                 name='user_name' 
@@ -90,7 +100,7 @@ const ContactSection = () => {
                 aria-invalid={errors.user_name ? 'true' : 'false'}
                 {...register('user_name', {required: 'required'})}/><br />
               {errors.user_name && errors.user_name.type === 'required' && errors.user_name !== undefined && (
-                <ContactFormError>Name is required<br/></ContactFormError>
+                <ContactInputError>Name is required<br/></ContactInputError>
               )}
               <ContactInput 
                 type='text' 
@@ -99,9 +109,10 @@ const ContactSection = () => {
                 aria-invalid={errors.user_email ? 'true' : 'false'}
                 {...register('user_email', {required: 'required'})}/><br />
               {errors.user_email && errors.user_email.type === 'required' && errors.user_email !== undefined && (
-                <ContactFormError>email is required<br/></ContactFormError>
+                <ContactInputError>email is required<br/></ContactInputError>
               )}
               <ContactInput 
+                id='heightInput'
                 type='text'
                 name='user_phone' 
                 placeholder='phone number' 
@@ -110,18 +121,19 @@ const ContactSection = () => {
                 aria-invalid={errors.user_phone ? 'true' : 'false'}
                 {...register}/>
               </FormColumn1>
-              <FormColumn2>
+              <FormColumn2 id='formColumn2'>
                 <ContactMessage 
+                  id='contactMessage'
                   type='text' 
                   name='message' 
                   placeholder='message*' 
                   maxLength='1500'
                   aria-invalid={errors.message ? 'true' : 'false'}
-                  {...register('message', {required: 'required'})} /><br />
+                  {...register('message', {required: 'required'})} />
+                  <ContactFormTip>{messageCharsLeft}/1500 characters</ContactFormTip>
                 {errors.message && errors.message.type === 'required' && errors.message !== undefined && (
-                  <ContactFormError>message is required<br/></ContactFormError>
-                  )}
-                <ContactFormTip>{messageCharsLeft}/1500 characters</ContactFormTip>
+                  <ContactMessageError>message is required<br/></ContactMessageError>
+                )}
               </FormColumn2>
             </FormWrapper>
           <ContactFormSubmit type='submit' value='Send' />

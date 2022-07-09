@@ -43,18 +43,19 @@ export const FormSection = styled.div`
 
 export const FormWrapper = styled.div`
     display: flex;
-    justify-content: center;    
+    justify-content: center; 
 `
 
 export const FormColumn1 = styled.div`
     margin-right: 20px;
+    max-height: 212px;
 `
 
 export const FormColumn2 = styled.div`
-    height: 100%;
     width: 35%;
+    min-height: 10%;
+    position: relative;
 `
-
 
 export const ContactForm = styled.form`
     width: 100%;
@@ -86,21 +87,31 @@ export const ContactMessage = styled.textarea`
     font-size: 20px;
     padding-left: 10px;
     padding-top: 5px;
-    margin-bottom: 30px;
+    padding-bottom: 20px;
+    margin-bottom: 26px;
     border-radius: 5px;
     outline: none;
     resize: vertical;
 `
 
-export const ContactFormError = styled.li`
-    color: #ffffff;
+export const ContactInputError = styled.li`
     margin-top: -26px;
     margin-bottom: 16px;
     margin-left: 5px;
     color: red;
 `
 
+export const ContactMessageError = styled.li`
+    margin-top: -26px;
+    margin-left: 5px;
+    position: absolute;
+    color: red;
+`
+
 export const ContactFormTip = styled.p`
-    color: white;
+    color: grey;
+    position: absolute;
+    bottom: 35px;
+    right: 10px;
 `
 
