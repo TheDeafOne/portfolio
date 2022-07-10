@@ -166,12 +166,10 @@ const ContactSection = () => {
             </FormWrapper>
           <ContactFormSubmit 
             type='submit' 
-            value='Send' 
-            rotate={true}
-            valid={'false'}
+            rotate={+submitClick}
+            valid={+validSubmit}
             onClick={(e) => {
               setSubmitClick(true);
-              console.log(e);
               validateSubmit();
             }}/>
           <ContactInput type='hidden' name='contact_number' value={contactNumber} />

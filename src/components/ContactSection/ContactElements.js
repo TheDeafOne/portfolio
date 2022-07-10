@@ -78,10 +78,9 @@ export const ContactInput = styled.input`
     outline: none;
 `
 
-const onSubmitClick = () => {
+const onSubmitClick = () =>
     css`
-        background-color: 'white';
-        /* width: 40px;
+        width: 40px;
         border-color:${gray};
         border-width:3px;
         font-size:0;
@@ -105,11 +104,10 @@ const onSubmitClick = () => {
             to {
                 transform: rotate(360deg);
             }
-        } */
+        }
     `
-}
 
-export const validSubmit = () => {
+export const validSubmit = () =>
     css`
         font-size:13px;
         color: white;
@@ -119,13 +117,6 @@ export const validSubmit = () => {
             content:"\f00c";
         }
     `
-}
-
-export const testing = () => {
-    css`
-        background-color: red;
-    `
-}
 
 export const ContactFormSubmit = styled.input`
     margin: 10px auto 0 auto;
@@ -148,10 +139,9 @@ export const ContactFormSubmit = styled.input`
     &:active {
         letter-spacing: 2px ;
     }
-    /* &:after {
+    &:after {
         content:"SUBMIT";
-    } */
-    ${testing}
+    }
     ${({ rotate }) => rotate ? onSubmitClick : undefined}
     ${({ valid }) => valid ? validSubmit : undefined }
 `
