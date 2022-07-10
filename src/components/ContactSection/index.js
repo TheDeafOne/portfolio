@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useForm } from 'react-hook-form';
 import { init, sendForm } from 'emailjs-com';
+import { CheckMark, XMark } from '../../images';
 import {
   ContactContainer,
   InfoSection,
@@ -17,7 +18,8 @@ import {
   ContactMessage,
   ContactInputError,
   ContactFormTip,
-  ContactFormSubmit
+  ContactFormSubmit,
+  SubmitIcon
 } from './ContactElements';
 init('pbMBicGKWnIczBhTP')
 
@@ -30,16 +32,20 @@ const ContactSection = () => {
   const [submitClick, setSubmitClick] = useState(false);
   const [validSubmit, setValidSubmit] = useState(false);
   const [submitConfirmation, setSubmitConfirmation] = useState(false);
+  const [submitIcon, setSubmitIcon] = useState('');
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = d => {
     generateContactNumber();
     if (emailValid) {
+      setSubmitIcon(CheckMark);
       sendForm('default_service', 'template_ux0a5xg', '#contact-form')
       .then(function(response) {
+        console.log(response);
         setSubmitConfirmation(true);
       }, function(error) {
         setSubmitConfirmation(false);
+        console.log(error);
       });
     }
   };
@@ -74,6 +80,7 @@ const ContactSection = () => {
   const validateSubmit = (e) => {
     setTimeout(() => {
       setSubmitClick(false);
+      setSubmitIcon(XMark);
       setValidSubmit(true);
       callbackSubmit(e);
     }, 2250);
@@ -81,6 +88,7 @@ const ContactSection = () => {
 
   const callbackSubmit = (e) => {
     setTimeout(() => {
+      setSubmitIcon('');
       setValidSubmit(false);
     }, 1250);
   }
@@ -168,14 +176,15 @@ const ContactSection = () => {
               </FormColumn2>
             </FormWrapper>
           <ContactFormSubmit 
-            type='submit' 
             rotate={+submitClick}
             valid={[+validSubmit, submitConfirmation]}
             onClick={(e) => {
               setSubmitConfirmation(errors.length == 0 && emailValid);
               setSubmitClick(true);
               validateSubmit();
-            }}/>
+            }}>
+              <SubmitIcon src={submitIcon}/>
+            </ContactFormSubmit>
           <ContactInput type='hidden' name='contact_number' value={contactNumber} />
         </ContactForm>
       </FormSection>

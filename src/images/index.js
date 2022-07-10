@@ -24,6 +24,8 @@ import TDAC1 from './ProjectImages/TDAC/tdac1-image.png';
 import TDAC2 from './ProjectImages/TDAC/tdac2-image.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
+import CheckMark from './Icons/check-mark.svg';
+import XMark from './Icons/x-mark.svg';
 
 
 export {
@@ -52,5 +54,7 @@ export {
     TDAC1,
     TDAC2,
     RSnail,
-    HappyFeet
+    HappyFeet,
+    CheckMark,
+    XMark
 }

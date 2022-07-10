@@ -1,6 +1,4 @@
 import styled, { css }  from 'styled-components';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const green = '#1ECD97';
 const red = '#ED4337';
@@ -114,10 +112,8 @@ export const validSubmit = (confirmation) => css`
     color: white;
     background: ${confirmation ? green : red};
     border: ${confirmation ? green: red };
-    &:after {
-        content: "h"
-        /* font-family:'FontAwesome';
-        content: '\f007'; */
+    &::after {
+        content: "";
     }
 
     &:hover {
@@ -126,7 +122,7 @@ export const validSubmit = (confirmation) => css`
 
 `
 
-export const ContactFormSubmit = styled.input`
+export const ContactFormSubmit = styled.button`
     margin: 10px auto 0 auto;
     outline: none;
     text-align: center;
@@ -147,11 +143,19 @@ export const ContactFormSubmit = styled.input`
     &:active {
         letter-spacing: 2px ;
     }
-    &:after {
+    &::after {
         content:"SUBMIT";
     }
     ${({ rotate }) => rotate ? onSubmitClick : undefined}
     ${({ valid }) => valid[0] ? validSubmit(valid[1]) : undefined }
+`
+
+export const SubmitIcon = styled.img`
+    margin: auto;
+    margin-bottom: 9px;
+    display: block;
+    -webkit-filter: invert(1);
+    filter: invert(1);
 `
 
 export const ContactMessage = styled.textarea`
