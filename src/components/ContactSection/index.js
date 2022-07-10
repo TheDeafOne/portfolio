@@ -29,15 +29,16 @@ const ContactSection = () => {
 
   const [submitClick, setSubmitClick] = useState(false);
   const [validSubmit, setValidSubmit] = useState(false);
+  const [submitConfirmation, setSubmitConfirmation] = useState(false);
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = d => {
     generateContactNumber();
     sendForm('default_service', 'template_ux0a5xg', '#contact-form')
     .then(function(response) {
-      console.log('SUCCESS!', response.status, response.text);
+      setSubmitConfirmation(true);
     }, function(error) {
-      console.log('FAILED...', error);
+      setSubmitConfirmation(false);
     });
   };
   
@@ -167,7 +168,7 @@ const ContactSection = () => {
           <ContactFormSubmit 
             type='submit' 
             rotate={+submitClick}
-            valid={+validSubmit}
+            valid={[+validSubmit, submitConfirmation]}
             onClick={(e) => {
               setSubmitClick(true);
               validateSubmit();

@@ -1,6 +1,9 @@
-import styled, { css } from 'styled-components';
+import styled, { css }  from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 
 const green = '#1ECD97';
+const red = '#ED4337';
 const gray = '#bbbbbb';
 
 export const ContactContainer = styled.div`
@@ -78,45 +81,50 @@ export const ContactInput = styled.input`
     outline: none;
 `
 
-const onSubmitClick = () =>
-    css`
-        width: 40px;
-        border-color:${gray};
-        border-width:3px;
-        font-size:0;
-        border-left-color:${green};
-        animation: rotating 2s 0.25s linear infinite;
+const onSubmitClick = () => css`
+    width: 40px;
+    border-color:${gray};
+    border-width:3px;
+    font-size:0;
+    border-left-color:${green};
+    animation: rotating 2s 0.25s linear infinite;
 
-        &:after {
-            content:"";
-        }
-        &:hover {
-            color:${green};
-            background: white;
-            background-color: black;
-            cursor: default;
-        }
+    &:after {
+        content:"";
+    }
+    &:hover {
+        color:${green};
+        background: white;
+        background-color: black;
+        cursor: default;
+    }
 
-        @keyframes rotating {
-            from {
-                transform: rotate(0deg);
-            }
-            to {
-                transform: rotate(360deg);
-            }
+    @keyframes rotating {
+        from {
+            transform: rotate(0deg);
         }
-    `
+        to {
+            transform: rotate(360deg);
+        }
+    }
+`
 
-export const validSubmit = () =>
-    css`
-        font-size:13px;
-        color: white;
-        background: ${green};
-        &:after {
-            font-family:'FontAwesome';
-            content:"\f00c";
-        }
-    `
+export const validSubmit = (confirmation) => css`
+    font-size: 13px;
+    color: white;
+    background: ${confirmation ? green : red};
+    border: ${confirmation ? green: red };
+    &:after {
+        content: "h"
+        /* font-family:'FontAwesome';
+        content: '\f007'; */
+    }
+
+    &:hover {
+        background-color: ${confirmation ? green : red};
+    }
+
+`
 
 export const ContactFormSubmit = styled.input`
     margin: 10px auto 0 auto;
@@ -143,7 +151,7 @@ export const ContactFormSubmit = styled.input`
         content:"SUBMIT";
     }
     ${({ rotate }) => rotate ? onSubmitClick : undefined}
-    ${({ valid }) => valid ? validSubmit : undefined }
+    ${({ valid }) => valid[0] ? validSubmit(valid[1]) : undefined }
 `
 
 export const ContactMessage = styled.textarea`
@@ -163,7 +171,7 @@ export const ContactInputError = styled.li`
     margin-top: -26px;
     margin-bottom: 16px;
     margin-left: 5px;
-    color: red;
+    color: ${red};
 `
 
 export const ContactFormTip = styled.p`
