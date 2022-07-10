@@ -25,7 +25,7 @@ const ContactSection = () => {
   const [contactNumber, setContactNumber] = useState('000000');
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
-  const [emailValidError, setEmailValidError] = useState(true);
+  const [emailValid, setEmailValid] = useState(true);
 
   const [submitClick, setSubmitClick] = useState(false);
   const [validSubmit, setValidSubmit] = useState(false);
@@ -34,12 +34,14 @@ const ContactSection = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = d => {
     generateContactNumber();
-    sendForm('default_service', 'template_ux0a5xg', '#contact-form')
-    .then(function(response) {
-      setSubmitConfirmation(true);
-    }, function(error) {
-      setSubmitConfirmation(false);
-    });
+    if (emailValid) {
+      sendForm('default_service', 'template_ux0a5xg', '#contact-form')
+      .then(function(response) {
+        setSubmitConfirmation(true);
+      }, function(error) {
+        setSubmitConfirmation(false);
+      });
+    }
   };
   
   const generateContactNumber = () => {
@@ -55,7 +57,7 @@ const ContactSection = () => {
 
   const handleEmailChange = (value) => {
     setEmail(value);
-    setEmailValidError(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
+    setEmailValid(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value));
   }
 
   useEffect(() => {
@@ -135,11 +137,11 @@ const ContactSection = () => {
                   value: email,
                   onChange: (e) => handleEmailChange(e.target.value)
                 })}/><br />
-              {!emailValidError && (
+              {!emailValid && (
                 <ContactInputError>email is not valid<br/></ContactInputError>
               )}
               {errors.user_email && errors.user_email.type === 'required' && errors.user_email !== undefined && (
-                <ContactInputError style={{paddingTop: emailValidError ? '0px' : '10px'}}>email is required<br/></ContactInputError>
+                <ContactInputError style={{paddingTop: emailValid ? '0px' : '10px'}}>email is required<br/></ContactInputError>
               )}
               <ContactInput 
                 type='text'
@@ -161,7 +163,7 @@ const ContactSection = () => {
                   {...register('message', {required: 'required'})} />
                   <ContactFormTip>{messageCharsLeft}/1500 characters</ContactFormTip>
                 {errors.message && errors.message.type === 'required' && errors.message !== undefined && (
-                  <ContactInputError style={{marginBottom:'0px',position:'absolute'}}>message is required<br/></ContactInputError>
+                  <ContactInputError style={{marginBottom:'0px', position:'absolute'}}>message is required<br/></ContactInputError>
                 )}
               </FormColumn2>
             </FormWrapper>
@@ -170,6 +172,7 @@ const ContactSection = () => {
             rotate={+submitClick}
             valid={[+validSubmit, submitConfirmation]}
             onClick={(e) => {
+              setSubmitConfirmation(errors.length == 0 && emailValid);
               setSubmitClick(true);
               validateSubmit();
             }}/>
