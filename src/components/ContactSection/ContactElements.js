@@ -152,7 +152,7 @@ export const ContactFormSubmit = styled.button`
 
 export const SubmitIcon = styled.img`
     margin: auto;
-    margin-bottom: 9px;
+    /* margin-bottom: 1px; */
     display: block;
     -webkit-filter: invert(1);
     filter: invert(1);

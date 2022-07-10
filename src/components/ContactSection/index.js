@@ -32,23 +32,41 @@ const ContactSection = () => {
   const [submitClick, setSubmitClick] = useState(false);
   const [validSubmit, setValidSubmit] = useState(false);
   const [submitConfirmation, setSubmitConfirmation] = useState(false);
+  const [submitError, setSubmitError] = useState(true);
   const [submitIcon, setSubmitIcon] = useState('');
 
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
-  const onSubmit = d => {
+  const onSubmit = (e) => {
+    setSubmitError(false);
     generateContactNumber();
     if (emailValid) {
-      setSubmitIcon(CheckMark);
+      setSubmitConfirmation(true);
       sendForm('default_service', 'template_ux0a5xg', '#contact-form')
       .then(function(response) {
         console.log(response);
-        setSubmitConfirmation(true);
+        // setSubmitClick(false);
+        console.log(submitIcon);
+        setSubmitIcon(CheckMark);
+        console.log(submitIcon);
+        setValidSubmit(true);
+        callbackSubmit();
       }, function(error) {
         setSubmitConfirmation(false);
         console.log(error);
       });
     }
   };
+
+  const onError = (e) => {
+    setSubmitError(true);
+  }
+
+  const callbackSubmit = () => {
+    setTimeout(() => {
+      setSubmitIcon('');
+      setValidSubmit(false);
+    }, 1250);
+  }
   
   const generateContactNumber = () => {
     const numStr = '000000' + (Math.random() * 1000000 | 0);
@@ -76,23 +94,6 @@ const ContactSection = () => {
   
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
-
-  const validateSubmit = (e) => {
-    setTimeout(() => {
-      setSubmitClick(false);
-      setSubmitIcon(XMark);
-      setValidSubmit(true);
-      callbackSubmit(e);
-    }, 2250);
-  }
-
-  const callbackSubmit = (e) => {
-    setTimeout(() => {
-      setSubmitIcon('');
-      setValidSubmit(false);
-    }, 1250);
-  }
-
 
   return (
     <ContactContainer id='contact'>
@@ -122,7 +123,7 @@ const ContactSection = () => {
       <FormSection>
         <ContactForm 
           id='contact-form'
-          onSubmit={handleSubmit(onSubmit)}>
+          onSubmit={handleSubmit(onSubmit, onError)}>
           <FormWrapper>
             <FormColumn1 id='formColumn1'>
               <ContactInput 
@@ -178,10 +179,25 @@ const ContactSection = () => {
           <ContactFormSubmit 
             rotate={+submitClick}
             valid={[+validSubmit, submitConfirmation]}
-            onClick={(e) => {
-              setSubmitConfirmation(errors.length == 0 && emailValid);
-              setSubmitClick(true);
-              validateSubmit();
+            onClick={() => {
+              console.log("submitError: " + submitError);
+              console.log("emailValid: " + emailValid);
+              if (submitError || !emailValid) {
+                setSubmitIcon(XMark);
+                setValidSubmit(true);
+                callbackSubmit();
+              }
+
+              // setTimeout(() => {
+              //   if (submitError || !emailValid) {
+              //     setSubmitIcon(XMark);
+              //   }
+              //   setSubmitClick(false);
+              //   setValidSubmit(true);
+              //   callbackSubmit();
+              // }, 1500);
+              
+              
             }}>
               <SubmitIcon src={submitIcon}/>
             </ContactFormSubmit>
