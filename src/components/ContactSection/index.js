@@ -26,7 +26,10 @@ const ContactSection = () => {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [email, setEmail] = useState('');
   const [emailValidError, setEmailValidError] = useState(true);
-  
+
+  const [submitClick, setSubmitClick] = useState(false);
+  const [validSubmit, setValidSubmit] = useState(false);
+
   const { register, handleSubmit, watch, formState: { errors } } = useForm();
   const onSubmit = d => {
     generateContactNumber();
@@ -64,6 +67,21 @@ const ContactSection = () => {
   
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
+
+  const validateSubmit = (e) => {
+    setTimeout(() => {
+      setSubmitClick(false);
+      setValidSubmit(true);
+      callbackSubmit(e);
+    }, 2250);
+  }
+
+  const callbackSubmit = (e) => {
+    setTimeout(() => {
+      setValidSubmit(false);
+    }, 1250);
+  }
+
 
   return (
     <ContactContainer id='contact'>
@@ -146,7 +164,16 @@ const ContactSection = () => {
                 )}
               </FormColumn2>
             </FormWrapper>
-          <ContactFormSubmit type='submit' value='Send' />
+          <ContactFormSubmit 
+            type='submit' 
+            value='Send' 
+            rotate={true}
+            valid={'false'}
+            onClick={(e) => {
+              setSubmitClick(true);
+              console.log(e);
+              validateSubmit();
+            }}/>
           <ContactInput type='hidden' name='contact_number' value={contactNumber} />
         </ContactForm>
       </FormSection>

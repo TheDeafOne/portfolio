@@ -1,4 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const green = '#1ECD97';
+const gray = '#bbbbbb';
 
 export const ContactContainer = styled.div`
     background-color: black;
@@ -75,10 +78,82 @@ export const ContactInput = styled.input`
     outline: none;
 `
 
+const onSubmitClick = () => {
+    css`
+        background-color: 'white';
+        /* width: 40px;
+        border-color:${gray};
+        border-width:3px;
+        font-size:0;
+        border-left-color:${green};
+        animation: rotating 2s 0.25s linear infinite;
+
+        &:after {
+            content:"";
+        }
+        &:hover {
+            color:${green};
+            background: white;
+            background-color: black;
+            cursor: default;
+        }
+
+        @keyframes rotating {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        } */
+    `
+}
+
+export const validSubmit = () => {
+    css`
+        font-size:13px;
+        color: white;
+        background: ${green};
+        &:after {
+            font-family:'FontAwesome';
+            content:"\f00c";
+        }
+    `
+}
+
+export const testing = () => {
+    css`
+        background-color: red;
+    `
+}
+
 export const ContactFormSubmit = styled.input`
-    width: 120px;
-    height: 50px;
     margin: 10px auto 0 auto;
+    outline: none;
+    text-align: center;
+    height: 40px;
+    width: 130px;
+    border-radius: 40px;
+    background: black;
+    border: 2px solid ${green};
+    color: ${green};
+    letter-spacing:1px;
+    text-shadow:0;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &:hover {
+        color: white;
+        background: ${green};
+    }
+    &:active {
+        letter-spacing: 2px ;
+    }
+    /* &:after {
+        content:"SUBMIT";
+    } */
+    ${testing}
+    ${({ rotate }) => rotate ? onSubmitClick : undefined}
+    ${({ valid }) => valid ? validSubmit : undefined }
 `
 
 export const ContactMessage = styled.textarea`
