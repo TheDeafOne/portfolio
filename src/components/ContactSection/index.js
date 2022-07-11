@@ -34,7 +34,10 @@ const ContactSection = () => {
   const [submitError, setSubmitError] = useState(true);
   const [submitIcon, setSubmitIcon] = useState('');
 
-  const { register, handleSubmit, watch, formState: { errors } } = useForm();
+  const [canReset, setCanReset] = useState(false);
+
+  const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+
   const onSubmit = (e) => {
     setSubmitError(false);
     generateContactNumber();
@@ -42,12 +45,13 @@ const ContactSection = () => {
       sendForm('default_service', 'template_ux0a5xg', '#contact-form')
       .then(function(response) {
         console.log(response);
+        setCanReset(true);
       }, function(error) {
         console.log(error);
       });
     }
   };
-
+  
   const onError = (e) => {
     setSubmitError(true);
   }
@@ -96,9 +100,20 @@ const handleSubmitClick = () => {
       } else {
         setSubmitIcon(CheckMark);
         setSubmitConfirmation(true);
+        setEmail('');
+        setPhoneNumber('');
+        document.getElementById('contact-form').reset();
       }
     }
   }, [submitError, emailValid, validSubmit])
+
+  useEffect(() => {
+    if (canReset) {
+      setEmail('');
+      setPhoneNumber('');
+      reset({room: null}, { keepValues: false });
+    }
+  }, [canReset])
   
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
@@ -184,10 +199,10 @@ const handleSubmitClick = () => {
                 )}
               </FormColumn2>
             </FormWrapper>
-          <ContactFormSubmit 
-            valid={[+validSubmit, submitConfirmation]}
-            onClick={handleSubmitClick}>
-              <SubmitIcon src={submitIcon}/>
+            <ContactFormSubmit 
+              valid={[+validSubmit, submitConfirmation]}
+              onClick={handleSubmitClick}>
+                <SubmitIcon src={submitIcon}/>
             </ContactFormSubmit>
           <ContactInput type='hidden' name='contact_number' value={contactNumber} />
         </ContactForm>
