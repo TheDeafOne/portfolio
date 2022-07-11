@@ -127,7 +127,6 @@ export const ContactFormSubmit = styled.button`
 
 export const SubmitIcon = styled.img`
     margin: auto;
-    /* margin-bottom: 1px; */
     display: block;
     -webkit-filter: invert(1);
     filter: invert(1);
@@ -160,3 +159,20 @@ export const ContactFormTip = styled.p`
     right: 10px;
 `
 
+const handleActiveSuccess = active => {
+    if (active) {
+        return 'padding: 6px; height: 30px; translateY(0px); opacity: 1;';
+    }
+    return 'padding: 0px; height 0px; translateY(30xp); opacity: 0;';
+}
+export const SubmitSuccess = styled.div`
+    text-align: center;
+    margin: 0 auto 0 auto;
+    background-color: ${green};
+    position: relative;
+    transition: 1s all ease;
+    border-radius: 10px;
+    font-weight: bold;
+    width: 25%;
+    ${({ active }) => handleActiveSuccess(active)};
+`

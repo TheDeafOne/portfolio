@@ -19,7 +19,8 @@ import {
   ContactInputError,
   ContactFormTip,
   ContactFormSubmit,
-  SubmitIcon
+  SubmitIcon,
+  SubmitSuccess
 } from './ContactElements';
 init('pbMBicGKWnIczBhTP')
 
@@ -33,8 +34,10 @@ const ContactSection = () => {
   const [submitConfirmation, setSubmitConfirmation] = useState(false);
   const [submitError, setSubmitError] = useState(true);
   const [submitIcon, setSubmitIcon] = useState('');
+  const [confirmationToggle, setConfirmationToggle] = useState(false);
 
   const [canReset, setCanReset] = useState(false);
+
 
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
 
@@ -115,6 +118,16 @@ const handleSubmitClick = () => {
     }
   }, [canReset])
   
+  useEffect(() => {
+    if (submitConfirmation) {
+      console.log("confirmation is true");
+      setTimeout(() => {
+        setSubmitConfirmation(false);
+        console.log("set confirmation to false");
+      }, 5000);
+    }
+  }, [submitConfirmation]);
+
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
 
@@ -199,6 +212,7 @@ const handleSubmitClick = () => {
                 )}
               </FormColumn2>
             </FormWrapper>
+            <SubmitSuccess active={+submitConfirmation}>Your message was sent!</SubmitSuccess>
             <ContactFormSubmit 
               valid={[+validSubmit, submitConfirmation]}
               onClick={handleSubmitClick}>
