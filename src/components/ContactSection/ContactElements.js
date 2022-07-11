@@ -84,7 +84,7 @@ export const validSubmit = (confirmation) => css`
     color: white;
     background: ${confirmation ? green : red};
     border: ${confirmation ? green: red };
-    transition: all 0.3s ease;
+    transition: all 0.1s ease;
 
     &::after {
         content: "";
@@ -113,7 +113,7 @@ export const ContactFormSubmit = styled.button`
     &:hover {
         color: white;
         background: ${green};
-        transition: all 0.5s ease;
+        transition: all 0.3s ease;
 
     }
     &:active {
