@@ -29,7 +29,6 @@ const ContactSection = () => {
   const [email, setEmail] = useState('');
   const [emailValid, setEmailValid] = useState(true);
 
-  const [submitClick, setSubmitClick] = useState(false);
   const [validSubmit, setValidSubmit] = useState(false);
   const [submitConfirmation, setSubmitConfirmation] = useState(false);
   const [submitError, setSubmitError] = useState(true);
@@ -40,18 +39,10 @@ const ContactSection = () => {
     setSubmitError(false);
     generateContactNumber();
     if (emailValid) {
-      setSubmitConfirmation(true);
       sendForm('default_service', 'template_ux0a5xg', '#contact-form')
       .then(function(response) {
         console.log(response);
-        // setSubmitClick(false);
-        console.log(submitIcon);
-        setSubmitIcon(CheckMark);
-        console.log(submitIcon);
-        setValidSubmit(true);
-        callbackSubmit();
       }, function(error) {
-        setSubmitConfirmation(false);
         console.log(error);
       });
     }
@@ -67,6 +58,11 @@ const ContactSection = () => {
       setValidSubmit(false);
     }, 1250);
   }
+
+const handleSubmitClick = () => {
+  setValidSubmit(true);
+  callbackSubmit();
+}
   
   const generateContactNumber = () => {
     const numStr = '000000' + (Math.random() * 1000000 | 0);
@@ -91,6 +87,18 @@ const ContactSection = () => {
     });
     resizeObserver.observe(document.getElementById('formColumn2'));
   }, [])
+
+  useEffect(() => {
+    if (validSubmit) {
+      if (submitError || !emailValid) {
+        setSubmitIcon(XMark);
+        setSubmitConfirmation(false);
+      } else {
+        setSubmitIcon(CheckMark);
+        setSubmitConfirmation(true);
+      }
+    }
+  }, [submitError, emailValid, validSubmit])
   
   const message = watch('message') || "";
   const messageCharsLeft = message.length;
@@ -177,28 +185,8 @@ const ContactSection = () => {
               </FormColumn2>
             </FormWrapper>
           <ContactFormSubmit 
-            rotate={+submitClick}
             valid={[+validSubmit, submitConfirmation]}
-            onClick={() => {
-              console.log("submitError: " + submitError);
-              console.log("emailValid: " + emailValid);
-              if (submitError || !emailValid) {
-                setSubmitIcon(XMark);
-                setValidSubmit(true);
-                callbackSubmit();
-              }
-
-              // setTimeout(() => {
-              //   if (submitError || !emailValid) {
-              //     setSubmitIcon(XMark);
-              //   }
-              //   setSubmitClick(false);
-              //   setValidSubmit(true);
-              //   callbackSubmit();
-              // }, 1500);
-              
-              
-            }}>
+            onClick={handleSubmitClick}>
               <SubmitIcon src={submitIcon}/>
             </ContactFormSubmit>
           <ContactInput type='hidden' name='contact_number' value={contactNumber} />

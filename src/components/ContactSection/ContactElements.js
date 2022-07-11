@@ -79,39 +79,13 @@ export const ContactInput = styled.input`
     outline: none;
 `
 
-const onSubmitClick = () => css`
-    width: 40px;
-    border-color:${gray};
-    border-width:3px;
-    font-size:0;
-    border-left-color:${green};
-    animation: rotating 2s 0.25s linear infinite;
-
-    &:after {
-        content:"";
-    }
-    &:hover {
-        color:${green};
-        background: white;
-        background-color: black;
-        cursor: default;
-    }
-
-    @keyframes rotating {
-        from {
-            transform: rotate(0deg);
-        }
-        to {
-            transform: rotate(360deg);
-        }
-    }
-`
-
 export const validSubmit = (confirmation) => css`
     font-size: 13px;
     color: white;
     background: ${confirmation ? green : red};
     border: ${confirmation ? green: red };
+    transition: all 0.3s ease;
+
     &::after {
         content: "";
     }
@@ -135,10 +109,12 @@ export const ContactFormSubmit = styled.button`
     letter-spacing:1px;
     text-shadow:0;
     cursor: pointer;
-    transition: all 0.25s ease;
+    transition: all 0.2s ease;
     &:hover {
         color: white;
         background: ${green};
+        transition: all 0.5s ease;
+
     }
     &:active {
         letter-spacing: 2px ;
@@ -146,7 +122,6 @@ export const ContactFormSubmit = styled.button`
     &::after {
         content:"SUBMIT";
     }
-    ${({ rotate }) => rotate ? onSubmitClick : undefined}
     ${({ valid }) => valid[0] ? validSubmit(valid[1]) : undefined }
 `
 
