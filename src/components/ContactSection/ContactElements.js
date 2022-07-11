@@ -97,7 +97,7 @@ export const validSubmit = (confirmation) => css`
 `
 
 export const ContactFormSubmit = styled.button`
-    margin: 10px auto 0 auto;
+    margin: 20px auto 0 auto;
     outline: none;
     text-align: center;
     height: 40px;
