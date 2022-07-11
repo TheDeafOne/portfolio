@@ -120,7 +120,7 @@ export const ContactFormSubmit = styled.button`
         letter-spacing: 2px ;
     }
     &::after {
-        content:"SUBMIT";
+        content:"SEND";
     }
     ${({ valid }) => valid[0] ? validSubmit(valid[1]) : undefined }
 `
