@@ -57,12 +57,6 @@ export const ProjectsWrapper = styled.div`
     }
 `
 
-const isOpen = () => css`
-    width: 100%;
-    height: 100%;
-    transform: rotateX(180deg);
-`
-
 // this is basically btn
 export const ProjectCard = styled.div`
     display: block;
@@ -75,7 +69,7 @@ export const ProjectCard = styled.div`
     transform-origin: 50% 50%;
     /* align to center */
 
-    ${({ toggleOpen }) => toggleOpen ? isOpen : undefined}
+    transform: ${({ toggleOpen }) => toggleOpen ? 'rotateX(180deg)' : undefined};
 `
 
 // btn front
@@ -103,6 +97,7 @@ export const ProjectFront = styled.div`
 export const ProjectBack = styled.div`
     position: absolute; 
     height: ${({ toggleOpen }) => toggleOpen ? '0px' : '100px'};
+    opacity: ${({ toggleOpen }) => toggleOpen ? '1' : '0'};
     /* width: ${({ toggleOpen }) => toggleOpen ? '100px' : '0px'}; */
     /* height: ${({ toggleOpen }) => toggleOpen ? '100px' : '0px'}; */
     background-color: #fff;
