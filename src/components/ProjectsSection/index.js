@@ -19,7 +19,7 @@ const Projects = () => {
 
     const handleOpenProject = (event) => {
         console.log(event);
-        setToggleOpen(true);
+        setToggleOpen(!toggleOpen);
         // event.target.
     }
   return (
