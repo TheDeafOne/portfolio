@@ -60,7 +60,7 @@ export const ProjectsWrapper = styled.div`
 const isOpen = () => css`
     width: 100%;
     height: 100%;
-    transform: translateZ(0px) rotateY(180deg);
+    transform: rotateX(180deg);
 `
 
 // this is basically btn
@@ -102,8 +102,9 @@ export const ProjectFront = styled.div`
 
 export const ProjectBack = styled.div`
     position: absolute; 
-    width: ${({ toggleOpen }) => toggleOpen ? '100%' : '0%'};
-    height: ${({ toggleOpen }) => toggleOpen ? '100%' : '0%'};
+    height: ${({ toggleOpen }) => toggleOpen ? '0px' : '100px'};
+    /* width: ${({ toggleOpen }) => toggleOpen ? '100px' : '0px'}; */
+    /* height: ${({ toggleOpen }) => toggleOpen ? '100px' : '0px'}; */
     background-color: #fff;
     transform: translateZ(-2px) rotateX(180deg);
     overflow: hidden;
