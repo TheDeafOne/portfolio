@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TDAC, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
@@ -9,27 +9,39 @@ import {
     ProjectP,
     ProjectInfo,
     ProjectImage,
-    ProjectCard
+    ProjectCard,
+    ProjectFront,
+    ProjectBack
 } from './ProjectElements';
 
 const Projects = () => {
+    const [toggleOpen, setToggleOpen] = useState(false);
+
+    const handleOpenProject = (event) => {
+        console.log(event);
+        setToggleOpen(true);
+        // event.target.
+    }
   return (
     <ProjectsContainer id="projects">
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
         <ProjectsWrapper>
-            <ProjectCard>
-                <ProjectImage src={TDAC} />
-                <ProjectInfo>
-                    <ProjectTitle>
-                        TDGOL
-                    </ProjectTitle>
-                    <ProjectP>
-                        An application for visualizing and manipulating cellular automata in three dimensions
-                    </ProjectP>
-                </ProjectInfo>
+            <ProjectCard toggleOpen={+toggleOpen}>
+                <ProjectBack>hello</ProjectBack>
+                <ProjectFront onClick={handleOpenProject}>
+                    <ProjectImage src={TDAC} />
+                    <ProjectInfo toggleOpen={+toggleOpen}>
+                        <ProjectTitle>
+                            TDGOL
+                        </ProjectTitle>
+                        <ProjectP>
+                            An application for visualizing and manipulating cellular automata in three dimensions
+                        </ProjectP>
+                    </ProjectInfo>
+                </ProjectFront>
             </ProjectCard>
-            <ProjectCard>
+            <ProjectFront>
                 <ProjectImage src={RSnail} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -39,8 +51,8 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-            </ProjectCard>
-            <ProjectCard>
+            </ProjectFront>
+            <ProjectFront>
                 <ProjectImage src={HappyFeet} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -50,8 +62,8 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-            </ProjectCard>
-            <ProjectCard>
+            </ProjectFront>
+            <ProjectFront>
                 <ProjectImage src={TDAC} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -61,8 +73,8 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-            </ProjectCard>
-            <ProjectCard>
+            </ProjectFront>
+            <ProjectFront>
                 <ProjectImage src={TDAC} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -72,8 +84,8 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-            </ProjectCard>
-            <ProjectCard>
+            </ProjectFront>
+            <ProjectFront>
                 <ProjectImage src={TDAC} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -83,7 +95,7 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-            </ProjectCard>
+            </ProjectFront>
         </ProjectsWrapper>
     </ProjectsContainer>
   )

@@ -1,4 +1,12 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+
+const transitionDuration = '0.8s;';
+const transitionEasing = 'cubic-bezier(0.230, 1.000, 0.320, 1.000);';
+const bounceEasing = 'cubic-bezier(0.175, 0.885, 0.320, 1.275);';
+const closedWidth = '200px';
+const closedHeight = '80px';
+const openedWidth = '400px';
+const openedHeight = '160px';
 
 export const ProjectsContainer = styled.div`
     display: flex;
@@ -49,14 +57,37 @@ export const ProjectsWrapper = styled.div`
     }
 `
 
+const isOpen = () => css`
+    width: 100%;
+    height: 100%;
+    transform: translateZ(0px) rotateY(180deg);
+`
+
+// this is basically btn
 export const ProjectCard = styled.div`
-    background: #fff;
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: width ${transitionDuration} ${transitionEasing}, 
+        height ${transitionDuration} ${bounceEasing}; /* adjust to transition easing*/
+    transform-style: preserve-3d;
+    transform-origin: 50% 50%;
+    /* align to center */
+
+    ${({ toggleOpen }) => toggleOpen ? isOpen : undefined}
+`
+
+// btn front
+export const ProjectFront = styled.div`
+    position: relative;
     display: flex;
     margin: auto;
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    position: relative;
+    background: #fff;
+    /* transition: background 0.15s ease, line-height ${transitionDuration}, ${transitionEasing};  */
     transition: all 0.2s ease-in-out;
     &:hover {
         transform: scale(0.95);
@@ -64,14 +95,21 @@ export const ProjectCard = styled.div`
         cursor: pointer;
     }
 
-    @media screen and (max-width: 1000px) {
-        grid-template-columns: 1fr 1fr;
-    }
-
     @media screen and (max-width: 768px) {
-        grid-template-columns: 1fr;
         width: 70%;
     }
+`
+
+export const ProjectBack = styled.div`
+    position: absolute; 
+    width: ${({ toggleOpen }) => toggleOpen ? '100%' : '0%'};
+    height: ${({ toggleOpen }) => toggleOpen ? '100%' : '0%'};
+    background-color: #fff;
+    transform: translateZ(-2px) rotateX(180deg);
+    overflow: hidden;
+    transition: box-shadow ${transitionDuration} ease;
+
+
 `
 
 export const ProjectImage = styled.img`
