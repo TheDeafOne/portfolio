@@ -17,6 +17,7 @@ import {
 
 const Projects = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [zInd, setZInd] = useState(false);
     const [transitionOpen, setTransitionOpen] = useState(false);
     
     const modalRef = useRef(null);
@@ -28,6 +29,14 @@ const Projects = () => {
         // make div
         const trigProps = this.getBoundingClientRect();
         const modal = modalRef;
+        const modalCont = modalContRef;
+        const mProps = modalCont.getBoundingClientRect();
+        var transX, transY, scalX, scalY;
+        const xc = window.innerWidth / 2;
+        const yc = window.innerHeight / 2;
+
+        // increase z index 
+        setZInd(true);
     };
 
   return (
@@ -35,7 +44,7 @@ const Projects = () => {
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
         <ProjectsWrapper>
-            <ProjectCard onClick={handleProjectModal}>
+            <ProjectCard onClick={handleProjectModal} active={zInd}>
                 <ProjectImage src={TDAC} />
                 <ProjectInfo>
                     <ProjectTitle>

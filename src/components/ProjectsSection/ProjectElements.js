@@ -73,6 +73,7 @@ export const ProjectCard = styled.div`
     /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
     position: relative;
     transition: ${ease};
+    z-index: ${({ active }) => active ? null : 10};
     &:hover {
         transform: scale(0.95);
         transition: all 0.25s ease-in-out;
