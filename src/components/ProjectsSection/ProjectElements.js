@@ -161,3 +161,14 @@ export const ModalTransitionDiv = styled.div`
     opacity: 1;
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0,32, 1);
 `
+
+export const ModalContent = styled.div`
+    will-change: transform, opacity;
+    position: relative;
+    padding: ${space};
+    background: ${modalBg};
+    background-clip: padding-box;
+    transition: ${ease};
+    opacity: ${({ active }) => active ? 1 : 0};
+
+`

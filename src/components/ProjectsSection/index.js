@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { TDAC, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
@@ -11,30 +11,31 @@ import {
     ProjectImage,
     ProjectCard,
     ProjectModal,
+    ModalContent,
     ModalTransitionDiv
 } from './ProjectElements';
 
 const Projects = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [transitionOpen, setTransitionOpen] = useState(false);
+    
+    const modalRef = useRef(null);
+    const modalContRef = useRef(null);
 
-    const moveTrig = (trig, modal, div) => {
-        const trigProps = trig.getBoundingClientRect();
-        const m = modal;
-        // possibly do something for mProps
-        var transX, transY, scaleX, scaleY;
-        const xc = window.innerWidth / 2;
-        const yc = window.innerHeight / 2;
-        setIsOpen(true);
-        
+    const handleProjectModal = (e) => {
+        e.preventDefault();
+        setTransitionOpen(true);
+        // make div
+        const trigProps = this.getBoundingClientRect();
+        const modal = modalRef;
+    };
 
-    }
   return (
     <ProjectsContainer id="projects">
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
         <ProjectsWrapper>
-            <ProjectCard>
+            <ProjectCard onClick={handleProjectModal}>
                 <ProjectImage src={TDAC} />
                 <ProjectInfo>
                     <ProjectTitle>
@@ -102,7 +103,9 @@ const Projects = () => {
                 </ProjectInfo>
             </ProjectCard>
         </ProjectsWrapper>
-        <ProjectModal>hello</ProjectModal>
+        <ProjectModal ref={modalRef}>
+            <ModalContent ref={modalContRef}>hello</ModalContent>
+        </ProjectModal>
     </ProjectsContainer>
   )
 }
