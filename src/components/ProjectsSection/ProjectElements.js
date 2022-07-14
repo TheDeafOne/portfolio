@@ -150,6 +150,17 @@ export const ProjectModal = styled.div`
     background: transparent;
 `
 
+export const ModalContent = styled.div`
+    will-change: transform, opacity;
+    position: relative;
+    padding: ${space};
+    background: ${modalBg};
+    background-clip: padding-box;
+    transition: ${ease};
+    opacity: ${({ active }) => active ? 1 : 0};
+
+`
+
 export const ModalTransitionDiv = styled.div`
     will-change: initial transform, opacity;
     position: absolute;
@@ -163,13 +174,3 @@ export const ModalTransitionDiv = styled.div`
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0,32, 1);
 `
 
-export const ModalContent = styled.div`
-    will-change: transform, opacity;
-    position: relative;
-    padding: ${space};
-    background: ${modalBg};
-    background-clip: padding-box;
-    transition: ${ease};
-    opacity: ${({ active }) => active ? 1 : 0};
-
-`
