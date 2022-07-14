@@ -1,5 +1,13 @@
 import styled from 'styled-components';
 
+const modalZ = 1000;
+const modalBg = '#FFEBEE';
+const modalWidth = '600px';
+const space = '2.4rem';
+const red = '#F44336';
+const t = '0.5s';
+const ease = `all ${t} cubic-bezier(0.23, 1, 0.32, 1)`;
+
 export const ProjectsContainer = styled.div`
     height: 800px;
     display: flex;
@@ -64,7 +72,7 @@ export const ProjectCard = styled.div`
     align-items: center;
     /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
     position: relative;
-    transition: all 0.2s ease-in-out;
+    transition: ${ease};
     &:hover {
         transform: scale(0.95);
         transition: all 0.25s ease-in-out;
@@ -118,3 +126,38 @@ export const ProjectP = styled.p`
     text-align: center;
 `
 
+export const ProjectModal = styled.div`
+    will-change: visibility, opacity;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: ${modalZ};
+    
+    transition: ${ease};
+    transition-delay: 2s;
+
+    visibility: ${({ active }) => active ? 'visible' : 'hidden'};
+    opacity: ${({ active }) => active ? 1 : 0};
+    align-items: flex-start;
+    background: transparent;
+`
+
+export const ModalTransitionDiv = styled.div`
+    will-change: initial transform, opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: ${modalBg};
+    transform: none;
+    opacity: 1;
+    transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0,32, 1);
+`

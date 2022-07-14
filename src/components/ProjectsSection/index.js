@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { TDAC, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
@@ -9,10 +9,26 @@ import {
     ProjectP,
     ProjectInfo,
     ProjectImage,
-    ProjectCard
+    ProjectCard,
+    ProjectModal,
+    ModalTransitionDiv
 } from './ProjectElements';
 
 const Projects = () => {
+    const [isOpen, setIsOpen] = useState(false);
+    const [transitionOpen, setTransitionOpen] = useState(false);
+
+    const moveTrig = (trig, modal, div) => {
+        const trigProps = trig.getBoundingClientRect();
+        const m = modal;
+        // possibly do something for mProps
+        var transX, transY, scaleX, scaleY;
+        const xc = window.innerWidth / 2;
+        const yc = window.innerHeight / 2;
+        setIsOpen(true);
+        
+
+    }
   return (
     <ProjectsContainer id="projects">
         <ProjectsH1>Projects</ProjectsH1>
@@ -29,6 +45,7 @@ const Projects = () => {
                     </ProjectP>
                 </ProjectInfo>
             </ProjectCard>
+            {transitionOpen && <ModalTransitionDiv/>}
             <ProjectCard>
                 <ProjectImage src={RSnail} />
                 <ProjectInfo>
@@ -85,6 +102,7 @@ const Projects = () => {
                 </ProjectInfo>
             </ProjectCard>
         </ProjectsWrapper>
+        <ProjectModal>hello</ProjectModal>
     </ProjectsContainer>
   )
 }
