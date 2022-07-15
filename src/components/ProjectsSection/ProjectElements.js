@@ -110,27 +110,24 @@ export const ProjectInfo = styled.div`
 `
 
 export const ProjectCard = styled.div`
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
     position: relative;
+    display: inline-block;
+    cursor: pointer;
     transition: ${ease};
     z-index: ${({ active }) => active ? null : 10};
+
     &:hover {
         transform: scale(0.95);
         transition: all 0.25s ease-in-out;
-        cursor: pointer;
         &${ProjectTitle}, ${ProjectP}, ${ProjectImage}, ${ProjectInfo} {
             pointer-events: none;
         }
         ${ProjectInfo} {
             opacity: 1;
-        transition: all 0.3s ease-in-out;
+            transition: all 0.3s ease-in-out;
         }
     }
+
 `
 
 export const ProjectModal = styled.div`
@@ -169,6 +166,7 @@ export const ModalContent = styled.div`
 `
 
 export const ModalTransitionDiv = styled.div`
+    ${ProjectModal};
     will-change: initial transform, opacity;
     position: absolute;
     top: 0;
