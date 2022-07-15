@@ -179,6 +179,6 @@ export const ModalTransitionDiv = styled.div`
     opacity: 1;
     height: 100px;
     width: 100px;
-    z-index: 100px;
+    z-index: 100;
 `
 
