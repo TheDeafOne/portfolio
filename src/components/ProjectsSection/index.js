@@ -20,14 +20,16 @@ const Projects = () => {
     const [zInd, setZInd] = useState(false);
     const [transitionOpen, setTransitionOpen] = useState(false);
     
+    // refs really aren't the best way to go about this but for testing's sake we'll use them
     const modalRef = useRef(null);
     const modalContRef = useRef(null);
+    const transitionRef = useRef(null);
 
     const handleProjectModal = (e) => {
         e.preventDefault();
-        const fakeDiv = <ModalTransitionDiv />;
+
         // make div
-        const trig = e.currentTarget; // TODO: figure out if hitting the parent is necessary
+        const trig = e.target; // TODO: figure out if hitting the parent is necessary
         console.log(trig);
         const trigProps = trig.getBoundingClientRect();
         const modal = modalRef;
@@ -55,11 +57,11 @@ const Projects = () => {
         trig.style.webkitTransform = `translate(${transX}px, ${transY}px)`;
 
         // expand temp div to same size as the modal
-        fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
-        fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        transitionRef.style.transform = `scale('${scaleX}', '${scaleY}')`
+        transitionRef.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
 
         setTimeout(() => {
-            openModal(modal, fakeDiv);
+            openModal(modal, transitionRef);
         }, 400);
     };
 
@@ -89,6 +91,7 @@ const Projects = () => {
                     </ProjectP>
                 </ProjectInfo>
             </ProjectCard>
+            <ModalTransitionDiv ref={transitionRef}/>
             <ProjectCard>
                 <ProjectImage src={RSnail} />
                 <ProjectInfo>
