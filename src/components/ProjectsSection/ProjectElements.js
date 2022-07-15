@@ -109,7 +109,31 @@ export const ProjectInfo = styled.div`
     transition: all 0.3s ease-in-out;
 `
 
+export const ProjectModal = styled.div`
+    will-change: visibility, opacity;
+    display: flex;
+    align-items: flex-start;
+    margin: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: ${modalZ};
+    height: 700px;
+    width: 500px;
+    transition: ${ease};
+    transition-delay: 0.25s;
+    
+    visibility: ${({ active }) => active ? 'visible' : 'hidden'};
+    opacity: ${({ active }) => active ? 1 : 0};
+    background: transparent;
+`
+
 export const ProjectCard = styled.div`
+    ${ProjectModal};
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -127,47 +151,23 @@ export const ProjectCard = styled.div`
             transition: all 0.3s ease-in-out;
         }
     }
-
 `
 
-export const ProjectModal = styled.div`
-    will-change: visibility, opacity;
-    display: flex;
-    margin: auto;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow-y: auto;
-    overflow-x: hidden;
-    z-index: ${modalZ};
-    height: 700px;
-    width: 500px;
-    
-    transition: ${ease};
-    transition-delay: 0.25s;
-
-    visibility: ${({ active }) => active ? 'visible' : 'hidden'};
-    opacity: ${({ active }) => active ? 1 : 0};
-    align-items: flex-start;
-    background: transparent;
-`
 export const ModalContent = styled.div`
+    ${ProjectModal};
     will-change: transform, opacity;
     position: relative;
     padding: ${space};
     background: ${modalBg};
     background-clip: padding-box;
     transition: ${ease};
-    opacity: ${({ active }) => active ? 1 : 0};
+    /* opacity: ${({ active }) => active ? 1 : 0}; */ 
     height: 100%;
     width: 100%;
 `
 
 export const ModalTransitionDiv = styled.div`
-    ${ProjectModal};
-    will-change: initial transform, opacity;
+    will-change: transform, opacity;
     position: absolute;
     top: 0;
     left: 0;
@@ -176,8 +176,9 @@ export const ModalTransitionDiv = styled.div`
     background: ${modalBg};
     transform: none;
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0,32, 1);
-    opacity: ${({ active }) => active ? 1 : 0};
-    z-index: 100;
-
+    opacity: 1;
+    height: 100px;
+    width: 100px;
+    z-index: 100px;
 `
 
