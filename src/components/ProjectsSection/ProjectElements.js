@@ -64,28 +64,34 @@ export const ProjectsWrapper = styled.div`
     }
 `
 
-export const ProjectCard = styled.div`
-    background: #fff;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
-    position: relative;
-    transition: ${ease};
-    z-index: ${({ active }) => active ? null : 10};
-    &:hover {
-        transform: scale(0.95);
-        transition: all 0.25s ease-in-out;
-        cursor: pointer;
-    }
-`
-
 export const ProjectImage = styled.img`
     height: 100%;
     width: 100%;
     display: block;
 `
+
+
+export const ProjectTitle = styled.h1`
+    padding-top: 10px;
+    margin-bottom: 24px;
+    font-size: 24px;
+    line-height: 1.1;
+    font-weight: 600;
+    color: #f7f8fa;
+    text-align: center;
+    pointer-events: none;
+`
+
+export const ProjectP = styled.p`
+    max-width: 600px;
+    margin-bottom: 20px;
+    font-size: 18px;
+    line-height: 24px;
+    color: #fff;
+    text-align: center;
+    pointer-events:none;
+`
+
 
 export const ProjectInfo = styled.div`
     height: 100%;
@@ -100,38 +106,37 @@ export const ProjectInfo = styled.div`
     align-items: center;
     justify-content: center;
     opacity: 0;
-
-    &:hover {
-        opacity: 1;
-        transition: all 0.3s ease-in-out;
-    }
     transition: all 0.3s ease-in-out;
 `
 
-export const ProjectTitle = styled.h1`
-    padding-top: 10px;
-    margin-bottom: 24px;
-    font-size: 24px;
-    line-height: 1.1;
-    font-weight: 600;
-    color: #f7f8fa;
-    text-align: center;
-`
-
-export const ProjectP = styled.p`
-    max-width: 600px;
-    margin-bottom: 20px;
-    font-size: 18px;
-    line-height: 24px;
-    color: #fff;
-    text-align: center;
+export const ProjectCard = styled.div`
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    /* box-shadow: - 1px 3px rgba(0,0,0,0.2); */
+    position: relative;
+    transition: ${ease};
+    z-index: ${({ active }) => active ? null : 10};
+    &:hover {
+        transform: scale(0.95);
+        transition: all 0.25s ease-in-out;
+        cursor: pointer;
+        &${ProjectTitle}, ${ProjectP}, ${ProjectImage}, ${ProjectInfo} {
+            pointer-events: none;
+        }
+        ${ProjectInfo} {
+            opacity: 1;
+        transition: all 0.3s ease-in-out;
+        }
+    }
 `
 
 export const ProjectModal = styled.div`
     will-change: visibility, opacity;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    margin: auto;
     position: fixed;
     top: 0;
     left: 0;
@@ -140,16 +145,17 @@ export const ProjectModal = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
     z-index: ${modalZ};
+    height: 700px;
+    width: 500px;
     
     transition: ${ease};
-    transition-delay: 2s;
+    transition-delay: 0.25s;
 
     visibility: ${({ active }) => active ? 'visible' : 'hidden'};
     opacity: ${({ active }) => active ? 1 : 0};
     align-items: flex-start;
     background: transparent;
 `
-
 export const ModalContent = styled.div`
     will-change: transform, opacity;
     position: relative;
@@ -158,7 +164,8 @@ export const ModalContent = styled.div`
     background-clip: padding-box;
     transition: ${ease};
     opacity: ${({ active }) => active ? 1 : 0};
-
+    height: 100%;
+    width: 100%;
 `
 
 export const ModalTransitionDiv = styled.div`
@@ -170,7 +177,9 @@ export const ModalTransitionDiv = styled.div`
     bottom: 0;
     background: ${modalBg};
     transform: none;
-    opacity: 1;
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0,32, 1);
+    opacity: ${({ active }) => active ? 1 : 0};
+    z-index: 100;
+
 `
 

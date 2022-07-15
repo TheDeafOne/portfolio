@@ -57,22 +57,19 @@ const Projects = () => {
         trig.style.webkitTransform = `translate(${transX}px, ${transY}px)`;
 
         // expand temp div to same size as the modal
-        transitionRef.style.transform = `scale('${scaleX}', '${scaleY}')`
-        transitionRef.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        const fakeDiv = transitionRef.current;
+        fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
+        fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
 
         setTimeout(() => {
-            openModal(modal, transitionRef);
+            openModal(modal, fakeDiv);
         }, 400);
     };
 
     const openModal = (modal, fakeDiv) => {
-        if (!isOpen) {
-            // reveal modal
-            modal.active = +true;
-            // reveal modal content
-            modalContRef.active = +true;
-            setIsOpen(true);
-        }
+        setIsOpen(isOpen ? isOpen : !isOpen);
+        // once transitioned either way, hide the content/fakeDiv
+        fakeDiv.style.opacity = 0;
     };
 
   return (
@@ -148,8 +145,8 @@ const Projects = () => {
                 </ProjectInfo>
             </ProjectCard>
         </ProjectsWrapper>
-        <ProjectModal ref={modalRef}>
-            <ModalContent ref={modalContRef}>hello</ModalContent>
+        <ProjectModal ref={modalRef} active={isOpen}>
+            <ModalContent ref={modalContRef} active={isOpen}>hello</ModalContent>
         </ProjectModal>
     </ProjectsContainer>
   )
