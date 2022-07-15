@@ -25,15 +25,14 @@ const Projects = () => {
 
     const handleProjectModal = (e) => {
         e.preventDefault();
-        const fakeDiv = () => {
-            return <ModalTransitionDiv />
-        };
+        const fakeDiv = <ModalTransitionDiv />;
         // make div
-        const trig = e.target; // TODO: figure out if hitting the parent is necessary
+        const trig = e.currentTarget; // TODO: figure out if hitting the parent is necessary
         console.log(trig);
         const trigProps = trig.getBoundingClientRect();
         const modal = modalRef;
-        const modalCont = modalContRef;
+        const modalCont = modalContRef.current;
+        console.log(modalCont);
         // TODO: the fact that this is the content and not the modal itself may be a problem
         const mProps = modalCont.getBoundingClientRect();
         var transX, transY, scaleX, scaleY;
