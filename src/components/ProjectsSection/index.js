@@ -60,6 +60,7 @@ const Projects = () => {
         const fakeDiv = transitionRef.current;
         fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
         fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        console.log(`scaling to: ${scaleX}, ${scaleY}`);
         console.log(fakeDiv);
 
         setTimeout(() => {
@@ -88,8 +89,8 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
+                <ModalTransitionDiv ref={transitionRef}/>
             </ProjectCard>
-            <ModalTransitionDiv ref={transitionRef}/>
             <ProjectCard>
                 <ProjectImage src={RSnail} />
                 <ProjectInfo>

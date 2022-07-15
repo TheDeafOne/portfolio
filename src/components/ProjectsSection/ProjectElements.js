@@ -167,12 +167,19 @@ export const ModalContent = styled.div`
 `
 
 export const ModalTransitionDiv = styled.div`
+    ${ProjectCard};
     will-change: transform, opacity;
     position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background: ${modalBg};
     transform: none;
     opacity: 1;
-    transition: transition opacity 0.1s ease-out, transform $t cubic-bezier(0.2, 1.0, 0.3, 1.0);
-    z-index: 100;
+    transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0.32, 1);
+    z-index: 10;
+    height: 100%;
+    width: 100%;
 `
 
