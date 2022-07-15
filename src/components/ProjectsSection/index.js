@@ -60,6 +60,7 @@ const Projects = () => {
         const fakeDiv = transitionRef.current;
         fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
         fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        console.log(fakeDiv);
 
         setTimeout(() => {
             openModal(modal, fakeDiv);
@@ -69,7 +70,7 @@ const Projects = () => {
     const openModal = (modal, fakeDiv) => {
         setIsOpen(isOpen ? isOpen : !isOpen);
         // once transitioned either way, hide the content/fakeDiv
-        fakeDiv.style.opacity = 0;
+        // fakeDiv.style.opacity = 0;
     };
 
   return (
