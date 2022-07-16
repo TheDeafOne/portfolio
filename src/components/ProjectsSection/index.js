@@ -23,7 +23,7 @@ const Projects = () => {
     // refs really aren't the best way to go about this but for testing's sake we'll use them
     const modalRef = useRef(null);
     const modalContRef = useRef(null);
-    // const transitionRef = useRef(null);
+    const transitionRef = useRef(null);
 
     const handleProjectModal = (e) => {
         e.preventDefault();
@@ -53,24 +53,26 @@ const Projects = () => {
         transY = Math.round(mProps.height / 2 + mProps.top - trigProps.top - trigProps.height / 2);
 
         // translate button to the center of the screen;
-        trig.style.zIndex = '10';
-        trig.style.transform = `translate(${transX}px, ${transY}px)`;
-        trig.style.webkitTransform = `translate(${transX}px, ${transY}px)`;
-        // trig.style.transform = `scale('${scaleX}', '${scaleY}')`
-        trig.style.transform = `scale('2')`;
-
-        trig.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
-
-        console.log(`scaling to: ${scaleX}, ${scaleY}`);
+        
         // expand temp div to same size as the modal
-        // const fakeDiv = transitionRef.current;
-        // console.log(fakeDiv);
+        const fakeDiv = transitionRef.current;
+        fakeDiv.style.transform = `translate(${transX}px, ${transY}px)`;
+        fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px)`;
+        fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
+        fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        console.log(`scaling to: ${scaleX}, ${scaleY}`);
+        console.log(fakeDiv);
 
         setTimeout(() => {
-            setIsOpen(isOpen ? isOpen : !isOpen);
+            openModal(modal, fakeDiv);
         }, 400);
     };
 
+    const openModal = (modal, fakeDiv) => {
+        // setIsOpen(isOpen ? isOpen : !isOpen);
+        // once transitioned either way, hide the content/fakeDiv
+        // fakeDiv.style.opacity = 0;
+    };
 
   return (
     <ProjectsContainer id="projects">
@@ -87,7 +89,7 @@ const Projects = () => {
                         An application for visualizing and manipulating cellular automata in three dimensions
                     </ProjectP>
                 </ProjectInfo>
-                {/* <ModalTransitionDiv ref={transitionRef}/> */}
+                <ModalTransitionDiv ref={transitionRef} active={zInd}/>
             </ProjectCard>
             <ProjectCard>
                 <ProjectImage src={RSnail} />
