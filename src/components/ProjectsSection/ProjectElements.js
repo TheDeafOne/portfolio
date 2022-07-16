@@ -138,7 +138,7 @@ export const ProjectCard = styled.div`
     display: inline-block;
     cursor: pointer;
     transition: ${ease};
-    z-index: ${({ active }) => active ? null : 10};
+    z-index: ${({ active }) => active ? 2 : 10};
 
     &:hover {
         transform: scale(0.95);
@@ -178,7 +178,6 @@ export const ModalTransitionDiv = styled.div`
     transform: none;
     opacity: 1;
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: 10;
     height: 100%;
     width: 100%;
 `
