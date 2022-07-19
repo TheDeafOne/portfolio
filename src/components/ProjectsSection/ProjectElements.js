@@ -114,6 +114,7 @@ export const ProjectModal = styled.div`
     display: flex;
     align-items: flex-start;
     margin: auto;
+    margin-top: 60px;
     position: fixed;
     top: 0;
     left: 0;
@@ -122,14 +123,26 @@ export const ProjectModal = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
     z-index: ${modalZ};
-    height: 700px;
-    width: 500px;
+    width: 800px;
+    height: auto;
     transition: ${ease};
     transition-delay: 0.25s;
     
     visibility: ${({ active }) => active ? 'visible' : 'hidden'};
     opacity: ${({ active }) => active ? 1 : 0};
     background: transparent;
+`
+
+export const ModalContent = styled.div`
+    ${ProjectModal};
+    will-change: transform, opacity;
+    position: relative;
+    padding: ${space};
+    background: ${modalBg};
+    background-clip: padding-box;
+    transition: ${ease};
+    height: auto;
+    width: 100%;
 `
 
 export const ProjectCard = styled.div`
@@ -152,18 +165,6 @@ export const ProjectCard = styled.div`
     }
 `
 
-export const ModalContent = styled.div`
-    ${ProjectModal};
-    will-change: transform, opacity;
-    position: relative;
-    padding: ${space};
-    background: ${modalBg};
-    background-clip: padding-box;
-    transition: ${ease};
-    /* opacity: ${({ active }) => active ? 1 : 0}; */ 
-    height: 100%;
-    width: 100%;
-`
 
 export const ModalTransitionDiv = styled.div`
     /* ${ProjectCard}; */

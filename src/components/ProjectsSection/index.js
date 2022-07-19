@@ -150,7 +150,21 @@ const Projects = () => {
             </ProjectCard>
         </ProjectsWrapper>
         <ProjectModal ref={modalRef} active={isOpen}>
-            <ModalContent ref={modalContRef} active={isOpen}>hello</ModalContent>
+            <ModalContent ref={modalContRef} active={isOpen}>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/>
+            hello<br/>hello<br/>hello<br/></ModalContent>
         </ProjectModal>
     </ProjectsContainer>
   )
