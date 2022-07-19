@@ -9,6 +9,7 @@ import {
     ProjectP,
     ProjectInfo,
     ProjectImage,
+    CardWrapper,
     ProjectCard,
     ProjectModal,
     ModalContent,
@@ -56,10 +57,9 @@ const Projects = () => {
         
         // expand temp div to same size as the modal
         const fakeDiv = transitionRef.current;
-        fakeDiv.style.transform = `translate(${transX}px, ${transY}px)`;
-        fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px)`;
-        fakeDiv.style.transform = `scale('${scaleX}', '${scaleY}')`
-        fakeDiv.style.webkitTransform = `scale('${scaleX}', '${scaleY}')`
+        fakeDiv.style.opacity = '1';
+        fakeDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
+        fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
         console.log(`scaling to: ${scaleX}, ${scaleY}`);
         console.log(fakeDiv);
 
@@ -69,7 +69,7 @@ const Projects = () => {
     };
 
     const openModal = (modal, fakeDiv) => {
-        // setIsOpen(isOpen ? isOpen : !isOpen);
+        setIsOpen(isOpen ? isOpen : !isOpen);
         // once transitioned either way, hide the content/fakeDiv
         // fakeDiv.style.opacity = 0;
     };
@@ -79,18 +79,20 @@ const Projects = () => {
         <ProjectsH1>Projects</ProjectsH1>
         <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
         <ProjectsWrapper>
-            <ProjectCard onClick={handleProjectModal} active={zInd}>
-                <ProjectImage src={TDAC} />
-                <ProjectInfo>
-                    <ProjectTitle>
-                        TDGOL
-                    </ProjectTitle>
-                    <ProjectP>
-                        An application for visualizing and manipulating cellular automata in three dimensions
-                    </ProjectP>
-                </ProjectInfo>
+            <CardWrapper>
+                <ProjectCard onClick={handleProjectModal}>
+                    <ProjectImage src={TDAC} />
+                    <ProjectInfo>
+                        <ProjectTitle>
+                            TDGOL
+                        </ProjectTitle>
+                        <ProjectP>
+                            An application for visualizing and manipulating cellular automata in three dimensions
+                        </ProjectP>
+                    </ProjectInfo>
+                </ProjectCard>
                 <ModalTransitionDiv ref={transitionRef} active={zInd}/>
-            </ProjectCard>
+            </CardWrapper>
             <ProjectCard>
                 <ProjectImage src={RSnail} />
                 <ProjectInfo>
