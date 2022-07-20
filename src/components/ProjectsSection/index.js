@@ -11,6 +11,7 @@ import {
     ProjectImage,
     CardWrapper,
     ProjectCard,
+    ModalBackground,
     ProjectModal,
     ModalContent,
     ModalTransitionDiv
@@ -33,7 +34,7 @@ const Projects = () => {
         const trig = e.target; // TODO: figure out if hitting the parent is necessary
         console.log(trig);
         const trigProps = trig.getBoundingClientRect();
-        const modal = modalRef;
+        const modal = modalRef.current;
         const modalCont = modalContRef.current;
         console.log(modalCont);
         // TODO: the fact that this is the content and not the modal itself may be a problem
@@ -51,7 +52,7 @@ const Projects = () => {
         
         // move the button to the center of the window
         transX = Math.round(xc - trigProps.left - trigProps.width / 2);
-        transY = Math.round(mProps.height / 2 + mProps.top - trigProps.top - trigProps.height / 2);
+        transY = Math.round(yc - trigProps.top - trigProps.height / 2);
 
         // translate button to the center of the screen;
         
@@ -65,11 +66,12 @@ const Projects = () => {
 
         setTimeout(() => {
             openModal(modal, fakeDiv);
-        }, 400);
+        }, 100);
     };
 
     const openModal = (modal, fakeDiv) => {
         setIsOpen(isOpen ? isOpen : !isOpen);
+        document.body.style.overflow = 'hidden';
         // once transitioned either way, hide the content/fakeDiv
         // fakeDiv.style.opacity = 0;
     };
@@ -149,8 +151,10 @@ const Projects = () => {
                 </ProjectInfo>
             </ProjectCard>
         </ProjectsWrapper>
-        <ProjectModal ref={modalRef} active={isOpen}>
-            <ModalContent ref={modalContRef} active={isOpen}>hello<br/>
+        <ModalBackground ref={modalRef} active={isOpen}>
+            <ProjectModal active={isOpen}>
+                <ModalContent ref={modalContRef}>
+                hello<br/>hello<br/>hello<br/>
             hello<br/>hello<br/>hello<br/>
             hello<br/>hello<br/>hello<br/>
             hello<br/>hello<br/>hello<br/>
@@ -164,8 +168,9 @@ const Projects = () => {
             hello<br/>hello<br/>hello<br/>
             hello<br/>hello<br/>hello<br/>
             hello<br/>hello<br/>hello<br/>
-            hello<br/>hello<br/>hello<br/></ModalContent>
-        </ProjectModal>
+                </ModalContent>
+            </ProjectModal>
+        </ModalBackground>
     </ProjectsContainer>
   )
 }

@@ -109,32 +109,31 @@ export const ProjectInfo = styled.div`
     transition: all 0.3s ease-in-out;
 `
 
-export const ProjectModal = styled.div`
+export const ModalBackground = styled.div`
     will-change: visibility, opacity;
     display: flex;
     align-items: flex-start;
     margin: auto;
-    margin-top: 60px;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    overflow-y: auto;
+    overflow-y: scroll;
     overflow-x: hidden;
     z-index: ${modalZ};
-    width: 800px;
+    width: 100vw;
     height: auto;
     transition: ${ease};
     transition-delay: 0.25s;
+    background-color: rgba(0,0,0,0.3);
     
     visibility: ${({ active }) => active ? 'visible' : 'hidden'};
     opacity: ${({ active }) => active ? 1 : 0};
-    background: transparent;
 `
 
-export const ModalContent = styled.div`
-    ${ProjectModal};
+export const ProjectModal = styled.div`
+    ${ModalBackground};
     will-change: transform, opacity;
     position: relative;
     padding: ${space};
@@ -142,11 +141,19 @@ export const ModalContent = styled.div`
     background-clip: padding-box;
     transition: ${ease};
     height: auto;
-    width: 100%;
+    width: 70vw;
+    margin: 5% auto 5% auto;
+`
+
+export const ModalContent = styled.div`
+    background-color: red;
+    position: relative;
+    margin: auto;
+    height: auto;
 `
 
 export const ProjectCard = styled.div`
-    ${ProjectModal};
+    ${ModalBackground};
     position: relative;
     display: inline-block;
     cursor: pointer;
