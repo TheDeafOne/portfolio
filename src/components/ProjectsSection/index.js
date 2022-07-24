@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import { TDAC, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
@@ -19,61 +19,56 @@ import {
 
 const Projects = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [zInd, setZInd] = useState(false);
-    const [transitionOpen, setTransitionOpen] = useState(false);
+    const [activeModal, setActiveModal] = useState(undefined);
+    const [modalTrigger, setModalTrigger] = useState(undefined);
+    const [modalId, setModalId] = useState('');
     
-    // refs really aren't the best way to go about this but for testing's sake we'll use them
-    const modalRef = useRef(null);
-    const modalContRef = useRef(null);
-    const transitionRef = useRef(null);
-
-    const handleProjectModal = (e) => {
-        e.preventDefault();
-
-        // make div
-        const trig = e.target;
-        console.log(trig);
-        const trigProps = trig.getBoundingClientRect();
-        const modal = modalRef;
-        const modalCont = modalContRef.current;
-        console.log(modalCont);
-        const mProps = modalCont.getBoundingClientRect();
-        var transX, transY, scaleX, scaleY;
-        const xc = window.innerWidth / 2;
-        const yc = window.innerHeight / 2;
-
-        // increase z index 
-        setZInd(true);
-
-        // scale values for the temp div
-        scaleX = (mProps.width / trigProps.width).toFixed(3);
-        scaleY = (mProps.height / trigProps.height).toFixed(3) * 0.83; // *83% to manage height of trans div
+    useEffect(() => {
+        if (modalId !== '' && modalTrigger !== undefined) {
+            modalTrigger.preventDefault();
         
-        // move the button to the center of the window
-        transX = Math.round(xc - trigProps.left - trigProps.width / 2);
-        transY = Math.round(yc - trigProps.top - trigProps.height / 2) + 85; // +85 to hide from the top of the page
-
-        // translate button to the center of the screen;
-        
-        // expand temp div to same size as the modal
-        const fakeDiv = transitionRef.current;
-        fakeDiv.style.opacity = '1';
-        fakeDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
-        fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
-
-        setIsOpen(isOpen ? isOpen : !isOpen);
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => {
-            fakeDiv.style.opacity = '0';
-        }, 700)
+            const trig = modalTrigger.target;
+            const trigProps = trig.getBoundingClientRect();
+            const mProps = document.getElementById(modalId).getBoundingClientRect();
+            const fakeDiv = document.getElementById((modalId + 'TD'));
             
-    };
+
+            var transX, transY, scaleX, scaleY;
+            const xc = window.innerWidth / 2;
+            const yc = window.innerHeight / 2;
+            
+            // scale values for the temp div
+            scaleX = (mProps.width / trigProps.width).toFixed(3);
+            scaleY = (mProps.height / trigProps.height).toFixed(3) * 0.83; // *83% to manage height of trans div
+            
+            // move the button to the center of the window
+            transX = Math.round(xc - trigProps.left - trigProps.width / 2);
+            transY = Math.round(yc - trigProps.top - trigProps.height / 2) + 85; // +85 to hide from the top of the page
+                    
+            fakeDiv.style.zIndex = 3;
+            fakeDiv.style.opacity = 1;
+            fakeDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
+            fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
+
+            setIsOpen(true);
+            document.body.style.overflow = 'hidden';
+            setTimeout(() => {
+                fakeDiv.style.opacity = '0';
+            }, 700)     
+        }
+    }, [modalId, modalTrigger, activeModal])
 
     const handleCloseModal = () => {
-        
+        setIsOpen(false);
     }
 
-
+    function FirstModal() {
+        return (
+            <ModalContent id='firstModal'>
+                This is the first modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
 
     return (
         <ProjectsContainer id="projects">
@@ -81,7 +76,12 @@ const Projects = () => {
             <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
             <ProjectsWrapper>
                 <CardWrapper>
-                    <ProjectCard onClick={handleProjectModal}>
+                    <ProjectCard 
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('firstModal');
+                            setActiveModal(<FirstModal />);
+                        }}>
                         <ProjectImage src={TDAC} />
                         <ProjectInfo>
                             <ProjectTitle>
@@ -92,82 +92,84 @@ const Projects = () => {
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
-                    <ModalTransitionDiv ref={transitionRef} active={zInd}/>
+                    <ModalTransitionDiv id='firstModalTD'/>
                 </CardWrapper>
-                <ProjectCard>
-                    <ProjectImage src={RSnail} />
-                    <ProjectInfo>
-                        <ProjectTitle>
-                            CrimsonSnail
-                        </ProjectTitle>
-                        <ProjectP>
-                            An application for visualizing and manipulating cellular automata in three dimensions
-                        </ProjectP>
-                    </ProjectInfo>
-                </ProjectCard>
-                <ProjectCard>
-                    <ProjectImage src={HappyFeet} />
-                    <ProjectInfo>
-                        <ProjectTitle>
-                            HappyFeet
-                        </ProjectTitle>
-                        <ProjectP>
-                            An application for visualizing and manipulating cellular automata in three dimensions
-                        </ProjectP>
-                    </ProjectInfo>
-                </ProjectCard>
-                <ProjectCard>
-                    <ProjectImage src={TDAC} />
-                    <ProjectInfo>
-                        <ProjectTitle>
-                            TDGOL
-                        </ProjectTitle>
-                        <ProjectP>
-                            An application for visualizing and manipulating cellular automata in three dimensions
-                        </ProjectP>
-                    </ProjectInfo>
-                </ProjectCard>
-                <ProjectCard>
-                    <ProjectImage src={TDAC} />
-                    <ProjectInfo>
-                        <ProjectTitle>
-                            TDGOL
-                        </ProjectTitle>
-                        <ProjectP>
-                            An application for visualizing and manipulating cellular automata in three dimensions
-                        </ProjectP>
-                    </ProjectInfo>
-                </ProjectCard>
-                <ProjectCard>
-                    <ProjectImage src={TDAC} />
-                    <ProjectInfo>
-                        <ProjectTitle>
-                            TDGOL
-                        </ProjectTitle>
-                        <ProjectP>
-                            An application for visualizing and manipulating cellular automata in three dimensions
-                        </ProjectP>
-                    </ProjectInfo>
-                </ProjectCard>
+                <CardWrapper>
+                    <CardWrapper>
+                        <ProjectCard>
+                            <ProjectImage src={RSnail} />
+                            <ProjectInfo>
+                                <ProjectTitle>
+                                    CrimsonSnail
+                                </ProjectTitle>
+                                <ProjectP>
+                                    An application for visualizing and manipulating cellular automata in three dimensions
+                                </ProjectP>
+                            </ProjectInfo>
+                        </ProjectCard>
+                        <ModalTransitionDiv/>
+                    </CardWrapper>
+                </CardWrapper>
+                <CardWrapper>
+                    <ProjectCard>
+                        <ProjectImage src={HappyFeet} />
+                        <ProjectInfo>
+                            <ProjectTitle>
+                                HappyFeet
+                            </ProjectTitle>
+                            <ProjectP>
+                                An application for visualizing and manipulating cellular automata in three dimensions
+                            </ProjectP>
+                        </ProjectInfo>
+                    </ProjectCard>
+                    <ModalTransitionDiv/>
+                </CardWrapper>
+                <CardWrapper>
+                    <ProjectCard>
+                        <ProjectImage src={TDAC} />
+                        <ProjectInfo>
+                            <ProjectTitle>
+                                TDGOL
+                            </ProjectTitle>
+                            <ProjectP>
+                                An application for visualizing and manipulating cellular automata in three dimensions
+                            </ProjectP>
+                        </ProjectInfo>
+                    </ProjectCard>
+                    <ModalTransitionDiv/>
+                </CardWrapper>
+                <CardWrapper>
+                    <ProjectCard>
+                        <ProjectImage src={TDAC} />
+                        <ProjectInfo>
+                            <ProjectTitle>
+                                TDGOL
+                            </ProjectTitle>
+                            <ProjectP>
+                                An application for visualizing and manipulating cellular automata in three dimensions
+                            </ProjectP>
+                        </ProjectInfo>
+                    </ProjectCard>
+                    <ModalTransitionDiv/>
+                </CardWrapper>
+                <CardWrapper>
+                    <ProjectCard>
+                        <ProjectImage src={TDAC} />
+                        <ProjectInfo>
+                            <ProjectTitle>
+                                TDGOL
+                            </ProjectTitle>
+                            <ProjectP>
+                                An application for visualizing and manipulating cellular automata in three dimensions
+                            </ProjectP>
+                        </ProjectInfo>
+                    </ProjectCard>
+                    <ModalTransitionDiv/>
+                </CardWrapper>
             </ProjectsWrapper>
             <ModalBackground active={isOpen} onClick={handleCloseModal}>
-                <ProjectModal active={isOpen} ref={modalRef}>
-                    <ModalContent ref={modalContRef}>
-                    hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                hello<br/>hello<br/>hello<br/>
-                    </ModalContent>
+                <ProjectModal active={isOpen}>
+                    {activeModal}
                 </ProjectModal>
             </ModalBackground>
         </ProjectsContainer>

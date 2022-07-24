@@ -185,7 +185,6 @@ export const ModalTransitionDiv = styled.div`
     transform: none;
     opacity: 0;
     transition: opacity 0.1s ease-out, transform ${t} cubic-bezier(0.23, 1, 0.32, 1);
-    z-index: ${({ active }) => active ? 3 : 1};
     height: 100%;
     width: 100%;
 `
