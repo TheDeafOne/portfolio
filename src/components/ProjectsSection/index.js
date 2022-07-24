@@ -22,16 +22,36 @@ const Projects = () => {
     const [activeModal, setActiveModal] = useState(undefined);
     const [modalTrigger, setModalTrigger] = useState(undefined);
     const [modalId, setModalId] = useState('');
+    const [modalTranslation, setModalTranslation] = useState([]);
+
+    const handleCloseModal = () => {
+        setIsOpen(false);
+        
+        const transDiv = document.getElementById((modalId + 'TD'));
+        const [transX, transY] = modalTranslation;
     
+        transDiv.style.zIndex = 3;
+        transDiv.style.opacity = 1;
+        transDiv.style.transform = `translate(0) scale(1)`;
+        transDiv.style.webkitTransform = `translate(0) scale(1)`;
+
+        document.body.style.overflow = 'visible';
+
+        setModalId('');
+        setActiveModal(undefined);
+        setModalTrigger(undefined);
+    }
+
     useEffect(() => {
+        console.log('mid',modalId);
+        console.log('mt',modalTrigger);
+        console.log('am',activeModal);
         if (modalId !== '' && modalTrigger !== undefined) {
             modalTrigger.preventDefault();
         
-            const trig = modalTrigger.target;
-            const trigProps = trig.getBoundingClientRect();
+            const trigProps = modalTrigger.target.getBoundingClientRect();
             const mProps = document.getElementById(modalId).getBoundingClientRect();
-            const fakeDiv = document.getElementById((modalId + 'TD'));
-            
+            const transDiv = document.getElementById((modalId + 'TD'));
 
             var transX, transY, scaleX, scaleY;
             const xc = window.innerWidth / 2;
@@ -44,28 +64,67 @@ const Projects = () => {
             // move the button to the center of the window
             transX = Math.round(xc - trigProps.left - trigProps.width / 2);
             transY = Math.round(yc - trigProps.top - trigProps.height / 2) + 85; // +85 to hide from the top of the page
-                    
-            fakeDiv.style.zIndex = 3;
-            fakeDiv.style.opacity = 1;
-            fakeDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
-            fakeDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
+            
+            // track scale and transition for managing transition reset
+            setModalTranslation([transX, transY]);
+            
+            transDiv.style.zIndex = 3;
+            transDiv.style.opacity = 1;
+            transDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
+            transDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
 
             setIsOpen(true);
             document.body.style.overflow = 'hidden';
             setTimeout(() => {
-                fakeDiv.style.opacity = '0';
-            }, 700)     
+                transDiv.style.opacity = '0';
+            }, 200)     
         }
-    }, [modalId, modalTrigger, activeModal])
-
-    const handleCloseModal = () => {
-        setIsOpen(false);
-    }
+    }, [modalId, modalTrigger, activeModal]);
 
     function FirstModal() {
         return (
             <ModalContent id='firstModal'>
                 This is the first modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
+
+    function SecondModal() {
+        return (
+            <ModalContent id='secondModal'>
+                This is the second modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
+
+    function ThirdModal() {
+        return (
+            <ModalContent id='thirdModal'>
+                This is the second modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
+
+    function FourthModal() {
+        return (
+            <ModalContent id='fourthModal'>
+                This is the second modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
+
+    function FifthModal() {
+        return (
+            <ModalContent id='fifthModal'>
+                This is the second modal, which would reference to a previously made modal
+            </ModalContent>
+        );
+    }
+
+    function SixthModal() {
+        return (
+            <ModalContent id='sixthModal'>
+                This is the second modal, which would reference to a previously made modal
             </ModalContent>
         );
     }
@@ -96,7 +155,12 @@ const Projects = () => {
                 </CardWrapper>
                 <CardWrapper>
                     <CardWrapper>
-                        <ProjectCard>
+                        <ProjectCard
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('secondModal');
+                            setActiveModal(<SecondModal />);
+                        }}>
                             <ProjectImage src={RSnail} />
                             <ProjectInfo>
                                 <ProjectTitle>
@@ -107,7 +171,7 @@ const Projects = () => {
                                 </ProjectP>
                             </ProjectInfo>
                         </ProjectCard>
-                        <ModalTransitionDiv/>
+                        <ModalTransitionDiv id='secondModalTD'/>
                     </CardWrapper>
                 </CardWrapper>
                 <CardWrapper>
