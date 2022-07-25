@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const modalZ = 1000;
-const modalBg = '#FFEBEE';
+const modalBg = 'white';
 const modalWidth = '600px';
 const space = '2.4rem';
 const red = '#F44336';
@@ -133,7 +133,6 @@ export const ModalBackground = styled.div`
 `
 
 export const ProjectModal = styled.div`
-    ${ModalBackground};
     will-change: transform, opacity;
     position: relative;
     padding: ${space};
@@ -143,10 +142,12 @@ export const ProjectModal = styled.div`
     height: auto;
     width: 70vw;
     margin: 5% auto 5% auto;
+
+    visibility: ${({ active }) => active ? 'visible' : 'hidden'};
+    opacity: ${({ active }) => active ? 1 : 0};
 `
 
 export const ModalContent = styled.div`
-    background-color: red;
     position: relative;
     margin: auto;
     height: auto;
