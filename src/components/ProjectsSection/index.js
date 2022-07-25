@@ -17,6 +17,13 @@ import {
     ModalTransitionDiv
 } from './ProjectElements';
 
+import {
+    HeaderRow,
+    ModalTitle,
+    ModalDescription,
+    ModalImage
+} from './ModalElements';
+
 const Projects = () => {
     const [isOpen, setIsOpen] = useState(false);
     const [activeModal, setActiveModal] = useState(undefined);
@@ -30,11 +37,15 @@ const Projects = () => {
         const transDiv = document.getElementById((modalId + 'TD'));
         const [transX, transY] = modalTranslation;
     
-        transDiv.style.zIndex = 3;
         transDiv.style.opacity = 1;
         transDiv.style.transform = `translate(0) scale(1)`;
         transDiv.style.webkitTransform = `translate(0) scale(1)`;
-
+        
+        setTimeout(() => {
+            transDiv.style.opacity = '0';
+            transDiv.style.zIndex = 1;
+        }, 300)  
+        
         document.body.style.overflow = 'visible';
 
         setModalId('');
@@ -84,7 +95,15 @@ const Projects = () => {
     function FirstModal() {
         return (
             <ModalContent id='firstModal'>
-                This is the first modal, which would reference to a previously made modal
+                <HeaderRow>
+                    <ModalTitle>
+                        Three Dimensional Cellular Automata
+                    </ModalTitle>
+                    <ModalDescription>
+                        fuck this shit
+                    </ModalDescription>
+                </HeaderRow>
+                <ModalImage />
             </ModalContent>
         );
     }
@@ -175,7 +194,12 @@ const Projects = () => {
                     </CardWrapper>
                 </CardWrapper>
                 <CardWrapper>
-                    <ProjectCard>
+                    <ProjectCard
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('thirdModal');
+                            setActiveModal(<ThirdModal />);
+                        }}>
                         <ProjectImage src={HappyFeet} />
                         <ProjectInfo>
                             <ProjectTitle>
@@ -186,10 +210,15 @@ const Projects = () => {
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
-                    <ModalTransitionDiv/>
+                    <ModalTransitionDiv id='thirdModalTD'/>
                 </CardWrapper>
                 <CardWrapper>
-                    <ProjectCard>
+                    <ProjectCard
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('fourthModal');
+                            setActiveModal(<FourthModal />);
+                        }}>
                         <ProjectImage src={TDAC} />
                         <ProjectInfo>
                             <ProjectTitle>
@@ -200,10 +229,15 @@ const Projects = () => {
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
-                    <ModalTransitionDiv/>
+                    <ModalTransitionDiv id='fourthModalTD'/>
                 </CardWrapper>
                 <CardWrapper>
-                    <ProjectCard>
+                    <ProjectCard
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('fifthModal');
+                            setActiveModal(<FifthModal />);
+                        }}>
                         <ProjectImage src={TDAC} />
                         <ProjectInfo>
                             <ProjectTitle>
@@ -214,10 +248,15 @@ const Projects = () => {
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
-                    <ModalTransitionDiv/>
+                    <ModalTransitionDiv id='fifthModalTD'/>
                 </CardWrapper>
                 <CardWrapper>
-                    <ProjectCard>
+                    <ProjectCard
+                        onClick={(e) => {
+                            setModalTrigger(e);
+                            setModalId('sixthModal');
+                            setActiveModal(<SixthModal />);
+                        }}>
                         <ProjectImage src={TDAC} />
                         <ProjectInfo>
                             <ProjectTitle>
@@ -228,7 +267,7 @@ const Projects = () => {
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
-                    <ModalTransitionDiv/>
+                    <ModalTransitionDiv id='sixthModalTD'/>
                 </CardWrapper>
             </ProjectsWrapper>
             <ModalBackground active={isOpen} onClick={handleCloseModal}>
