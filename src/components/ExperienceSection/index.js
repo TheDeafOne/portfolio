@@ -1,8 +1,12 @@
 import React from 'react'
-
+import {
+  ExperienceContainer
+} from './ExperienceElements';
 const ExperienceSection = () => {
   return (
-    <div id='experience'>ExperienceSection</div>
+    <ExperienceContainer id='experience'>
+
+    </ExperienceContainer>
   )
 }
 
