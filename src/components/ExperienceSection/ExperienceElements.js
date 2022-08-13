@@ -23,6 +23,8 @@ export const Experience = styled.div`
 export const Info = styled.div`
     height: 0px;
     background: blue;
+    transition: all 0.25s ease-in-out;
+    margin-bottom: -20px;
 `
 
 export const Date = styled.div`
@@ -32,7 +34,6 @@ export const Date = styled.div`
 export const Bar = styled.div`
     position: relative;
     background: white;
-    transition: ease-in-out 2s;
 `
 
 export const PointRow = styled.div`
@@ -40,7 +41,7 @@ export const PointRow = styled.div`
     display: flex;
     align-items: center;
     background-color: yellow;
-    width: 400px;
+    width: 600px;
 `
 
 export const Point = styled.div`

@@ -25,6 +25,7 @@ const ExperienceSection = () => {
   return (
     <ExperienceContainer id='experience'>
       <Timeline>
+        
         <Bar>
           <PointRow>
             <Point 
@@ -35,8 +36,7 @@ const ExperienceSection = () => {
             </Date>
           </PointRow>
         </Bar>
-        <Experience>
-          
+        <Experience>   
           <Info id='experience1'>
 
           </Info>
