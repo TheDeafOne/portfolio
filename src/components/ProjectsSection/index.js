@@ -97,10 +97,10 @@ const Projects = () => {
             <ModalContent id='firstModal'>
                 <HeaderRow>
                     <ModalTitle>
-                        Three Dimensional Cellular Automata
+                        3D Game of Life
                     </ModalTitle>
                     <ModalDescription>
-                        fuck this shit
+                        A desktop app for visualizing 3D cellular automata 
                     </ModalDescription>
                 </HeaderRow>
                 <ModalImage />

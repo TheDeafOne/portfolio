@@ -8,8 +8,8 @@ export const HeaderRow = styled.div`
 
 export const ModalTitle = styled.h1`
     color: black;
-    font-size: 10px;
-    line-height: 10px;
+    font-size: 50px;
+    text-align: center;
 `
 
 export const ModalDescription = styled.h4`
