@@ -45,10 +45,11 @@ export const Experience = styled.div`
 export const Info = styled.div`
     position:relative;
     height: 0px;
-    transition: all 0.25s ease-in-out;
+    transition: all 0.25s ease;
     margin-bottom: -50px;
     margin-left: 70px;
     visibility: hidden;
+    opacity: 0;
 `
 
 export const Bar = styled.div`
@@ -57,9 +58,11 @@ export const Bar = styled.div`
 `
 
 export const PointRow = styled.div`
+    background-color: black;
     display: flex;
     align-items: center;
     width: 700px;
+    z-index: 2;
 `
 
 export const Point = styled.img`
@@ -70,7 +73,7 @@ export const Point = styled.img`
     height: 75px;
     background: white;
     border-radius: 50%;
-    z-index: 2;
+    z-index: 3;
     cursor: pointer;
 `
 

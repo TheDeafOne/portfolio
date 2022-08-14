@@ -26,14 +26,14 @@ import {
 const ExperienceSection = () => {
   const changeActiveExperience = async (experience) => {
     if (document.getElementById(experience).style.visibility === 'hidden') {
-      document.getElementById(experience).style = 'visibility: visible; height: 200px;'
+      document.getElementById(experience).style = 'visibility: visible; height: 200px; opacity: 1;'
     } else {
-      document.getElementById(experience).style = 'visibility: hidden; height: 0px;';
+      document.getElementById(experience).style = 'visibility: hidden; height: 0px; opacity: 0;';
     }
   } 
 
   useEffect(() => {
-    document.getElementById('experience1').style = 'visibility: visible; height: 200px;';
+    document.getElementById('experience1').style = 'visibility: visible; height: 200px; opacity: 1;';
   }, [])
 
   function ExperienceBlock({ id, logo, expInfo }) {
@@ -95,13 +95,14 @@ const ExperienceSection = () => {
           }
         />
         <ExperienceBlock 
-          id='experience2' 
-          logo={APLLogo} 
+          id='experience3' 
+          logo={GCCLogo} 
           expInfo={
             {
-              title: 'Software Engineer Intern',
-              at: 'Johns Hopkins APL',
-              href: '//www.jhuapl.edu/',
+              title: 'Tech Assistant',
+              at: 'Grove City College',
+              href: '//www.gcc.edu/',
+              duration: 'September 2021 - April 2022',
               notes: [
                 ''
               ]
@@ -109,19 +110,21 @@ const ExperienceSection = () => {
           }
         />
         <ExperienceBlock 
-          id='experience3' 
-          logo={GCCLogo} 
+          id='experience2' 
+          logo={APLLogo} 
           expInfo={
             {
-              title: 'Mailroom Clerk',
-              at: 'Grove City College',
-              href: '//www.gcc.edu/',
+              title: 'Software Engineer Intern',
+              at: 'Johns Hopkins APL',
+              href: '//www.jhuapl.edu/',
+              duration: 'May - October 2021',
               notes: [
                 ''
               ]
             }
           }
         />
+        
 
       </Timeline>
     </ExperienceContainer>
