@@ -4,7 +4,6 @@ import {
   Timeline,
   Experience,
   Info,
-  ExperienceSummary,
   Bar,
   Point,
   PointRow,
@@ -14,6 +13,8 @@ import {
   BlockNote,
   BlockCompany,
   BlockDuration,
+  ExperienceH1,
+  ExperienceH2,
   Line
 } from './ExperienceElements';
 
@@ -70,6 +71,12 @@ const ExperienceSection = () => {
 
   return (
     <ExperienceContainer id='experience'>
+      <ExperienceH1>
+        Experience
+      </ExperienceH1>
+      <ExperienceH2>
+        Some of the amazing people I've worked with
+      </ExperienceH2>
       <Timeline>
         <ExperienceBlock 
           id='experience1' 

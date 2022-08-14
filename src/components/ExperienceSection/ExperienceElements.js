@@ -5,6 +5,28 @@ export const ExperienceContainer = styled.div`
     background-color:black;
 `
 
+export const ExperienceH1 = styled.h1`
+    padding-top: 60px;
+    font-size: 4rem;
+    color: #fff;
+    text-align: center;
+
+    @media screen and (max-width: 480px) {
+        font-size: 2rem;
+    }
+`
+
+export const ExperienceH2 = styled.h2`
+    margin-top: 10px;
+    font-size: 1.3rem;
+    color: #fff;
+    text-align: center;
+
+    @media screen and (max-width: 480px) {
+        font-size: 0.6rem;
+    }
+`
+
 export const Timeline = styled.div`
     margin: 0 auto;
     max-width: 800px;
@@ -27,11 +49,6 @@ export const Info = styled.div`
     margin-bottom: -50px;
     margin-left: 70px;
     visibility: hidden;
-`
-
-export const ExperienceSummary = styled.div`
-    font-size: 30px;
-    color: white;
 `
 
 export const Bar = styled.div`
