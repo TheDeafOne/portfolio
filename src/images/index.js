@@ -26,7 +26,9 @@ import RSnail from './ProjectImages/RedSnail/redsnail.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
 import CheckMark from './Icons/check-mark.svg';
 import XMark from './Icons/x-mark.svg';
-
+import BentleyLogo from './Logos/bentley-logo.png';
+import APLLogo from './Logos/apl-logo.png';
+import GCCLogo from './Logos/gcc-logo.png';
 
 export {
     BigqueryLogo,
@@ -56,5 +58,8 @@ export {
     RSnail,
     HappyFeet,
     CheckMark,
-    XMark
+    XMark,
+    BentleyLogo,
+    APLLogo,
+    GCCLogo
 }
