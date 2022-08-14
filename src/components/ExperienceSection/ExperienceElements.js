@@ -16,19 +16,22 @@ export const Timeline = styled.div`
 `
 
 export const Experience = styled.div`
-    margin-left: 20px;
-    margin-bottom: 50px;
+    position: relative;
+    margin-bottom: 100px;
 `
 
 export const Info = styled.div`
+    position:relative;
     height: 0px;
-    background: blue;
     transition: all 0.25s ease-in-out;
-    margin-bottom: -20px;
+    margin-bottom: -50px;
+    margin-left: 70px;
+    visibility: hidden;
 `
 
-export const Date = styled.div`
-    color: red;
+export const ExperienceSummary = styled.div`
+    font-size: 30px;
+    color: white;
 `
 
 export const Bar = styled.div`
@@ -37,20 +40,64 @@ export const Bar = styled.div`
 `
 
 export const PointRow = styled.div`
-    position: absolute;
     display: flex;
     align-items: center;
-    background-color: yellow;
-    width: 600px;
+    width: 700px;
 `
 
-export const Point = styled.div`
+export const Point = styled.img`
     top: 0;
     left: 50%;
-    transform: translateX(-50%);
-    width: 30px;
-    height: 30px;
+    transform: translateX(-48%);
+    width: 75px;
+    height: 75px;
     background: white;
     border-radius: 50%;
+    z-index: 2;
     cursor: pointer;
+`
+
+export const SummaryBuffer = styled.div`
+    height: 75px;
+`
+
+export const Line = styled.div`
+    height: 2px;
+    width: 80%;
+    background-color: grey;
+    margin-left: 70px;
+`
+
+export const BlockDuration = styled.h3`
+    color: grey;
+    margin: -15px 0 20px 2px;
+`
+
+export const BlockList = styled.ul`
+    color: white;
+    font-size: 16;
+    list-style: none;
+    font-size: 20px;
+`
+
+export const BlockNote = styled.li`
+    margin-bottom: 20px;
+    &::before {
+        color: green;
+        content: '▹ ';
+    }
+`
+
+export const BlockTitle = styled.h2`
+    font-size: 25px;
+    color: white;
+
+`
+
+export const BlockCompany = styled.a`
+    color: green;
+    &:link { text-decoration: none; }
+    &:visited { text-decoration: none; }
+    &:hover { text-decoration: none; }
+    &:active { text-decoration: none; }
 `
