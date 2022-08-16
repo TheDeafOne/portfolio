@@ -28,7 +28,7 @@ export const ExperienceH2 = styled.h2`
 `
 
 export const Timeline = styled.div`
-    margin: 0 auto;
+    margin: 0 auto 0 25%;
     max-width: 800px;
     padding: 25px;
     display: grid;
@@ -100,12 +100,20 @@ export const BlockList = styled.ul`
     font-size: 20px;
 `
 
-export const BlockNote = styled.li`
-    margin-bottom: 20px;
+export const NotePoint = styled.li`
     &::before {
         color: green;
         content: '▹ ';
     }
+`
+
+export const NoteWrapper = styled.div`
+    display: flex;
+    margin-bottom: 20px;
+`
+
+export const BlockNote = styled.div`
+    flex: 1;
 `
 
 export const BlockTitle = styled.h2`

@@ -11,6 +11,8 @@ import {
   BlockTitle,
   BlockList,
   BlockNote,
+  NoteWrapper,
+  NotePoint,
   BlockCompany,
   BlockDuration,
   ExperienceH1,
@@ -38,7 +40,12 @@ const ExperienceSection = () => {
 
   function ExperienceBlock({ id, logo, expInfo }) {
     const notes = expInfo.notes.map((note) => (
-      <BlockNote>{note}</BlockNote>
+      <NoteWrapper>
+        <NotePoint />
+        <BlockNote>
+          {note}
+        </BlockNote>
+      </NoteWrapper>
     ));
     return (
       <>
@@ -88,8 +95,9 @@ const ExperienceSection = () => {
               href: '//www.bentley.com/en',
               duration: 'May 2022 - Present',
               notes: [
-                'shit',
-                'fuck'
+                'Assisted in the development of ProjectWise SAM, an infrastructure software for managing construction assets.',
+                'Produced front and back end unit and integration tests alongside application development.',
+                'Created automated test management system to assist in project data management.'
               ]
             }
           }
@@ -104,7 +112,8 @@ const ExperienceSection = () => {
               href: '//www.gcc.edu/',
               duration: 'September 2021 - April 2022',
               notes: [
-                ''
+                'Aided in the development of RedSnail, a software for all the necessary aspects of running a mailroom.',
+                'Developed analytics page for package data, allowing for efficient workflow changes.',
               ]
             }
           }
@@ -119,7 +128,9 @@ const ExperienceSection = () => {
               href: '//www.jhuapl.edu/',
               duration: 'May - October 2021',
               notes: [
-                ''
+                'Researched and developed various methods for handling time-sensitive jobs with AI Scheduling and Planning.',
+                'Created ground-up framework for parsing and scheduling job data.',
+                'Simulated and presented multiple automated ship runs using my Scheduling AI.'
               ]
             }
           }
