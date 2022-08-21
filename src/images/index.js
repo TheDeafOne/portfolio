@@ -29,6 +29,9 @@ import XMark from './Icons/x-mark.svg';
 import BentleyLogo from './Logos/bentley-logo.png';
 import APLLogo from './Logos/apl-logo.png';
 import GCCLogo from './Logos/gcc-logo.png';
+import GCCLogo2 from './Logos/gcc-logo2.png';
+import PrevostLogo from './Logos/prevost-construction-logo.jpeg';
+import RVRLogo from './Logos/rvr-logo.png';
 
 export {
     BigqueryLogo,
@@ -61,5 +64,8 @@ export {
     XMark,
     BentleyLogo,
     APLLogo,
-    GCCLogo
+    GCCLogo,
+    GCCLogo2,
+    PrevostLogo,
+    RVRLogo
 }
