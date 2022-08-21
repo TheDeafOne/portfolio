@@ -22,7 +22,6 @@ import {
   BlockDuration,
   ExperienceH1,
   ExperienceH2,
-  Line
 } from './ExperienceElements';
 
 import { 
@@ -31,7 +30,8 @@ import {
   GCCLogo,
   GCCLogo2,
   PrevostLogo,
-  RVRLogo
+  RVRLogo,
+  KWLogo
 } from '../../images';
 
 const ExperienceSection = () => {
@@ -252,7 +252,7 @@ const ExperienceSection = () => {
 
           <MultiExperienceBlock 
             id='multiExperiences' 
-            logo={BentleyLogo} 
+            logo={KWLogo} 
             title='Non-technical work' 
             experiences={
               [
