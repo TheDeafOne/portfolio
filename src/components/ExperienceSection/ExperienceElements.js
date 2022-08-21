@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const ExperienceContainer = styled.div`
     min-height: 100vh;
     background-color:black;
+    height: auto;
 `
 
 export const ExperienceH1 = styled.h1`
@@ -37,17 +38,22 @@ export const Timeline = styled.div`
     color: transparent;
 `
 
-export const Experience = styled.div`
+export const ExperiencesColumn = styled.div`
     position: relative;
-    margin-bottom: 100px;
+`
+
+export const Experience = styled.div`
+    transition: all 0.25s ease;
+    position: relative;
+    margin-bottom: 50px;
 `
 
 export const Info = styled.div`
     position:relative;
     height: 0px;
+    width: 800px;
     transition: all 0.25s ease;
-    margin-bottom: -50px;
-    margin-left: 70px;
+    margin-left: 75px;
     visibility: hidden;
     opacity: 0;
 `
@@ -55,6 +61,7 @@ export const Info = styled.div`
 export const Bar = styled.div`
     position: relative;
     background: white;
+    transition: ease-in-out 0.25s;
 `
 
 export const PointRow = styled.div`
@@ -68,24 +75,54 @@ export const PointRow = styled.div`
 export const Point = styled.img`
     top: 0;
     left: 50%;
-    transform: translateX(-48%);
+    transform: translateX(-52%);
     width: 75px;
     height: 75px;
     background: white;
     border-radius: 50%;
     z-index: 3;
     cursor: pointer;
+    transition: ease-in-out 0.1s;
+
+    &:hover {
+        transform: translateX(-52%) scale(1.05);
+    }
 `
 
-export const SummaryBuffer = styled.div`
-    height: 75px;
+export const SubPointBlock = styled.div`
+    transition: ease-in-out 0.25s;
+    margin-top: -20px;
 `
 
-export const Line = styled.div`
-    height: 2px;
-    width: 80%;
-    background-color: grey;
-    margin-left: 70px;
+export const SubPointRow = styled.div`
+    background-color: black;
+    display: flex;
+    align-items: center;
+    transition: ease-in-out 0.3s;
+    visibility: hidden;
+    gap: 15px;
+    width: 700px;
+    z-index: 2;
+    height: 0px;
+    opacity: 0;
+    margin-bottom: 10px;
+`
+
+export const SubPoint = styled.img`
+    top: 0;
+    left: 50%;
+    transform: translateX(-52%);
+    background: white;
+    border-radius: 50%;
+    z-index: 3;
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    transition: ease-in-out 0.25s;
+    
+    &:hover {
+        transform: translateX(-52%) scale(1.05);
+    }
 `
 
 export const BlockDuration = styled.h3`
@@ -119,7 +156,6 @@ export const BlockNote = styled.div`
 export const BlockTitle = styled.h2`
     font-size: 25px;
     color: white;
-
 `
 
 export const BlockCompany = styled.a`
