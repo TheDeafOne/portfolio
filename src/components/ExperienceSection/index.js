@@ -4,6 +4,7 @@ import {
   Timeline,
   ExperiencesColumn,
   Experience,
+  SubExperience,
   Info,
   Bar,
   Point,
@@ -17,6 +18,7 @@ import {
   BlockNote,
   NoteWrapper,
   NotePoint,
+  BlockIntro,
   BlockCompany,
   BlockDuration,
   ExperienceH1,
@@ -35,6 +37,8 @@ import {
 
 const ExperienceSection = () => {
   const changeActiveExperience = (experience, height) => {
+    console.log('experience: ',experience)
+    console.log('height: ', height)
     if (document.getElementById(experience).style.visibility === 'hidden') {
       document.getElementById(experience).style = `visibility: visible; height: ${height}px; opacity: 1;`
     } else {
@@ -44,19 +48,18 @@ const ExperienceSection = () => {
 
   const toggleSubPoints = (subWrapper, subPoints) => {
     if (document.getElementById(subWrapper).style.visibility !== 'visible') {
-      document.getElementById(subWrapper).style = 'visibility: visible; height: auto';
+      document.getElementById(subWrapper).style = 'visibility: visible;';
       
       for (const point of subPoints) {
-        document.getElementById(point).style = `height:50px; visibility: visible; opacity: 1;`;
+        document.getElementById(point).style = `height:50px; visibility: visible; opacity: 1; margin-bottom: 50px;`;
       }
       
     } else {
-
       for (const point of subPoints) {
         document.getElementById(point).style = 'height: 0px; opacity: 0;'
         const pointInfo = point + 'Info';
         if (document.getElementById(pointInfo).style.visibility !== 'hidden') {
-          document.getElementById(pointInfo).style = 'visibility: hidden; height: 0px; opacity: 0;';
+          document.getElementById(pointInfo).style = 'visibility: hidden; height: 0px; opacity: 0; margin-bottom: 0px;';
         }
       }
       document.getElementById(subWrapper).style = 'visibility: hidden;';
@@ -68,12 +71,16 @@ const ExperienceSection = () => {
     document.getElementById('experience1').style = 'visibility: visible; height: 200px; opacity: 1;';
   }, [])
 
-  function BlockSummary({title, href, at}) {
+  function BlockSummary({title, href, at, info}) {
     return (
-      <BlockTitle>
-        {title}
-        <b> <BlockCompany href={href} target='_blank'> @ {at}</BlockCompany></b>
-      </BlockTitle>
+      <BlockIntro>
+        <BlockTitle
+          onClick={() => changeActiveExperience(info.id, info.height)}
+        >
+          {title}
+        </BlockTitle>
+        <BlockCompany href={href} target='_blank'> @ {at}</BlockCompany>
+      </ BlockIntro>
     )
   }
 
@@ -99,18 +106,19 @@ const ExperienceSection = () => {
     )
   }
 
-  function ExperienceBlock({ id, logo, expInfo, height }) {
+  function ExperienceBlock({ id, logo, expInfo }) {
     return (
       <Experience>
         <PointRow>
           <Point 
             src={logo}
-            onClick={() => changeActiveExperience(id, height)}
+            onClick={() => changeActiveExperience(id, expInfo.height)}
           />
           <BlockSummary 
             title={expInfo.title} 
             href={expInfo.href} 
             at={expInfo.at} 
+            info={{id: id, height: expInfo.height}}
           />
         </PointRow>
         <BlockInfo 
@@ -127,7 +135,7 @@ const ExperienceSection = () => {
     const subPoints = experiences.map((experience) => {
       experienceIds.push(experience.id);
       return (
-        <Experience key={experience.id}>
+        <SubExperience key={experience.id}>
           <SubPointRow
             id={experience.id}>
             <SubPoint 
@@ -138,6 +146,7 @@ const ExperienceSection = () => {
               title={experience.title} 
               href={experience.href} 
               at={experience.at}
+              info={{id: experience.id, height: experience.height}}
             />
           </SubPointRow>
           <BlockInfo 
@@ -145,7 +154,7 @@ const ExperienceSection = () => {
             duration={experience.duration} 
             notes={experience.notes}
           />
-        </Experience>
+        </SubExperience>
       )
     })
     

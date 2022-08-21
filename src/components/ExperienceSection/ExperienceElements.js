@@ -48,6 +48,11 @@ export const Experience = styled.div`
     margin-bottom: 50px;
 `
 
+export const SubExperience = styled.div`
+    transition: all 0.25s ease;
+    position: relative;
+`
+
 export const Info = styled.div`
     position:relative;
     height: 0px;
@@ -119,7 +124,7 @@ export const SubPoint = styled.img`
     height: 60px;
     width: 60px;
     transition: ease-in-out 0.25s;
-    
+
     &:hover {
         transform: translateX(-52%) scale(1.05);
     }
@@ -153,15 +158,30 @@ export const BlockNote = styled.div`
     flex: 1;
 `
 
+export const BlockIntro = styled.div`
+    gap: 6px;
+    display: flex;
+`
+
 export const BlockTitle = styled.h2`
     font-size: 25px;
     color: white;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.01) translate(-1px,-1px);
+    }
 `
 
 export const BlockCompany = styled.a`
     color: green;
+    font-weight: bold;
+    font-size: 24px;
     &:link { text-decoration: none; }
     &:visited { text-decoration: none; }
-    &:hover { text-decoration: none; }
+    &:hover { 
+        text-decoration: none; 
+        transform: scale(1.01) translate(1px,-1px);
+    }
     &:active { text-decoration: none; }
 `
