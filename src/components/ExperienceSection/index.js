@@ -147,7 +147,7 @@ const ExperienceSection = () => {
               title={experience.title} 
               href={experience.href} 
               at={experience.at}
-              info={{id: experience.id, height: experience.height}}
+              info={{id: experience.id + 'Info', height: experience.height}}
             />
           </SubPointRow>
           <BlockInfo 
@@ -263,9 +263,9 @@ const ExperienceSection = () => {
                   href: 'href',
                   duration: 'April 2021 - Present',
                   logo: GCCLogo2,
-                  height: 100,
+                  height: 80,
                   notes: [
-                    'test'
+                    'Accepted, processed, sorted, and delivered incoming and interoffice mail to the proper recipients.'
                   ]
                 },
                 {
@@ -275,9 +275,9 @@ const ExperienceSection = () => {
                   href: '//mobile.twitter.com/prevostconstruc',
                   duration: 'May - August 2020',
                   logo: PrevostLogo,
-                  height: 100,
+                  height: 80,
                   notes: [
-                    'fard'
+                    'Assisted in the construction and destruction of portables for public schools within the local tri-state area.'
                   ]
                 },
                 {
@@ -287,9 +287,9 @@ const ExperienceSection = () => {
                   href: '//www.rivervalleyranch.com',
                   duration: 'June 2017 - June 2020',
                   logo: RVRLogo,
-                  height: 100,
+                  height: 80,
                   notes: [
-                    ''
+                    'Washed wares for over 300 people, and assisted in cleaning, food preparation, and serving.'
                   ]
                 }
               ]
