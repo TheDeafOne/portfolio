@@ -48,11 +48,6 @@ export const Experience = styled.div`
     margin-bottom: 50px;
 `
 
-export const SubExperience = styled.div`
-    transition: all 0.25s ease;
-    position: relative;
-`
-
 export const Info = styled.div`
     position:relative;
     height: 0px;
@@ -60,6 +55,7 @@ export const Info = styled.div`
     transition: all 0.25s ease;
     margin-left: 75px;
     visibility: hidden;
+    margin-bottom: 0px;
     opacity: 0;
 `
 
