@@ -27,7 +27,12 @@ const WelcomeSection = () => {
                 </WelcomeH1>
                 <WelcomeBtnWrapper>
                     <Button 
-                        to='/projects'
+                        to='contact'
+                        smooth='true'
+                        duration={2000}
+                        spy={true}
+                        exact='true'
+                        offset={-60}
                         primary='true'
                         dark='true'
                         onMouseEnter={onHover} 
