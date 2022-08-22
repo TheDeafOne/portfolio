@@ -5,11 +5,14 @@ import { animateScroll as scroll } from 'react-scroll';
 import { 
     Nav, 
     NavbarContainer, 
-    NavLogo, MobileIcon, 
+    NavLogo, 
+    MobileIcon, 
     NavMenu, 
     NavItem, 
-    NavLinks 
+    NavLinks,
+    NavResume
 } from './NavbarElements';
+import Resume from './resume.pdf';
 
 const Navbar = ({ toggle }) => {
     const [scrollNav, setScrollNav] = useState(false);
@@ -96,6 +99,11 @@ const Navbar = ({ toggle }) => {
                                 offset={-60}>
                                 Contact Me
                             </NavLinks>
+                        </NavItem>
+                        <NavItem>
+                            <NavResume href={Resume} target='_blank'>
+                                Resume
+                            </NavResume>
                         </NavItem>
                     </NavMenu>
                 </NavbarContainer>

@@ -91,3 +91,23 @@ export const NavLinks = styled(LinkS)`
         color: #01bf71;
     }
 `
+
+export const NavResume = styled.a`
+    display: flex;
+    height: 35px;
+    width: 100px;
+    border: 1px solid green;
+    border-radius: 10px;
+    line-height: 1;
+    display: inline-block;
+    position: relative;
+    margin: 13px -100px 0 30px;
+    padding-top: 7px;
+    text-decoration: none;
+    color: #039105;
+    cursor: pointer;
+
+    &:hover {
+        background-color: #007d0025;
+    }
+`
