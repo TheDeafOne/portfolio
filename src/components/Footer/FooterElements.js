@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export const FooterContainer = styled.footer`
     background-color: #101522;
-    height: 120px;
+    height: 100px;
 `
 
 export const FooterWrap = styled.div`
@@ -44,7 +44,6 @@ export const SocialLogo = styled(Link)`
 
 export const WebsiteRights = styled.small`
     color: #fff;
-    margin-bottom: 10px;
     display: flex;
     justify-content: center;
 `
@@ -58,7 +57,7 @@ export const SocialIcons = styled.div`
 export const SmallSocialIconLink = styled.a`
     color: #fff;
     font-size: 24px;
-    margin: 16px;
+    margin: 0 16px 10px 16px;
 `
 
 export const LargeSocialIconLink = styled.a`

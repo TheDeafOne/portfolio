@@ -37,7 +37,7 @@ const Footer = () => {
                         </SmallSocialIconLink>
                     </SocialIcons>
                     <WebsiteRights>Keegan Woodburn © {new Date().getFullYear()}
-                    All rights reserved.</WebsiteRights>
+                    &nbsp;All rights reserved.</WebsiteRights>
                 </SocialMediaWrap>
             </SocialMedia>
         </FooterWrap>
