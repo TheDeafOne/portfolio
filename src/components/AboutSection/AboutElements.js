@@ -1,10 +1,10 @@
 import styled from 'styled-components';
-import { Link as LinkR} from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { SCHEME } from '../../GlobalStyle';
 
 export const AboutContainer = styled.div`
     color: #fff;
-    background: ${({ lightBg }) => (lightBg ? '#f9f9f9' : '#060606')};
+    background: ${SCHEME.bg};
     height: 700px;
     
     @media screen and (max-width: 768) {
@@ -37,7 +37,7 @@ export const Heading = styled.h1`
     font-size: 48px;
     line-height: 1.1;
     font-weight: 600;
-    color: #f7f8fa;
+    color: ${SCHEME.text1};
     text-align: center;
 
     @media screen and (max-width: 480px) {
@@ -46,12 +46,12 @@ export const Heading = styled.h1`
 `
 
 export const AboutH2 = styled.h2`
-    color: white;
+    color: ${SCHEME.text1};
     margin-bottom: 10px;
 `
 
 export const AboutH3 = styled.h3`
-    color: white;
+    color: ${SCHEME.text1};
     margin-bottom: 20px;
 `
 
@@ -67,7 +67,7 @@ export const AboutP = styled.p`
     margin-bottom: 20px;
     font-size: 18px;
     line-height: 24px;
-    color: #fff;
+    color: ${SCHEME.text1};
 `
 
 export const ImgWrapper = styled.div`
@@ -76,8 +76,6 @@ export const ImgWrapper = styled.div`
     height: 100px;
     width: 40%;
 `
-
-
 
 export const Img = styled.img`
     width: 300px;
@@ -92,7 +90,7 @@ export const NavLinkS = styled(LinkS)`
         margin-bottom: 35px;
         font-size: 18px;
         line-height: 24px;
-        color: #01bf71;
+        color: ${SCHEME.primary};
         cursor: pointer;
     `
     
@@ -101,7 +99,7 @@ export const NavLinkS = styled(LinkS)`
         margin-bottom: 35px;
         font-size: 18px;
         line-height: 24px;
-        color: #01bf71;
+        color: ${SCHEME.primary};
         &:link { text-decoration: none; }
         &:visited { text-decoration: none; }
         &:hover { text-decoration: none; }

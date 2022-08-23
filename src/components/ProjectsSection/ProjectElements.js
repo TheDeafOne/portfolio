@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { SCHEME } from '../../GlobalStyle';
 
 const modalZ = 1000;
 const modalBg = 'white';
@@ -14,7 +15,7 @@ export const ProjectsContainer = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background: #010606;
+    background: ${SCHEME.bg};
 
     @media screen and (max-width: 768px) {
         height: 1100px;
@@ -28,7 +29,7 @@ export const ProjectsContainer = styled.div`
 export const ProjectsH1 = styled.h1`
     margin-top: 60px;
     font-size: 4rem;
-    color: #fff;
+    color: ${SCHEME.text1};
 
     @media screen and (max-width: 480px) {
         font-size: 2rem;
@@ -36,8 +37,10 @@ export const ProjectsH1 = styled.h1`
 `
 
 export const ProjectsH2 = styled.h2`
-    font-size: 1rem;
-    margin-bottom: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    margin-top: 10px;
+    color: ${SCHEME.text1}
 `
 
 export const ProjectsP = styled.p`
@@ -77,7 +80,7 @@ export const ProjectTitle = styled.h1`
     font-size: 24px;
     line-height: 1.1;
     font-weight: 600;
-    color: #f7f8fa;
+    color: ${SCHEME.text1};
     text-align: center;
     pointer-events: none;
 `
@@ -87,9 +90,11 @@ export const ProjectP = styled.p`
     margin-bottom: 20px;
     font-size: 18px;
     line-height: 24px;
-    color: #fff;
+    color: ${SCHEME.text1};
     text-align: center;
     pointer-events:none;
+    padding-left: 20px;
+    padding-right: 20px;
 `
 
 
@@ -100,7 +105,6 @@ export const ProjectInfo = styled.div`
     left: 0;
     position: absolute;
     background-color: rgba(0,0,0,0.7);
-    /* color: #fff; */
     display: flex;
     flex-direction: column;
     align-items: center;

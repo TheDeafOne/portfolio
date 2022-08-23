@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import { Link as LinkR} from 'react-router-dom';
 import { Link as LinkS } from 'react-scroll';
+import { SCHEME } from '../../GlobalStyle';
 
 export const Nav = styled.nav`
-    background: ${({ scrollNav }) => (scrollNav ? '#000' : 'transparent')};
+    background: ${({ scrollNav }) => (scrollNav ? SCHEME.fg : 'transparent')};
     height: ${({ scrollNav }) => (scrollNav ? '60px' : '80px')};
     margin-top: ${({ scrollNav }) => (scrollNav ? '-60px' : '-80px')};
     display: flex;
@@ -16,7 +17,7 @@ export const Nav = styled.nav`
     transition: all .2s linear;
 
     @media screen and (max-width: 960px) {
-        transitions: 0.8s all ease;
+        transition: 0.8s all ease;
         height: 60px;
     }
 `
@@ -32,7 +33,7 @@ export const NavbarContainer = styled.div`
 `
 
 export const NavLogo = styled(LinkR)`
-    color: #fff;
+    color: ${SCHEME.text1};
     cursor: pointer;
     font-size: ${({ scrollNav }) => (scrollNav ? '1.4rem' : '1.6rem')};
     display: flex;
@@ -52,7 +53,7 @@ export const MobileIcon = styled.div`
         transform: translate(-100%, 45%);
         font-size: 1.8rem;
         cursor: pointer;
-        color: #fff;
+        color: ${SCHEME.text1};
     }
 `
 
@@ -74,7 +75,7 @@ export const NavItem = styled.li`
 `
 
 export const NavLinks = styled(LinkS)`
-    color: #fff;
+    color: ${SCHEME.text1};
     z-index: 2;
     display: flex;
     align-items: center;
@@ -84,11 +85,11 @@ export const NavLinks = styled(LinkS)`
     cursor: pointer;
 
     &.active {
-        color: #01bf71;
+        color: ${SCHEME.primary};
     }
 
     &:hover {
-        color: #01bf71;
+        color: ${SCHEME.primary};
     }
 `
 
@@ -96,18 +97,20 @@ export const NavResume = styled.a`
     display: flex;
     height: 35px;
     width: 100px;
-    border: 1px solid green;
-    border-radius: 10px;
     line-height: 1;
     display: inline-block;
     position: relative;
     margin: 13px -100px 0 30px;
     padding-top: 7px;
     text-decoration: none;
-    color: #039105;
+    border: 1px solid ${SCHEME.primary};
+    color: ${SCHEME.primary};
+    border-radius: 8px;
     cursor: pointer;
+    transition: ease-in-out 0.25s;
 
     &:hover {
-        background-color: #007d0025;
+        background-color: ${SCHEME.secondary + '50'};
+        transition: ease-in-out 0.25s;
     }
 `

@@ -1,15 +1,15 @@
 import styled from 'styled-components';
-
+import { SCHEME } from '../../GlobalStyle';
 export const ExperienceContainer = styled.div`
     min-height: 100vh;
-    background-color:black;
+    background-color: ${SCHEME.bg};
     height: auto;
 `
 
 export const ExperienceH1 = styled.h1`
     padding-top: 60px;
     font-size: 4rem;
-    color: #fff;
+    color: ${SCHEME.text1};
     text-align: center;
 
     @media screen and (max-width: 480px) {
@@ -20,7 +20,7 @@ export const ExperienceH1 = styled.h1`
 export const ExperienceH2 = styled.h2`
     margin-top: 10px;
     font-size: 1.3rem;
-    color: #fff;
+    color: ${SCHEME.text1};
     text-align: center;
 
     @media screen and (max-width: 480px) {
@@ -66,7 +66,7 @@ export const Bar = styled.div`
 `
 
 export const PointRow = styled.div`
-    background-color: black;
+    background-color: ${SCHEME.bg};
     display: flex;
     align-items: center;
     width: 700px;
@@ -96,7 +96,7 @@ export const SubPointBlock = styled.div`
 `
 
 export const SubPointRow = styled.div`
-    background-color: black;
+    background-color: ${SCHEME.bg};
     display: flex;
     align-items: center;
     transition: ease-in-out 0.3s;
@@ -127,12 +127,12 @@ export const SubPoint = styled.img`
 `
 
 export const BlockDuration = styled.h3`
-    color: grey;
+    color: ${SCHEME.text1};
     margin: -15px 0 20px 2px;
 `
 
 export const BlockList = styled.ul`
-    color: white;
+    color: ${SCHEME.text1};
     font-size: 16;
     list-style: none;
     font-size: 20px;
@@ -140,7 +140,7 @@ export const BlockList = styled.ul`
 
 export const NotePoint = styled.li`
     &::before {
-        color: green;
+        color: ${SCHEME.primary};
         content: '▹ ';
     }
 `
@@ -161,7 +161,7 @@ export const BlockIntro = styled.div`
 
 export const BlockTitle = styled.h2`
     font-size: 25px;
-    color: white;
+    color: ${SCHEME.text1};
     cursor: pointer;
 
     &:hover {
@@ -170,7 +170,7 @@ export const BlockTitle = styled.h2`
 `
 
 export const BlockCompany = styled.a`
-    color: green;
+    color: ${SCHEME.primary};
     font-weight: bold;
     font-size: 24px;
     &:link { text-decoration: none; }

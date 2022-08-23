@@ -1,13 +1,14 @@
 import styled from 'styled-components';
 import { MdKeyboardArrowRight, MdArrowForward } from 'react-icons/md';
+import { SCHEME } from '../../GlobalStyle';
 
 export const WelcomeContainer = styled.div`
-    background: black;
+    background: ${SCHEME.bg};
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 0 30px;
-    height: 100vh;
+    height: 110vh;
     position: relative;
     z-index: 1;
 
@@ -18,16 +19,7 @@ export const WelcomeContainer = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(
-            180deg, 
-            rgba(0, 0, 0, 0.2) 0%, 
-            rgba(0,0,0,0.6) 100%
-        ), 
-        linear-gradient(
-            180deg, 
-            rgba(0, 0, 0, 0.2) 0%, 
-            transparent 100%
-        );
+        background: ${SCHEME.bg}
         z-index: 2;
     }
 `
@@ -53,7 +45,7 @@ export const WelcomeContent = styled.div`
 `
 
 export const WelcomeH1 = styled.h1`
-    color: #fff;
+    color: ${SCHEME.text1};
     font-size: 48px;
     text-align: center;
 
@@ -68,7 +60,7 @@ export const WelcomeH1 = styled.h1`
 
 export const WelcomeP = styled.p`
     margin-top: 24px;
-    color: #fff;
+    color: ${SCHEME.text1};
     font-size: 24px;
     text-align: center;
     max-width: 600px;

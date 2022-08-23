@@ -1,11 +1,11 @@
 import styled, { css }  from 'styled-components';
-
+import { SCHEME } from '../../GlobalStyle'
 const green = '#1ECD97';
 const red = '#ED4337';
 const gray = '#bbbbbb';
 
 export const ContactContainer = styled.div`
-    background-color: black;
+    background-color: ${SCHEME.bg};
     padding-top: 40px;
     padding-bottom: 40px;
 `
@@ -17,25 +17,25 @@ export const InfoSection = styled.div`
 
 export const InfoLink = styled.a`
     margin-left: 6px;
-    color: lightblue;
+    color: ${SCHEME.primary};
 `
 
 export const InfoH1 = styled.h1`
     text-align: center;
     margin-bottom: 10px;
-    color: #fff;
+    color: ${SCHEME.text1};
 `
 
 export const InfoH2 = styled.h2`
     text-align: center;
     margin-bottom: 5px;
-    color: #fff;
+    color: ${SCHEME.text1};
 `
 
 export const InfoH3 = styled.h3`
     margin-top: 20px;
     text-align: center;
-    color: #fff;
+    color: ${SCHEME.text1};
 `
 
 export const FormSection = styled.div`
@@ -81,7 +81,7 @@ export const ContactInput = styled.input`
 
 export const validSubmit = (confirmation) => css`
     font-size: 13px;
-    color: white;
+    color: ${SCHEME.text1};
     background: ${confirmation ? green : red};
     border: ${confirmation ? green: red };
     transition: all 0.1s ease;
@@ -102,17 +102,16 @@ export const ContactFormSubmit = styled.button`
     text-align: center;
     height: 40px;
     width: 130px;
-    border-radius: 40px;
-    background: black;
-    border: 2px solid ${green};
-    color: ${green};
+    background: ${SCHEME.bg};
+    border: 2px solid ${SCHEME.primary};
+    border-radius: 10px;
+    color: ${SCHEME.primary};
     letter-spacing:1px;
     text-shadow:0;
     cursor: pointer;
     transition: all 0.2s ease;
     &:hover {
-        color: white;
-        background: ${green};
+        background: ${SCHEME.secondary + '50'};
         transition: all 0.3s ease;
 
     }
@@ -153,7 +152,7 @@ export const ContactInputError = styled.li`
 `
 
 export const ContactFormTip = styled.p`
-    color: grey;
+    color: ${SCHEME.text2};
     position: absolute;
     bottom: 35px;
     right: 10px;

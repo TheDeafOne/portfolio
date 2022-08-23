@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const HeaderRow = styled.div`
     width: 100%;
     height: 100px;
-    background-color: red;
 `
 
 export const ModalTitle = styled.h1`

@@ -1,7 +1,8 @@
 import styled from 'styled-components';
+import { SCHEME } from '../../GlobalStyle';
 
 export const SkillsContainer = styled.div`
-    background-color: black;
+    background-color: ${SCHEME.bg};
     display: flex;
     flex-direction: column;    
     position: relative;
@@ -14,14 +15,14 @@ export const SkillsH1 = styled.h1`
     font-size: 60px;
     line-height: 1.1;
     font-weight: 600;
-    color: #f7f8fa;
+    color: ${SCHEME.text1};
 `
 
 export const SkillsWrapper = styled.div`
     display: grid;    
     grid-template-columns: repeat(3, 1fr);
     margin: 10px auto 10px auto;
-    background-color: black;
+    background-color: ${SCHEME.bg};
     width: 100%;
 `
 
@@ -55,8 +56,7 @@ export  const SkillTitle = styled.h1`
     line-height: 1.1;
     font-weight: 600;
     text-align: center;
-    color: #f7f8fa;
-
+    color: ${SCHEME.text1};
 `
 
 export const SkillP = styled.p`
@@ -65,6 +65,6 @@ export const SkillP = styled.p`
     font-size: 18px;
     line-height: 24px;
     text-align: center;
-    color: #fff;
+    color: ${SCHEME.text1};
 `
 
