@@ -2,10 +2,8 @@ import styled from 'styled-components';
 import { SCHEME } from '../../GlobalStyle';
 
 const modalZ = 1000;
-const modalBg = 'white';
-const modalWidth = '600px';
+const modalBg = SCHEME.bg;
 const space = '2.4rem';
-const red = '#F44336';
 const t = '0.5s';
 const ease = `all ${t} cubic-bezier(0.23, 1, 0.32, 1)`;
 
@@ -40,7 +38,7 @@ export const ProjectsH2 = styled.h2`
     font-size: 1.2rem;
     margin-bottom: 40px;
     margin-top: 10px;
-    color: ${SCHEME.text1}
+    color: ${SCHEME.text1};
 `
 
 export const ProjectsP = styled.p`
@@ -177,9 +175,7 @@ export const ProjectCard = styled.div`
     }
 `
 
-
 export const ModalTransitionDiv = styled.div`
-    /* ${ProjectCard}; */
     will-change: transform, opacity;
     position: absolute;
     top: 0;

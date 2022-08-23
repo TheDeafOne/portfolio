@@ -212,7 +212,7 @@ const Projects = () => {
                     </ProjectCard>
                     <ModalTransitionDiv id='thirdModalTD'/>
                 </CardWrapper>
-                <CardWrapper>
+                {/* <CardWrapper>
                     <ProjectCard
                         onClick={(e) => {
                             setModalTrigger(e);
@@ -268,7 +268,7 @@ const Projects = () => {
                         </ProjectInfo>
                     </ProjectCard>
                     <ModalTransitionDiv id='sixthModalTD'/>
-                </CardWrapper>
+                </CardWrapper> */}
             </ProjectsWrapper>
             <ModalBackground active={isOpen} onClick={handleCloseModal}>
                 <ProjectModal active={isOpen}>
