@@ -55,8 +55,14 @@ export const SocialIcons = styled.div`
     align-items: center;
 `
 
-export const SocialIconLink = styled.a`
+export const SmallSocialIconLink = styled.a`
     color: #fff;
     font-size: 24px;
+    margin: 16px;
+`
+
+export const LargeSocialIconLink = styled.a`
+    color: #fff;
+    font-size: 36px;
     margin: 16px;
 `

@@ -33,6 +33,7 @@ import GCCLogo2 from './Logos/gcc-logo2.png';
 import PrevostLogo from './Logos/prevost-construction-logo.jpeg';
 import RVRLogo from './Logos/rvr-logo.png';
 import KWLogo from './Logos/kw-logo.png';
+import Profile from './Misc/about-me.png'
 
 export {
     BigqueryLogo,
@@ -69,5 +70,6 @@ export {
     GCCLogo2,
     PrevostLogo,
     RVRLogo,
-    KWLogo
+    KWLogo,
+    Profile
 }

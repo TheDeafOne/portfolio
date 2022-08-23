@@ -17,6 +17,19 @@ export const AboutWrapper = styled.div`
     height: 400px;
     margin-left: 5%;
 `
+
+export const AboutColumn1 = styled.div`
+    height: 100%;
+    margin: -30px 100px 0 100px;
+`
+
+export const AboutColumn2 = styled.div`
+    margin-right: 50px;
+`
+
+export const AboutRow = styled.div`
+    display: flex;
+`
     
 export const Heading = styled.h1`
     padding-top: 10px;
@@ -25,15 +38,25 @@ export const Heading = styled.h1`
     line-height: 1.1;
     font-weight: 600;
     color: #f7f8fa;
+    text-align: center;
 
     @media screen and (max-width: 480px) {
         font-size: 32px;
     }
 `
 
+export const AboutH2 = styled.h2`
+    color: white;
+    margin-bottom: 10px;
+`
+
+export const AboutH3 = styled.h3`
+    color: white;
+    margin-bottom: 20px;
+`
+
 export const TextWrapper = styled.div`
     display: inline-block;
-    max-width: 50%;
     padding-top: 0;
     padding-bottom: 60px;
     margin-right: 5%;
@@ -52,13 +75,16 @@ export const ImgWrapper = styled.div`
     max-width: 555px;
     height: 100px;
     width: 40%;
-    `
+`
+
+
 
 export const Img = styled.img`
-    width: 100%;
-    margin: 0 0 10px 0;
+    width: 300px;
+    margin: auto 0 auto 0;
     padding-right: 0;
     padding-bottom: 10px;
+    border-radius: 50%;
 `
 
 export const NavLinkS = styled(LinkS)`

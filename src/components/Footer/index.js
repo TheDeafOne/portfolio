@@ -11,7 +11,7 @@ import {
     SocialMedia,
     SocialMediaWrap,
     SocialIcons,
-    SocialIconLink,
+    SmallSocialIconLink,
     WebsiteRights
 
 } from './FooterElements';
@@ -23,18 +23,18 @@ const Footer = () => {
             <SocialMedia>
                 <SocialMediaWrap>
                     <SocialIcons>
-                        <SocialIconLink href='//www.linkedin.com/in/keegan-woodburn-53b1bb20b/' target='_blank' aria-label='LinkedIn'>
+                        <SmallSocialIconLink href='//www.linkedin.com/in/keegan-woodburn-53b1bb20b/' target='_blank' aria-label='LinkedIn'>
                             <FaLinkedin />
-                        </SocialIconLink>
-                        <SocialIconLink href='//github.com/TheDeafOne' target='_blank' aria-label='GitHub'>
+                        </SmallSocialIconLink>
+                        <SmallSocialIconLink href='//github.com/TheDeafOne' target='_blank' aria-label='GitHub'>
                             <FaGithub />
-                        </SocialIconLink>
-                        <SocialIconLink href='//www.instagram.com/thefakekeeganw/' target='_blank' aria-label='Instagram'>
+                        </SmallSocialIconLink>
+                        <SmallSocialIconLink href='//www.instagram.com/thefakekeeganw/' target='_blank' aria-label='Instagram'>
                             <FaInstagram />
-                        </SocialIconLink>
-                        <SocialIconLink href='//stackoverflow.com/users/17621345/thedeafone' target='_blank' aria-label='Stack Overflow'>
+                        </SmallSocialIconLink>
+                        <SmallSocialIconLink href='//stackoverflow.com/users/17621345/thedeafone' target='_blank' aria-label='Stack Overflow'>
                             <FaStackOverflow />
-                        </SocialIconLink>
+                        </SmallSocialIconLink>
                     </SocialIcons>
                     <WebsiteRights>Keegan Woodburn © {new Date().getFullYear()}
                     All rights reserved.</WebsiteRights>
