@@ -19,7 +19,7 @@ export const WelcomeContainer = styled.div`
         left: 0;
         right: 0;
         bottom: 0;
-        background: ${SCHEME.bg}
+        background: ${SCHEME.bg};
         z-index: 2;
     }
 `
