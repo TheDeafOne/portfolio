@@ -20,6 +20,7 @@ import {
   HadoopLogo,
   ReactLogo,
   JavascriptLogo,
+  BigqueryLogo,
   MatlabLogo,
   GitLogo
 } from '../../images';
