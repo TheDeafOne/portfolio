@@ -2,7 +2,6 @@ import styled, { css }  from 'styled-components';
 import { SCHEME } from '../../GlobalStyle'
 const green = '#1ECD97';
 const red = '#ED4337';
-const gray = '#bbbbbb';
 
 export const ContactContainer = styled.div`
     background-color: ${SCHEME.bg};

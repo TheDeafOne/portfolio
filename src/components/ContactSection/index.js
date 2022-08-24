@@ -34,7 +34,6 @@ const ContactSection = () => {
   const [submitConfirmation, setSubmitConfirmation] = useState(false);
   const [submitError, setSubmitError] = useState(true);
   const [submitIcon, setSubmitIcon] = useState('');
-  const [confirmationToggle, setConfirmationToggle] = useState(false);
 
   const [canReset, setCanReset] = useState(false);
 
@@ -77,7 +76,7 @@ const handleSubmitClick = () => {
   }
   
   const handlePhoneChange = (value) => {
-    if (/^[\+]?[(]?[0-9]{0,3}[)]?[-\s\.]?[0-9]{0,3}[-\s\.]?[0-9]{0,6}$/im.test(value)) {
+    if (/^[+]?[(]?[0-9]{0,3}[)]?[-\s.]?[0-9]{0,3}[-\s.]?[0-9]{0,6}$/im.test(value)) {
       setPhoneNumber(value);
     }
   }
@@ -116,7 +115,7 @@ const handleSubmitClick = () => {
       setPhoneNumber('');
       reset({room: null}, { keepValues: false });
     }
-  }, [canReset])
+  }, [canReset, reset])
   
   useEffect(() => {
     if (submitConfirmation) {

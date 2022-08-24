@@ -35,13 +35,11 @@ const Projects = () => {
     const [activeModal, setActiveModal] = useState(undefined);
     const [modalTrigger, setModalTrigger] = useState(undefined);
     const [modalId, setModalId] = useState('');
-    const [modalTranslation, setModalTranslation] = useState([]);
 
     const handleCloseModal = () => {
         setIsOpen(false);
         
         const transDiv = document.getElementById((modalId + 'TD'));
-        const [transX, transY] = modalTranslation;
     
         transDiv.style.opacity = 1;
         transDiv.style.transform = `translate(0) scale(1)`;
@@ -83,7 +81,6 @@ const Projects = () => {
             transY = Math.round(yc - trigProps.top - trigProps.height / 2) + 85; // +85 to hide from the top of the page
             
             // track scale and transition for managing transition reset
-            setModalTranslation([transX, transY]);
             
             transDiv.style.zIndex = 3;
             transDiv.style.opacity = 1;
@@ -130,29 +127,29 @@ const Projects = () => {
         );
     }
 
-    function FourthModal() {
-        return (
-            <ModalContent id='fourthModal'>
-                This is the second modal, which would reference to a previously made modal
-            </ModalContent>
-        );
-    }
+    // function FourthModal() {
+    //     return (
+    //         <ModalContent id='fourthModal'>
+    //             This is the second modal, which would reference to a previously made modal
+    //         </ModalContent>
+    //     );
+    // }
 
-    function FifthModal() {
-        return (
-            <ModalContent id='fifthModal'>
-                This is the second modal, which would reference to a previously made modal
-            </ModalContent>
-        );
-    }
+    // function FifthModal() {
+    //     return (
+    //         <ModalContent id='fifthModal'>
+    //             This is the second modal, which would reference to a previously made modal
+    //         </ModalContent>
+    //     );
+    // }
 
-    function SixthModal() {
-        return (
-            <ModalContent id='sixthModal'>
-                This is the second modal, which would reference to a previously made modal
-            </ModalContent>
-        );
-    }
+    // function SixthModal() {
+    //     return (
+    //         <ModalContent id='sixthModal'>
+    //             This is the second modal, which would reference to a previously made modal
+    //         </ModalContent>
+    //     );
+    // }
 
     return (
         <ProjectsContainer id="projects">

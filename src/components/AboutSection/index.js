@@ -2,8 +2,6 @@ import React from 'react'
 import {
     AboutContainer,
     Heading,
-    AboutH2,
-    AboutH3,
     AboutWrapper,
     AboutColumn1,
     AboutColumn2,
