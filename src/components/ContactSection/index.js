@@ -76,7 +76,7 @@ const handleSubmitClick = () => {
   }
   
   const handlePhoneChange = (value) => {
-    if (/^[+]?[(]?[0-9]{0,3}[)]?[-\s\.]?[0-9]{0,3}[-\s\.]?[0-9]{0,6}$/im.test(value)) {
+    if (/^[+]?[(]?[0-9]{0,3}[)]?[-\s.]?[0-9]{0,3}[-\s.]?[0-9]{0,6}$/im.test(value)) {
       setPhoneNumber(value);
     }
   }

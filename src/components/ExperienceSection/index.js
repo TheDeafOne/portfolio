@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useEffect } from 'react'
 import {
   ExperienceContainer,
   Timeline,
@@ -11,7 +11,6 @@ import {
   SubPointBlock,
   SubPointRow,
   SubPoint,
-  SummaryBuffer,
   BlockTitle,
   BlockList,
   BlockNote,

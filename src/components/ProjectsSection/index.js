@@ -35,7 +35,6 @@ const Projects = () => {
     const [activeModal, setActiveModal] = useState(undefined);
     const [modalTrigger, setModalTrigger] = useState(undefined);
     const [modalId, setModalId] = useState('');
-    const [modalTranslation, setModalTranslation] = useState([]);
 
     const handleCloseModal = () => {
         setIsOpen(false);
