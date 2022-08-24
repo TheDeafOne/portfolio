@@ -5,6 +5,10 @@ import {
     ProjectsWrapper,
     ProjectsH1,
     ProjectsH2,
+    ProjectsH3,
+    ProjectsH4,
+    GitButton,
+    GitIcon,
     ProjectTitle,
     ProjectP,
     ProjectInfo,
@@ -23,6 +27,8 @@ import {
     ModalDescription,
     ModalImage
 } from './ModalElements';
+
+import { FaGithub } from 'react-icons/fa';
 
 const Projects = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -151,7 +157,6 @@ const Projects = () => {
     return (
         <ProjectsContainer id="projects">
             <ProjectsH1>Projects</ProjectsH1>
-            <ProjectsH2>Some personal projects I've worked on in my free time</ProjectsH2>
             <ProjectsWrapper>
                 <CardWrapper>
                     <ProjectCard 
@@ -270,6 +275,20 @@ const Projects = () => {
                     <ModalTransitionDiv id='sixthModalTD'/>
                 </CardWrapper> */}
             </ProjectsWrapper>
+            <ProjectsH3>In my free time, I continue to work on many different projects.</ProjectsH3>
+            <ProjectsH2>To see more of my projects...</ProjectsH2>
+            <GitButton
+                onClick={() => {
+                    window.open('//github.com/TheDeafOne', '_blank');
+                }}
+            >
+                <ProjectsH4>
+                    Check out my GitHub
+                </ProjectsH4>
+                <GitIcon>
+                    <FaGithub />
+                </GitIcon>
+            </GitButton>
             <ModalBackground active={isOpen} onClick={handleCloseModal}>
                 <ProjectModal active={isOpen}>
                     {activeModal}

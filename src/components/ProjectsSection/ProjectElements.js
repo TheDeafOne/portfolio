@@ -14,6 +14,7 @@ export const ProjectsContainer = styled.div`
     justify-content: center;
     align-items: center;
     background: ${SCHEME.bg};
+    padding-bottom: 100px;
 
     @media screen and (max-width: 768px) {
         height: 1100px;
@@ -35,10 +36,40 @@ export const ProjectsH1 = styled.h1`
 `
 
 export const ProjectsH2 = styled.h2`
-    font-size: 1.2rem;
-    margin-bottom: 40px;
+    color: ${SCHEME.text1};
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+`
+
+export const ProjectsH3 = styled.h3`
+    margin-bottom: 30px;
     margin-top: 10px;
     color: ${SCHEME.text1};
+`
+
+export const ProjectsH4 = styled.h4`
+    color: ${SCHEME.primary};
+`
+
+export const GitButton = styled.div`
+    height: 40px;
+    width: 200px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 1px solid ${SCHEME.primary};
+    cursor: pointer;
+
+    &:hover {
+        background-color: ${SCHEME.secondary + '50'};
+    }
+`
+
+export const GitIcon = styled.div`
+    color: ${SCHEME.primary};
+    margin-left: 5px;
 `
 
 export const ProjectsP = styled.p`
@@ -53,7 +84,8 @@ export const ProjectsWrapper = styled.div`
     grid-gap: 16px;
     padding: 0 50px;
     width: 100%;
-    height: 100%;
+    margin-top: 30px;
+    margin-bottom: 50px;
     @media screen and (max-width: 1000px) {
         grid-template-columns: 1fr 1fr;
     }
