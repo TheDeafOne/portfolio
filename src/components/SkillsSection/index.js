@@ -17,15 +17,9 @@ import {
   SparkLogo,
   MongodbLogo1,
   MysqlLogo1,
-  PostgresqlLogo,
-  BigtableLogo,
-  BigqueryLogo,
   HadoopLogo,
   ReactLogo,
-  NodejsLogo,
   JavascriptLogo,
-  HtmlLogo,
-  CssLogo,
   MatlabLogo,
   GitLogo
 } from '../../images';

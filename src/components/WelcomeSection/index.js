@@ -19,8 +19,6 @@ const WelcomeSection = () => {
     } 
     
 
-    const configTypewriter = new Typewriter()
-
     return (
         <WelcomeContainer>
             <WelcomeBg />
