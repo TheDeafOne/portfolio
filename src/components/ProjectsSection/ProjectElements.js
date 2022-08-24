@@ -50,7 +50,6 @@ export const ProjectsWrapper = styled.div`
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    align-items: center;
     grid-gap: 16px;
     padding: 0 50px;
     width: 100%;
