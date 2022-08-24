@@ -4,6 +4,7 @@ export const ExperienceContainer = styled.div`
     min-height: 100vh;
     background-color: ${SCHEME.bg};
     height: auto;
+    padding-bottom: 100px;
 `
 
 export const ExperienceH1 = styled.h1`

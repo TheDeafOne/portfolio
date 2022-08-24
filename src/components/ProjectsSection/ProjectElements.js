@@ -70,6 +70,7 @@ export const GitButton = styled.div`
 export const GitIcon = styled.div`
     color: ${SCHEME.primary};
     margin-left: 5px;
+    margin-top: 4px;
 `
 
 export const ProjectsP = styled.p`

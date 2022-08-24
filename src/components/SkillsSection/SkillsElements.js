@@ -7,6 +7,7 @@ export const SkillsContainer = styled.div`
     flex-direction: column;    
     position: relative;
     z-index: 1;
+    padding-bottom: 100px;
 `
 
 export const SkillsH1 = styled.h1`
