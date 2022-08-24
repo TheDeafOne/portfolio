@@ -62,8 +62,11 @@ export const GitButton = styled.div`
     border: 1px solid ${SCHEME.primary};
     cursor: pointer;
 
+    transition: all 0.25s ease-in-out;
+
     &:hover {
         background-color: ${SCHEME.secondary + '50'};
+        transition: all 0.25s ease-in-out;
     }
 `
 
