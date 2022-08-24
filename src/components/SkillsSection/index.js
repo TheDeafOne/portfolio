@@ -78,7 +78,7 @@ const SkillsSections = () => {
             Spark
           </SkillTitle>
           <SkillP>
-          o	I have significant experience with processing data with spark. It was introduced to me through my coursework and I have since used it both academically and professionally with PySpark and GoogleCloud’s Dataproc service.
+            I have significant experience with processing data with spark. It was introduced to me through my coursework and I have since used it both academically and professionally with PySpark and GoogleCloud’s Dataproc service.
           </SkillP>
         </Skill>
         <Skill>
