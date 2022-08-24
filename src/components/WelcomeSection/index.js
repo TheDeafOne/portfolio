@@ -9,6 +9,7 @@ import {
     ArrowRight
 } from './WelcomeElements';
 import { Button } from '../ButtonElements';
+import Typewriter from 'typewriter-effect';
 
 const WelcomeSection = () => {
     const [hover, setHover] = useState(false);
@@ -16,6 +17,9 @@ const WelcomeSection = () => {
     const onHover = () => {
         setHover(!hover);
     } 
+    
+
+    const configTypewriter = new Typewriter()
 
     return (
         <WelcomeContainer>
@@ -23,7 +27,19 @@ const WelcomeSection = () => {
 
             <WelcomeContent>
                 <WelcomeH1>
-                    Hi,<br/>I'm Keegan,<br/>software engineer
+                    Hi,<br/>I'm Keegan,<br/>
+                    <Typewriter
+                        options={{
+                            loop: true,
+                            strings: 
+                                [
+                                    'Software Engineer',
+                                    'Student',
+                                    'Tetris Enthusiast'
+                                ],
+                            autoStart: true
+                        }}
+                    />
                 </WelcomeH1>
                 <WelcomeBtnWrapper>
                     <Button 
