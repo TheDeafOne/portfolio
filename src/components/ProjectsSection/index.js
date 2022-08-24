@@ -81,7 +81,6 @@ const Projects = () => {
             transY = Math.round(yc - trigProps.top - trigProps.height / 2) + 85; // +85 to hide from the top of the page
             
             // track scale and transition for managing transition reset
-            setModalTranslation([transX, transY]);
             
             transDiv.style.zIndex = 3;
             transDiv.style.opacity = 1;
