@@ -1,8 +1,9 @@
 const BLUE_MINT = {
-    primary: '#ADD8E6',
+    primary: '#A3E8FF', //ADD8E6
     secondary: '#608192',
     bg: '#23343A',
-    fg: '#121B18',
+    fg: '#23343B',
+    dark: '#171718',
     text1: '#EDFFF5',
     text2: '#608192'
 }

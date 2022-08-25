@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { useForm } from 'react-hook-form';
-import { init, sendForm } from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { CheckMark, XMark } from '../../images';
 import {
   ContactContainer,
@@ -22,7 +22,6 @@ import {
   SubmitIcon,
   SubmitSuccess
 } from './ContactElements';
-init('pbMBicGKWnIczBhTP')
 
 const ContactSection = () => {
   const [contactNumber, setContactNumber] = useState('000000');
@@ -37,6 +36,8 @@ const ContactSection = () => {
 
   const [canReset, setCanReset] = useState(false);
 
+  const form = useRef();
+
 
   const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
 
@@ -44,10 +45,14 @@ const ContactSection = () => {
     setSubmitError(false);
     generateContactNumber();
     if (emailValid) {
-      sendForm('default_service', 'template_ux0a5xg', '#contact-form')
+      emailjs.sendForm('service_rrbh1zk', 'template_ux0a5xg', form.current, 'pbMBicGKWnIczBhTP')
       .then(function(response) {
+        console.log(form.current);
         console.log(response);
         setCanReset(true);
+        setEmail('');
+        setPhoneNumber('');
+        document.getElementById('contact-form').reset();
       }, function(error) {
         console.log(error);
       });
@@ -102,9 +107,6 @@ const handleSubmitClick = () => {
       } else {
         setSubmitIcon(CheckMark);
         setSubmitConfirmation(true);
-        setEmail('');
-        setPhoneNumber('');
-        document.getElementById('contact-form').reset();
       }
     }
   }, [submitError, emailValid, validSubmit])
@@ -158,6 +160,7 @@ const handleSubmitClick = () => {
       <FormSection>
         <ContactForm 
           id='contact-form'
+          ref={form}
           onSubmit={handleSubmit(onSubmit, onError)}>
           <FormWrapper>
             <FormColumn1 id='formColumn1'>
