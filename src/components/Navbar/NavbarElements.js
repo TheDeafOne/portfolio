@@ -15,6 +15,7 @@ export const Nav = styled.nav`
     top: 0;
     z-index: 10;
     transition: all .2s linear;
+    box-shadow: ${({ scrollNav }) => (scrollNav ? `0 10px 20px -10px ${SCHEME.dark + '50'}` : 'none')};
 
     @media screen and (max-width: 960px) {
         transition: 0.8s all ease;
