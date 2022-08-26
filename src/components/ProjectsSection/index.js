@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TDAC1, TDAC2, TDACInput, RSnail, HappyFeet } from '../../images';
+import { TDAC1, TDAC2, TDACInput, TDACMenu, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
     ProjectsWrapper,
@@ -26,7 +26,10 @@ import {
     ModalTitle,
     ModalDescription,
     ModalImage,
-    ModalP
+    ModalP,
+    ModalSubTitle,
+    ModalUList,
+    ModalLI
 } from './ModalElements';
 
 import { FaGithub } from 'react-icons/fa';
@@ -39,7 +42,7 @@ const Projects = () => {
 
     const handleCloseModal = (e) => {
         console.log(e);
-        if (e.target.id !== modalId) {
+        if (e.target.id === 'modalBackground') {
             setIsOpen(false);
             
             const transDiv = document.getElementById((modalId + 'TD'));
@@ -105,14 +108,60 @@ const Projects = () => {
                         A desktop app for visualizing 3D cellular automata 
                     </ModalDescription>
                 </HeaderRow>
-                <ModalImage src={TDAC2}/>
+                <ModalImage imageSize={'50'} src={TDAC2}/>
                 <ModalP>
                     Inspired by Conways Game of Life, 
                     this program provides a easy and streamlined method of input and output for 3D Cellular Automata. 
                     The default rules are 5 6 7 for alive, and 6 for dead. 
                     The cellular neighborhood we use to calculate alive and dead cells is moore's type. 
                     With moore's neighborhood, 26 possible values are read in, and a/d cells are accounted for.
+                    The project has three main components. The Input, the Output, and the Console.
                 </ModalP>
+                <ModalSubTitle>
+                    Input
+                </ModalSubTitle>
+                <ModalImage imageSize={'70'} src={TDACInput} />
+                <ModalP>
+                    This is where the fun begins. In this layout, the user can create their own custom template to later visualize in 3D. 
+                    We added this feature to our program after realizing the difficulty of creating a template without a dedicated GUI. 
+                    This GUI provides ease of creation, along with an appealing dark-mode. This GUI has many underlying features including but not limited to:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        Streamlined layer-by-layer template create:
+                    </ModalLI>
+                    <ModalUList margin={'30px'}>
+                        <ModalLI>
+                            Custom size cube
+                        </ModalLI>
+                        <ModalLI>
+                            Paint Feature
+                        </ModalLI>
+                        <ModalLI>
+                            Erase Feature
+                        </ModalLI>
+                        <ModalLI>
+                            Layer stacking
+                        </ModalLI>
+                        <ModalLI>
+                            All layer clearing (Edit {'>'} Clear All Layers)
+                        </ModalLI>
+                        <ModalLI>
+                            Show center axes: (Edit {'>'} Clear All Layers)
+                        </ModalLI>
+                    </ModalUList>
+                    <ModalLI>
+                        Saving/Opening user-created templates
+                    </ModalLI>
+                    <ModalUList margin={'30px'}>
+                        <ModalLI>
+                            Save (File {'>'} Save Template)
+                        </ModalLI>
+                        <ModalLI>
+                            Open (File {'>'} Open Template)
+                        </ModalLI>
+                    </ModalUList>
+                </ModalUList>
             </ModalContent>
         );
     }
@@ -292,7 +341,7 @@ const Projects = () => {
                     <FaGithub />
                 </GitIcon>
             </GitButton>
-            <ModalBackground active={isOpen} onClick={handleCloseModal}>
+            <ModalBackground id='modalBackground' active={isOpen} onClick={handleCloseModal}>
                 <ProjectModal active={isOpen}>
                     {activeModal}
                 </ProjectModal>
