@@ -41,7 +41,8 @@ import GCCLogo2 from './Logos/gcc-logo2.png';
 import PrevostLogo from './Logos/prevost-construction-logo.jpeg';
 import RVRLogo from './Logos/rvr-logo.png';
 import KWLogo from './Logos/kw-logo.png';
-import Profile from './Misc/about-me.png'
+import Profile from './Misc/about-me.png';
+import KMeansPlot from './ProjectImages/HappyFeet/kmeans-plot.png';
 
 export {
     BigqueryLogo,
@@ -87,5 +88,6 @@ export {
     PrevostLogo,
     RVRLogo,
     KWLogo,
-    Profile
+    Profile,
+    KMeansPlot
 }

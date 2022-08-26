@@ -11,7 +11,8 @@ import {
     RSnailPackageE,
     RSnailSign,
     RSnailDash,
-    HappyFeet 
+    HappyFeet,
+    KMeansPlot
 } from '../../images';
 import {
     ProjectsContainer,
@@ -419,7 +420,45 @@ const Projects = () => {
     function ThirdModal() {
         return (
             <ModalContent id='thirdModal'>
-                This is the second modal, which would reference to a previously made modal
+                <ModalXButton id='modalBackground' onClick={handleCloseModal}/>
+                <HeaderRow>
+                    <ModalTitle>
+                        HappyFeet
+                    </ModalTitle>
+                    <ModalDescription>
+                        A research project in the effort to find meaningful data in footstep audio
+                    </ModalDescription>
+                </HeaderRow>
+                <ModalImage imageSize={'50'} src={KMeansPlot} />
+                <ModalP>
+                    HappyFeet was a research project done in unison with multiple senior projects at Grove City College.
+                    The goal of HappyFeet was to help researchers assess biomechanical health of patients based on their footsteps.
+                    To achieve this, past footstep data need to be recorded and analyzed, allowing for model generation and realtime analysis of footstep data.
+                    One way to do this is through K-Means clustering, a heuristic we used to achieve this.
+                </ModalP>
+                <ModalP>
+                    More detailed project description coming soon! Input the meantime, check out some of my other projects.
+                </ModalP>
+                <GitButton
+                    onClick={() => {
+                        window.open('//github.com/TheDeafOne', '_blank');
+                    }}
+                >
+                    <ProjectsH4>
+                        Check out my GitHub
+                    </ProjectsH4>
+                    <GitIcon>
+                        <FaGithub />
+                    </GitIcon>
+                </GitButton>
+                    
+
+                <CloseModalButton
+                    id='modalBackground'
+                    onClick={handleCloseModal}
+                >
+                    Close
+                </CloseModalButton>
             </ModalContent>
         );
     }

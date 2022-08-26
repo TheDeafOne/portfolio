@@ -200,6 +200,7 @@ export const ProjectCard = styled.div`
     cursor: pointer;
     transition: ${ease};
     z-index: 2;
+    min-width: 320px;
     &:hover {
         transform: scale(0.95);
         transition: all 0.25s ease-in-out;
