@@ -50,7 +50,7 @@ const Projects = () => {
             setTimeout(() => {
                 transDiv.style.opacity = '0';
                 transDiv.style.zIndex = 1;
-            }, 300); 
+            }, 200); 
             
             document.body.style.overflow = 'visible';
     
@@ -90,7 +90,7 @@ const Projects = () => {
             document.body.style.overflow = 'hidden';
             setTimeout(() => {
                 transDiv.style.opacity = '0';
-            }, 200)     
+            }, 500)     
         }
     }, [modalId, modalTrigger, activeModal]);
 
