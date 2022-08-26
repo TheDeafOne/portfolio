@@ -102,3 +102,9 @@ export const ModalXButton = styled.div`
         transition: ease-in-out .1s;
     }    
 `
+
+export const ImageRow = styled.div`
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+`
