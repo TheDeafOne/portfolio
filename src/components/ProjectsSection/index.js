@@ -1,5 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { TDAC1, TDAC2, TDACInput, TDACMenu, RSnail, HappyFeet } from '../../images';
+import { 
+    TDAC1, 
+    TDAC2, 
+    TDACInput,
+    TDACOutput,
+    TDACConsole,
+    TDACMenu, 
+    RSnail, 
+    HappyFeet } from '../../images';
 import {
     ProjectsContainer,
     ProjectsWrapper,
@@ -29,7 +37,9 @@ import {
     ModalP,
     ModalSubTitle,
     ModalUList,
-    ModalLI
+    ModalLI,
+    CloseModalButton,
+    ModalXButton
 } from './ModalElements';
 
 import { FaGithub } from 'react-icons/fa';
@@ -100,6 +110,7 @@ const Projects = () => {
     function FirstModal() {
         return (
             <ModalContent id='firstModal'>
+                <ModalXButton id='modalBackground' onClick={handleCloseModal}/>
                 <HeaderRow>
                     <ModalTitle>
                         3D Game of Life
@@ -162,6 +173,94 @@ const Projects = () => {
                         </ModalLI>
                     </ModalUList>
                 </ModalUList>
+                <ModalP>
+                    Once the user decides to open or close a template, or create their own, they can then visualize it in 3D.
+                </ModalP>
+                <ModalSubTitle>
+                    Output
+                </ModalSubTitle>
+                <ModalImage imageSize={'70'} src={TDACOutput}/>
+                <ModalP>
+                    This GUI is where all the visualization happens. The board that is visualized can come from multiple different sources:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        A user-created template
+                    </ModalLI>
+                    <ModalLI>
+                        A pre-made template
+                    </ModalLI>
+                    <ModalLI>
+                        An imported template
+                    </ModalLI>
+                </ModalUList>
+                <ModalP>
+                    Once the board is initialized, all of the features (as follows) can then be utilized:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        Custom rules for Alive/Dead Neighbor Constraints
+                        <ModalUList margin={'30px'}>
+                            <ModalLI>
+                                The default rules for this program are 5, 6, 7 for live neighbor constraints, and 6 for dead neighbor constraints.
+                            </ModalLI>
+                            <ModalLI>
+                                These rules can be changed by the user, to allow for experimentation, or they can be left as default.
+                            </ModalLI>
+                        </ModalUList>
+                    </ModalLI>
+                    <ModalLI>
+                        Run: begins the evolution of the model.
+                    </ModalLI>
+                    <ModalLI>
+                        Next Generation: executes a single step of the model.
+                    </ModalLI>
+                    <ModalLI>
+                        Rotate: Rotates the model whilst playing/paused for better visualization.
+                    </ModalLI>
+                    <ModalLI>
+                        Step-Speed: Change the speed of the evolution.
+                    </ModalLI>
+                    <ModalLI>
+                        Reset: Resets the model to the original state.
+                    </ModalLI>
+                    <ModalLI>
+                        Opening and Closing a File:
+                        <ModalUList margin={'30px'}>
+                            <ModalLI>
+                                Open a file (File {'>'} Open template)
+                            </ModalLI>
+                            <ModalLI>
+                                Save original/current generation (File {'>'} Save Generation)
+                            </ModalLI>
+                        </ModalUList>
+                    </ModalLI>
+                </ModalUList>
+                <ModalSubTitle>
+                    Console
+                </ModalSubTitle>
+                <ModalImage imageSize={'80'} src={TDACConsole} />
+                <ModalP>
+                    The console is the headless version of this project. A user can create a board, run simulations on a given board, manage simulation data, and view simulation information such as cycles.
+                </ModalP>
+                <GitButton
+                    onClick={() => {
+                        window.open('//github.com/freycp20/3dGameOfLifeGit/', '_blank');
+                    }}
+                >
+                    <ProjectsH4>
+                        View This Project
+                    </ProjectsH4>
+                    <GitIcon>
+                        <FaGithub />
+                    </GitIcon>
+                </GitButton>
+                <CloseModalButton
+                    id='modalBackground'
+                    onClick={handleCloseModal}
+                >
+                    Close
+                </CloseModalButton>
             </ModalContent>
         );
     }
