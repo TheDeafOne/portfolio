@@ -19,9 +19,9 @@ import PythonLogo from './Logos/python-icon.svg';
 import ReactLogo from './Logos/react-icon.svg';
 import SparkLogo from './Logos/spark-icon.svg';
 import TypescriptLogo from './Logos/typescript-icon.svg';
-import TDAC from './ProjectImages/TDAC/tdac.png';
-import TDAC1 from './ProjectImages/TDAC/tdac1-image.png';
-import TDAC2 from './ProjectImages/TDAC/tdac2-image.png';
+import TDAC1 from './ProjectImages/TDAC/tdac1.png';
+import TDAC2 from './ProjectImages/TDAC/tdac2.png';
+import TDACInput from './ProjectImages/TDAC/tdac-input.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
 import CheckMark from './Icons/check-mark.svg';
@@ -57,9 +57,9 @@ export {
     ReactLogo,
     SparkLogo,
     TypescriptLogo,
-    TDAC,
     TDAC1,
     TDAC2,
+    TDACInput,
     RSnail,
     HappyFeet,
     CheckMark,

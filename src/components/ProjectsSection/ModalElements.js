@@ -18,5 +18,13 @@ export const ModalDescription = styled.h4`
 `
 
 export const ModalImage = styled.img`
+    width: 50%;
+`
 
+export const ModalP = styled.p`
+    color: ${SCHEME.text1};
+    text-align: center;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
 `

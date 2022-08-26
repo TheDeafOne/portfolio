@@ -188,6 +188,9 @@ export const ModalContent = styled.div`
     position: relative;
     margin: auto;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const ProjectCard = styled.div`
