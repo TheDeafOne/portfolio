@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { TDAC, RSnail, HappyFeet } from '../../images';
+import { TDAC1, TDAC2, TDACInput, RSnail, HappyFeet } from '../../images';
 import {
     ProjectsContainer,
     ProjectsWrapper,
@@ -25,7 +25,8 @@ import {
     HeaderRow,
     ModalTitle,
     ModalDescription,
-    ModalImage
+    ModalImage,
+    ModalP
 } from './ModalElements';
 
 import { FaGithub } from 'react-icons/fa';
@@ -36,31 +37,30 @@ const Projects = () => {
     const [modalTrigger, setModalTrigger] = useState(undefined);
     const [modalId, setModalId] = useState('');
 
-    const handleCloseModal = () => {
-        setIsOpen(false);
+    const handleCloseModal = (e) => {
+        console.log(e);
+        if (e.target.id !== modalId) {
+            setIsOpen(false);
+            
+            const transDiv = document.getElementById((modalId + 'TD'));
         
-        const transDiv = document.getElementById((modalId + 'TD'));
+            transDiv.style.opacity = 1;
+            transDiv.style.transform = `translate(0) scale(1)`;
+            
+            setTimeout(() => {
+                transDiv.style.opacity = '0';
+                transDiv.style.zIndex = 1;
+            }, 300); 
+            
+            document.body.style.overflow = 'visible';
     
-        transDiv.style.opacity = 1;
-        transDiv.style.transform = `translate(0) scale(1)`;
-        transDiv.style.webkitTransform = `translate(0) scale(1)`;
-        
-        setTimeout(() => {
-            transDiv.style.opacity = '0';
-            transDiv.style.zIndex = 1;
-        }, 300)  
-        
-        document.body.style.overflow = 'visible';
-
-        setModalId('');
-        setActiveModal(undefined);
-        setModalTrigger(undefined);
+            setModalId('');
+            setActiveModal(undefined);
+            setModalTrigger(undefined);
+        }
     }
 
     useEffect(() => {
-        console.log('mid',modalId);
-        console.log('mt',modalTrigger);
-        console.log('am',activeModal);
         if (modalId !== '' && modalTrigger !== undefined) {
             modalTrigger.preventDefault();
         
@@ -85,7 +85,6 @@ const Projects = () => {
             transDiv.style.zIndex = 3;
             transDiv.style.opacity = 1;
             transDiv.style.transform = `translate(${transX}px, ${transY}px) scale(${scaleX}, ${scaleY})`;
-            transDiv.style.webkitTransform = `translate(${transX}px, ${transY}px) scale('${scaleX}', '${scaleY}')`;
 
             setIsOpen(true);
             document.body.style.overflow = 'hidden';
@@ -106,7 +105,14 @@ const Projects = () => {
                         A desktop app for visualizing 3D cellular automata 
                     </ModalDescription>
                 </HeaderRow>
-                <ModalImage />
+                <ModalImage src={TDAC2}/>
+                <ModalP>
+                    Inspired by Conways Game of Life, 
+                    this program provides a easy and streamlined method of input and output for 3D Cellular Automata. 
+                    The default rules are 5 6 7 for alive, and 6 for dead. 
+                    The cellular neighborhood we use to calculate alive and dead cells is moore's type. 
+                    With moore's neighborhood, 26 possible values are read in, and a/d cells are accounted for.
+                </ModalP>
             </ModalContent>
         );
     }
@@ -162,7 +168,7 @@ const Projects = () => {
                             setModalId('firstModal');
                             setActiveModal(<FirstModal />);
                         }}>
-                        <ProjectImage src={TDAC} />
+                        <ProjectImage src={TDAC1} />
                         <ProjectInfo>
                             <ProjectTitle>
                                 TDGOL
