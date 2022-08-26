@@ -22,6 +22,8 @@ import TypescriptLogo from './Logos/typescript-icon.svg';
 import TDAC1 from './ProjectImages/TDAC/tdac1.png';
 import TDAC2 from './ProjectImages/TDAC/tdac2.png';
 import TDACInput from './ProjectImages/TDAC/tdac-input.png';
+import TDACOutput from './ProjectImages/TDAC/tdac-output.png';
+import TDACConsole from './ProjectImages/TDAC/tdac-console.png';
 import TDACMenu from './ProjectImages/TDAC/tdac-menu.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
@@ -61,6 +63,8 @@ export {
     TDAC1,
     TDAC2,
     TDACInput,
+    TDACOutput,
+    TDACConsole,
     TDACMenu,
     RSnail,
     HappyFeet,
