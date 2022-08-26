@@ -26,6 +26,11 @@ import TDACOutput from './ProjectImages/TDAC/tdac-output.png';
 import TDACConsole from './ProjectImages/TDAC/tdac-console.png';
 import TDACMenu from './ProjectImages/TDAC/tdac-menu.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
+import RSnailPackages from './ProjectImages/RedSnail/redsnail-packages.png';
+import RSnailLPackage from './ProjectImages/RedSnail/redsnail-lookup-package.png';
+import RSnailPackageE from './ProjectImages/RedSnail/redsnail-package-enter.png';
+import RSnailSign from './ProjectImages/RedSnail/redsnail-sign.png';
+import RSnailDash from './ProjectImages/RedSnail/redsnail-dashboard.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
 import CheckMark from './Icons/check-mark.svg';
 import XMark from './Icons/x-mark.svg';
@@ -67,6 +72,11 @@ export {
     TDACConsole,
     TDACMenu,
     RSnail,
+    RSnailPackages,
+    RSnailLPackage,
+    RSnailPackageE,
+    RSnailSign,
+    RSnailDash,
     HappyFeet,
     CheckMark,
     XMark,
