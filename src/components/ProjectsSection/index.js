@@ -5,9 +5,14 @@ import {
     TDACInput,
     TDACOutput,
     TDACConsole,
-    TDACMenu, 
     RSnail, 
-    HappyFeet } from '../../images';
+    RSnailPackages,
+    RSnailLPackage,
+    RSnailPackageE,
+    RSnailSign,
+    RSnailDash,
+    HappyFeet 
+} from '../../images';
 import {
     ProjectsContainer,
     ProjectsWrapper,
@@ -39,7 +44,8 @@ import {
     ModalUList,
     ModalLI,
     CloseModalButton,
-    ModalXButton
+    ModalXButton,
+    ImageRow
 } from './ModalElements';
 
 import { FaGithub } from 'react-icons/fa';
@@ -268,7 +274,144 @@ const Projects = () => {
     function SecondModal() {
         return (
             <ModalContent id='secondModal'>
-                This is the second modal, which would reference to a previously made modal
+                <ModalXButton id='modalBackground' onClick={handleCloseModal}/>
+                <HeaderRow>
+                    <ModalTitle>
+                        Crimson Snail
+                    </ModalTitle>
+                    <ModalDescription>
+                        A web app for managing mailroom tasks
+                    </ModalDescription>
+                </HeaderRow>
+                <ModalImage imageSize={'70'} src={RSnailPackages} />
+                <ModalP>
+                    This web app was made as a response to the rising flow of mail in the past two years and the previous outdated software.
+                    A mailroom carries out a myriad of tasks, all of which must be done correctly, lest a package go missing or get delivered to the wrong person.
+                    Among these are a set of tasks which require speed and efficiency, as they are done constantly throughout the day.
+                    These are:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        Entering packages
+                    </ModalLI>
+                    <ModalLI>
+                        Delivering packages (i.e. signing them out to their recipient)
+                    </ModalLI>
+                </ModalUList>
+                <ModalP>
+                    Because of how important and common these tasks are, the application is centered around them.
+                </ModalP>
+                <ModalSubTitle>
+                    Entering Packages
+                </ModalSubTitle>
+                <ImageRow>
+                    <ModalImage imageSize={'40'} src={RSnailLPackage} />
+                    <ModalImage imageSize={'40'} src={RSnailPackageE} />
+                </ImageRow>
+                <ModalP>
+                    Accessing recipient data and being able to organize packages are vital to the workflow in the mailroom. Having a simple 
+                    package entry interface makes this an easy task.
+                </ModalP>
+                <ModalP>
+                    When processing a package, the user can:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        Look up a recipient
+                    </ModalLI>
+                    <ModalUList margin={'30px'}>
+                        <ModalLI>
+                            By ID
+                        </ModalLI>
+                        <ModalLI>
+                            By box number
+                        </ModalLI>
+                        <ModalLI>
+                            By name
+                        </ModalLI>
+                    </ModalUList>
+                    <ModalLI>
+                        Enter the tracking barcode
+                    </ModalLI>
+                    <ModalLI>
+                        Label the package with:
+                    </ModalLI>
+                    <ModalUList margin={'30px'}>
+                        <ModalLI>
+                            A unique package ID
+                        </ModalLI>
+                        <ModalLI>
+                            Shelf number
+                        </ModalLI>
+                        <ModalLI>
+                            Container Label
+                        </ModalLI>
+                    </ModalUList>
+                </ModalUList>
+                <ModalP>
+                    Once entered, an email will be sent to the recipient, notifying them that their package has arrived at the mailroom, and they can pick it up.
+                    Additionally, a package can be marked as perishable, to notify the recipient that it is important they pick up their package quickly.
+                </ModalP>
+                <ModalSubTitle>
+                    Delivering Packages
+                </ModalSubTitle>
+                <ModalImage imageSize={'80'} src={RSnailSign} />
+                <ModalP>
+                    When delivering a package, the number of packages and package types are shown so that the clerk can grab the packages for the recipient.
+                    The recipient can then sign for the packages, which is then captured and stored in our database for any further necessary use.
+                </ModalP>
+                <ModalSubTitle>
+                    Dashboard
+                </ModalSubTitle>
+                <ModalImage imageSize={'80'} src={RSnailDash} />
+                <ModalP>
+                    The dashboard, though not integral to the day-to-day work in the mailroom, is an important component of Crimson Snail.
+                    By viewing past package data and getting a better understanding of how many packages and package types the mailroom might deal with
+                    workflow changes have been made to improve efficiency.
+                </ModalP>
+                <ModalP>
+                    The user can do a number of things to the dashboard data, such as:
+                </ModalP>
+                <ModalUList>
+                    <ModalLI>
+                        Filter data
+                    </ModalLI>
+                    <ModalUList margin={'30px'}>
+                        <ModalLI>
+                            By Date
+                        </ModalLI>
+                        <ModalLI>
+                            By Courier
+                        </ModalLI>
+                        <ModalLI>
+                            By Package
+                        </ModalLI>
+                        <ModalLI>
+                            By Recipient
+                        </ModalLI>
+                    </ModalUList>
+                    <ModalLI>
+                        Change chart type
+                    </ModalLI>
+                    <ModalLI>
+                        Look at custom ranges of dates
+                    </ModalLI>
+                    <ModalLI>
+                        View entered and signed package data individually
+                    </ModalLI>
+                    <ModalLI>
+                        Zoom on and highlight data points
+                    </ModalLI>
+                </ModalUList>
+                <ModalP>
+                    It has benefited the mailroom greatly, especially in analyzing and measuring the number of packages we may get in the future.
+                </ModalP>
+                <CloseModalButton
+                    id='modalBackground'
+                    onClick={handleCloseModal}
+                >
+                    Close
+                </CloseModalButton>
             </ModalContent>
         );
     }
@@ -339,10 +482,10 @@ const Projects = () => {
                             <ProjectImage src={RSnail} />
                             <ProjectInfo>
                                 <ProjectTitle>
-                                    CrimsonSnail
+                                    Crimson Snail
                                 </ProjectTitle>
                                 <ProjectP>
-                                    An application for visualizing and manipulating cellular automata in three dimensions
+                                    An end-to-end web application for managing every-day tasks in a mailroom.
                                 </ProjectP>
                             </ProjectInfo>
                         </ProjectCard>
