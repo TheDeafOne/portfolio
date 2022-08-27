@@ -188,6 +188,9 @@ export const ModalContent = styled.div`
     position: relative;
     margin: auto;
     height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 `
 
 export const ProjectCard = styled.div`
@@ -197,6 +200,7 @@ export const ProjectCard = styled.div`
     cursor: pointer;
     transition: ${ease};
     z-index: 2;
+    min-width: 320px;
     &:hover {
         transform: scale(0.95);
         transition: all 0.25s ease-in-out;

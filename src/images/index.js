@@ -19,10 +19,18 @@ import PythonLogo from './Logos/python-icon.svg';
 import ReactLogo from './Logos/react-icon.svg';
 import SparkLogo from './Logos/spark-icon.svg';
 import TypescriptLogo from './Logos/typescript-icon.svg';
-import TDAC from './ProjectImages/TDAC/tdac.png';
-import TDAC1 from './ProjectImages/TDAC/tdac1-image.png';
-import TDAC2 from './ProjectImages/TDAC/tdac2-image.png';
+import TDAC1 from './ProjectImages/TDAC/tdac1.png';
+import TDAC2 from './ProjectImages/TDAC/tdac2.png';
+import TDACInput from './ProjectImages/TDAC/tdac-input.png';
+import TDACOutput from './ProjectImages/TDAC/tdac-output.png';
+import TDACConsole from './ProjectImages/TDAC/tdac-console.png';
+import TDACMenu from './ProjectImages/TDAC/tdac-menu.png';
 import RSnail from './ProjectImages/RedSnail/redsnail.png';
+import RSnailPackages from './ProjectImages/RedSnail/redsnail-packages.png';
+import RSnailLPackage from './ProjectImages/RedSnail/redsnail-lookup-package.png';
+import RSnailPackageE from './ProjectImages/RedSnail/redsnail-package-enter.png';
+import RSnailSign from './ProjectImages/RedSnail/redsnail-sign.png';
+import RSnailDash from './ProjectImages/RedSnail/redsnail-dashboard.png';
 import HappyFeet from './ProjectImages/HappyFeet/happyfeet.png';
 import CheckMark from './Icons/check-mark.svg';
 import XMark from './Icons/x-mark.svg';
@@ -33,7 +41,8 @@ import GCCLogo2 from './Logos/gcc-logo2.png';
 import PrevostLogo from './Logos/prevost-construction-logo.jpeg';
 import RVRLogo from './Logos/rvr-logo.png';
 import KWLogo from './Logos/kw-logo.png';
-import Profile from './Misc/about-me.png'
+import Profile from './Misc/about-me.png';
+import KMeansPlot from './ProjectImages/HappyFeet/kmeans-plot.png';
 
 export {
     BigqueryLogo,
@@ -57,10 +66,18 @@ export {
     ReactLogo,
     SparkLogo,
     TypescriptLogo,
-    TDAC,
     TDAC1,
     TDAC2,
+    TDACInput,
+    TDACOutput,
+    TDACConsole,
+    TDACMenu,
     RSnail,
+    RSnailPackages,
+    RSnailLPackage,
+    RSnailPackageE,
+    RSnailSign,
+    RSnailDash,
     HappyFeet,
     CheckMark,
     XMark,
@@ -71,5 +88,6 @@ export {
     PrevostLogo,
     RVRLogo,
     KWLogo,
-    Profile
+    Profile,
+    KMeansPlot
 }
