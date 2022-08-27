@@ -544,7 +544,7 @@ const Projects = () => {
                                 HappyFeet
                             </ProjectTitle>
                             <ProjectP>
-                                An application for visualizing and manipulating cellular automata in three dimensions
+                                A research project in the effort to find elegant methods of obtaining biomechanical data from audio.
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
