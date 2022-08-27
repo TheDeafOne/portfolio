@@ -431,13 +431,13 @@ const Projects = () => {
                 </HeaderRow>
                 <ModalImage imageSize={'50'} src={KMeansPlot} />
                 <ModalP>
-                    HappyFeet was a research project done in unison with multiple senior projects at Grove City College.
-                    The goal of HappyFeet was to help researchers assess biomechanical health of patients based on their footsteps.
-                    To achieve this, past footstep data need to be recorded and analyzed, allowing for model generation and realtime analysis of footstep data.
+                    HappyFeet is a research project that was done in unison with multiple senior projects at Grove City College.
+                    The goal of HappyFeet is to help researchers assess biomechanical health of patients based on their footsteps.
+                    To achieve this, past footstep data needed to be recorded and analyzed, allowing for model generation and realtime analysis current footstep data.
                     One way to do this is through K-Means clustering, a heuristic we used to achieve this.
                 </ModalP>
                 <ModalP>
-                    More detailed project description coming soon! Input the meantime, check out some of my other projects.
+                    More detailed project description coming soon! In the meantime, check out some of my other projects.
                 </ModalP>
                 <GitButton
                     onClick={() => {
@@ -544,7 +544,7 @@ const Projects = () => {
                                 HappyFeet
                             </ProjectTitle>
                             <ProjectP>
-                                An application for visualizing and manipulating cellular automata in three dimensions
+                                A research project in the effort to find elegant methods of obtaining biomechanical data from audio.
                             </ProjectP>
                         </ProjectInfo>
                     </ProjectCard>
