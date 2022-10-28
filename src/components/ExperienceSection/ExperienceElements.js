@@ -141,7 +141,7 @@ export const BlockList = styled.ul`
 
 export const NotePoint = styled.li`
     &::before {
-        color: ${SCHEME.primary};
+        color: ${SCHEME.text1};
         content: '▹ ';
     }
 `

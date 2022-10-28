@@ -5,7 +5,7 @@ const BLUE_MINT = {
     fg: '#23343B',
     dark: '#171718',
     text1: '#EDFFF5',
-    text2: '#608192'
+    text2: '#e4eaf7'
 }
 
 export const SCHEME = BLUE_MINT;
